@@ -79,11 +79,8 @@ call vundle#begin()
 
  """"""""vim scripts""""""""""""""""""
  Bundle 'minibufexpl.vim'
- Bundle 'grep.vim'
- Bundle 'mru.vim'
  Bundle 'comments.vim'
  Bundle 'winmanager'
- Bundle 'bufexplorer.zip'
 
  """"""""git上的插件"""""""""""""""
  Bundle 'Valloric/YouCompleteMe'
