@@ -161,10 +161,14 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_skip_key='<C-o>'
 let g:multi_cursor_quit_key='<Esc>'
 
+let g:EasyMotion_smartcase = 1
+map  f <Plug>(easymotion-f)
+map  F <Plug>(easymotion-F)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+map  <leader><leader>. <Plug>(easymotion-repeat)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
