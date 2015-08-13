@@ -115,6 +115,7 @@ call vundle#begin()
  Bundle 'scrooloose/nerdtree'
  Bundle 'Xuyuanp/nerdtree-git-plugin'
  Bundle 'majutsushi/tagbar'
+ Bundle 'hushicai/tagbar-javascript.vim'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -257,3 +258,5 @@ function! Tagbar_IsValid()
 endfunction
 let g:tagbar_vertical = 30
 let g:tagbar_expand = 1
+let g:tagbar_foldlevel = 2
+let g:tagbar_autoshowtag = 1
