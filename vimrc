@@ -69,7 +69,7 @@ set nobackup
 set noswapfile
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
-set lines=60 columns=240
+set lines=60 columns=200
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -112,6 +112,9 @@ call vundle#begin()
  Bundle 'marijnh/tern_for_vim'
  Bundle 'mbriggs/mark.vim'
  Bundle 'gorodinskiy/vim-coloresque'
+ Bundle 'scrooloose/nerdtree'
+ Bundle 'Xuyuanp/nerdtree-git-plugin'
+ Bundle 'majutsushi/tagbar'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -144,7 +147,7 @@ let g:miniBufExplMapWindowsNavVim=1
 let g:miniBufExplorerMoreThanOne=0
 let g:miniBufExplModSelTarget=1
 
-let g:winManagerWindowLayout='FileExplorer'
+let g:winManagerWindowLayout='NERDTree|Tagbar'
 let g:winManagerWidth=30
 let g:AutoOpenWinManager = 1
 
@@ -229,3 +232,28 @@ autocmd FileType css,sass,less vnoremap <buffer> <leader>b :call RangeCSSBeautif
 
 let g:tern_show_signature_in_pum = 1
 autocmd BufEnter * set completeopt-=preview
+
+let NERDTreeAutoCenter = 1
+let g:NERDTree_title = "[NERDTree]"
+function! NERDTree_Start()
+    exe 'q'
+    exe 'NERDTree'
+endfunction
+
+function! NERDTree_IsValid()
+	return 1
+endfunction
+
+noremap <f5> :NERDTreeFind<cr>
+
+let g:Tagbar_title = "[Tagbar]"
+function! Tagbar_Start()
+    exe 'q'
+    exe 'TagbarOpen'
+endfunction
+
+function! Tagbar_IsValid()
+    return 1
+endfunction
+let g:tagbar_vertical = 30
+let g:tagbar_expand = 1
