@@ -234,7 +234,6 @@ autocmd FileType css,sass,less vnoremap <buffer> <leader>b :call RangeCSSBeautif
 let g:tern_show_signature_in_pum = 1
 autocmd BufEnter * set completeopt-=preview
 
-let NERDTreeAutoCenter = 1
 let g:NERDTree_title = "[NERDTree]"
 function! NERDTree_Start()
     exe 'q'
