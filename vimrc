@@ -218,7 +218,7 @@ let g:ctrlsf_mapping = {
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100'
 
-let g:used_javascript_libs = 'jquery,requirejs,underscore'
+let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs'
 
 nnoremap <tab> %
 vnoremap <tab> %
@@ -259,3 +259,5 @@ let g:tagbar_vertical = 30
 let g:tagbar_expand = 1
 let g:tagbar_foldlevel = 2
 let g:tagbar_autoshowtag = 1
+
+nmap <Leader>c <Plug>MarkAllClear
