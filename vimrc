@@ -116,6 +116,8 @@ call vundle#begin()
  Bundle 'Xuyuanp/nerdtree-git-plugin'
  Bundle 'majutsushi/tagbar'
  Bundle 'hushicai/tagbar-javascript.vim'
+ Bundle 'airblade/vim-gitgutter'
+ Bundle 'tpope/vim-fugitive'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -261,3 +263,7 @@ let g:tagbar_foldlevel = 2
 let g:tagbar_autoshowtag = 1
 
 nmap <Leader>c <Plug>MarkAllClear
+
+let g:gitgutter_sign_column_always = 1
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn guibg = #002b36
