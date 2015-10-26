@@ -118,6 +118,9 @@ call vundle#begin()
  Bundle 'hushicai/tagbar-javascript.vim'
  Bundle 'airblade/vim-gitgutter'
  Bundle 'tpope/vim-fugitive'
+ Bundle 'matthewsimo/angular-vim-snippets'
+ Bundle 'suan/vim-instant-markdown'
+ Bundle 'Yggdroot/indentLine'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -168,13 +171,15 @@ let g:multi_cursor_skip_key='<C-o>'
 let g:multi_cursor_quit_key='<Esc>'
 
 let g:EasyMotion_smartcase = 1
-map  f <Plug>(easymotion-f)
-map  F <Plug>(easymotion-F)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
-map  <leader><leader>. <Plug>(easymotion-repeat)
+map f <Plug>(easymotion-f)
+map F <Plug>(easymotion-F)
+map ? <Plug>(easymotion-Fn)
+map / <Plug>(easymotion-sn)
+map t <Plug>(easymotion-t)
+map T <Plug>(easymotion-T)
+map n <Plug>(easymotion-next)
+map N <Plug>(easymotion-prev)
+map <leader>. <Plug>(easymotion-repeat)
 
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
@@ -200,6 +205,7 @@ let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>p'
 nnoremap <Leader>pr :CtrlPMRU<Cr>
 nnoremap <Leader>pm :CtrlPMixed<Cr>
+nnoremap <Leader>pb :CtrlPBuffer<Cr>
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules|images)$',
   \ 'file': '\v\.(exe|so|dll)$'
@@ -267,3 +273,7 @@ nmap <Leader>c <Plug>MarkAllClear
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn guibg = #002b36
+
+let g:indentLine_enabled = 1
+let g:indentLine_fileType = ['javascript', 'python']
+let g:indentLine_color_gui = '#394f51'
