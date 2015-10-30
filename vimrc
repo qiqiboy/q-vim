@@ -129,6 +129,7 @@ call vundle#begin()
  Bundle 'elzr/vim-json'
  Bundle 'dkprice/vim-easygrep'
  Bundle 'mbbill/undotree'
+ Bundle 'mattn/emmet-vim'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -304,3 +305,12 @@ highlight SignColumn guibg = #002b36
 let g:indentLine_enabled = 1
 let g:indentLine_fileType = ['javascript', 'python']
 let g:indentLine_color_gui = '#394f51'
+
+let g:user_emmet_install_global = 0
+let g:user_emmet_settings = {
+    \'html' : {
+    \    'indent_blockelement': 1
+    \}
+\}
+autocmd FileType html,css,sass,less,php EmmetInstall
+
