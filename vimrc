@@ -68,10 +68,10 @@ set backspace=indent,eol,start
 set nobackup
 set noswapfile
 
-if has("persistent_undo")
-    set undodir = ~/.undodir/
-    set undofile
-endif
+" if has("persistent_undo")
+"    set undodir = ~/.undodir/
+"    set undofile
+" endif
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 set lines=60 columns=200
