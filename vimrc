@@ -68,6 +68,11 @@ set backspace=indent,eol,start
 set nobackup
 set noswapfile
 
+if has("persistent_undo")
+    set undodir = ~/.undodir/
+    set undofile
+endif
+
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 set lines=60 columns=200
 
@@ -121,6 +126,9 @@ call vundle#begin()
  Bundle 'matthewsimo/angular-vim-snippets'
  Bundle 'suan/vim-instant-markdown'
  Bundle 'Yggdroot/indentLine'
+ Bundle 'elzr/vim-json'
+ Bundle 'dkprice/vim-easygrep'
+ Bundle 'mbbill/undotree'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -143,6 +151,10 @@ autocmd FileType css,sass,less  set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html           set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType php            set omnifunc=phpcomplete#CompletePHP
 autocmd FileType xml            set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType python         set omnifunc=pythoncomplete#Complete
+autocmd FileType ruby           set omnifunc=rubycomplete#Complete
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -191,6 +203,8 @@ let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 map <leader><space> :FixWhitespace<cr>
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
+
+nnoremap <Leader>a :Tabularize /
 
 map <leader>ue :UltiSnipsEdit<CR>
 let g:UltiSnipsExpandTrigger = "<a-tab>"
@@ -269,6 +283,19 @@ let g:tagbar_foldlevel = 2
 let g:tagbar_autoshowtag = 1
 
 nmap <Leader>c <Plug>MarkAllClear
+
+nnoremap <Leader>gs :Gstatus<cr>
+nnoremap <Leader>gd :Gdiff<cr>
+nnoremap <Leader>gc :Gcommit -m""
+nnoremap <Leader>gb :Gblame<cr>
+nnoremap <Leader>gl :Glog 
+nnoremap <Leader>gp :Gpush<cr>
+nnoremap <Leader>gpp :Gpull<cr>
+
+nnoremap <F4> :UndotreeToggle<cr>
+if !exists('g:undotree_WindowLayout')
+    let g:undotree_WindowLayout = 3
+endif
 
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
