@@ -70,7 +70,7 @@ set noswapfile
 
 " if has("persistent_undo")
 "    set undodir = ~/.undodir/
-"    set undofile
+    set undofile
 " endif
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
@@ -93,6 +93,7 @@ call vundle#begin()
  Bundle 'kien/ctrlp.vim'
  Bundle 'godlygeek/tabular'
  Bundle 'terryma/vim-multiple-cursors'
+ Bundle 'lilydjwg/colorizer'
  Bundle 'tpope/vim-haml'
  Bundle 'genoma/vim-less'
  Bundle 'Raimondi/delimitMate'
@@ -116,7 +117,6 @@ call vundle#begin()
  Bundle 'maksimr/vim-jsbeautify'
  Bundle 'marijnh/tern_for_vim'
  Bundle 'mbriggs/mark.vim'
- Bundle 'gorodinskiy/vim-coloresque'
  Bundle 'scrooloose/nerdtree'
  Bundle 'Xuyuanp/nerdtree-git-plugin'
  Bundle 'majutsushi/tagbar'
@@ -148,7 +148,7 @@ set background=dark
 colorscheme solarized 				"  主题设置
 
 autocmd FileType javascript     set omnifunc=tern#Complete
-autocmd FileType css,sass,less  set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css,sass,scss,less  set omnifunc=csscomplete#CompleteCSS
 autocmd FileType html           set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType php            set omnifunc=phpcomplete#CompletePHP
 autocmd FileType xml            set omnifunc=xmlcomplete#CompleteTags
@@ -209,8 +209,8 @@ nnoremap <Leader>a :Tabularize /
 
 map <leader>ue :UltiSnipsEdit<CR>
 let g:UltiSnipsExpandTrigger = "<a-tab>"
-let g:UltiSnipsListSnippets = ""
-let g:UltiSnipsJumpBackwardTrigger = ""
+let g:UltiSnipsListSnippets = "<Leader><Leader>1"
+let g:UltiSnipsJumpBackwardTrigger = "<Leader><Leader>1"
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:UltiSnipsEnableSnipMate = 1
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
@@ -249,10 +249,10 @@ inoremap <C-tab> <c-x><c-o>
 
 autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
-autocmd FileType css,sass,less noremap <buffer> <leader>b :call CSSBeautify()<cr>
+autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<cr>
 autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<cr>
-autocmd FileType css,sass,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
+autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
 
 let g:tern_show_signature_in_pum = 1
 autocmd BufEnter * set completeopt-=preview
@@ -312,5 +312,5 @@ let g:user_emmet_settings = {
     \    'indent_blockelement': 1
     \}
 \}
-autocmd FileType html,css,sass,less,php EmmetInstall
+autocmd FileType html,css,sass,scss,less,php EmmetInstall
 
