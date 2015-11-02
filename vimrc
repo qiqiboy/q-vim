@@ -64,13 +64,18 @@ set iskeyword+=_,$,@,%,#,-
 
 set backspace=indent,eol,start
 
+set undofile
+
+set mouse=a
+set selection=exclusive
+set selectmode=mouse,key
+
 " 禁止生成临时文件
 set nobackup
 set noswapfile
 
 " if has("persistent_undo")
 "    set undodir = ~/.undodir/
-    set undofile
 " endif
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
