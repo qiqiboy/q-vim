@@ -152,14 +152,6 @@ syntax on
 set background=dark
 colorscheme solarized 				"  主题设置
 
-autocmd FileType javascript     set omnifunc=tern#Complete
-autocmd FileType css,sass,scss,less  set omnifunc=csscomplete#CompleteCSS
-autocmd FileType html           set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType php            set omnifunc=phpcomplete#CompletePHP
-autocmd FileType xml            set omnifunc=xmlcomplete#CompleteTags
-autocmd FileType python         set omnifunc=pythoncomplete#Complete
-autocmd FileType ruby           set omnifunc=rubycomplete#Complete
-
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 source $VIMRUNTIME/delmenu.vim
@@ -181,6 +173,9 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_semantic_triggers =  {
+  \   'css,less,sass,scss' : ['-', ':'],
+  \ }
 
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_prev_key='<C-p>'
