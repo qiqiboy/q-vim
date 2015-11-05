@@ -81,6 +81,10 @@ set noswapfile
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 set lines=60 columns=200
 
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
