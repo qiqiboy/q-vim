@@ -124,7 +124,6 @@ call vundle#begin()
  Bundle 'othree/yajs.vim'
  Bundle 'othree/javascript-libraries-syntax.vim'
  Bundle 'maksimr/vim-jsbeautify'
- Bundle 'marijnh/tern_for_vim'
  Bundle 'mbriggs/mark.vim'
  Bundle 'scrooloose/nerdtree'
  Bundle 'Xuyuanp/nerdtree-git-plugin'
@@ -293,7 +292,7 @@ nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>gd :Gdiff<cr>
 nnoremap <Leader>gc :Gcommit -m""
 nnoremap <Leader>gb :Gblame<cr>
-nnoremap <Leader>gl :Glog 
+nnoremap <Leader>gl :Glog
 nnoremap <Leader>gp :Gpush<cr>
 nnoremap <Leader>gpp :Gpull<cr>
 
