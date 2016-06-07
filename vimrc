@@ -138,6 +138,7 @@ call vundle#begin()
  Bundle 'dkprice/vim-easygrep'
  Bundle 'mbbill/undotree'
  Bundle 'mattn/emmet-vim'
+ Bundle 'mxw/vim-jsx'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -250,12 +251,11 @@ nnoremap <tab> %
 vnoremap <tab> %
 inoremap <C-tab> <c-x><c-o>
 
-autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
-autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<cr>
 autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<cr>
 autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
+autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
 
 let g:tern_show_signature_in_pum = 1
 autocmd BufEnter * set completeopt-=preview
@@ -316,4 +316,6 @@ let g:user_emmet_settings = {
     \}
 \}
 autocmd FileType html,css,sass,scss,less,php EmmetInstall
+
+"let g:jsx_ext_required = 0
 
