@@ -251,6 +251,12 @@ nnoremap <tab> %
 vnoremap <tab> %
 inoremap <C-tab> <c-x><c-o>
 
+autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<cr>
+autocmd FileType javascript.jsx noremap <buffer> <leader>b :call JsxBeautify()<cr>
+autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
+
 autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<cr>
 autocmd FileType html vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<cr>
 autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
