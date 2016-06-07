@@ -245,7 +245,7 @@ let g:ctrlsf_mapping = {
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100'
 
-let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs'
+let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 
 nnoremap <tab> %
 vnoremap <tab> %
