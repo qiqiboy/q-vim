@@ -309,6 +309,7 @@ endif
 
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
+"let g:gitgutter_max_signs = 1000
 highlight SignColumn guibg = #002b36
 
 let g:indentLine_enabled = 1
