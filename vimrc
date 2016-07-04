@@ -93,7 +93,6 @@ call vundle#begin()
 
  """"""""vim scripts""""""""""""""""""
  Bundle 'minibufexpl.vim'
- Bundle 'comments.vim'
  Bundle 'winmanager'
 
  """"""""git上的插件"""""""""""""""
@@ -139,6 +138,7 @@ call vundle#begin()
  Bundle 'mbbill/undotree'
  Bundle 'mattn/emmet-vim'
  Bundle 'mxw/vim-jsx'
+ Bundle 'scrooloose/nerdcommenter'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -325,4 +325,7 @@ let g:user_emmet_settings = {
 autocmd FileType html,css,sass,scss,less,php EmmetInstall
 
 "let g:jsx_ext_required = 0
+
+noremap  <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
+noremap  <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
 
