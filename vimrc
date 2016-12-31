@@ -119,8 +119,8 @@ call vundle#begin()
  Bundle 'rstacruz/vim-ultisnips-css'
  Bundle 'tacahiroy/ctrlp-funky'
  Bundle 'dyng/ctrlsf.vim'
- Bundle "pangloss/vim-javascript"
  Bundle 'othree/yajs.vim'
+ Bundle "pangloss/vim-javascript"
  Bundle 'othree/javascript-libraries-syntax.vim'
  Bundle 'maksimr/vim-jsbeautify'
  Bundle 'mbriggs/mark.vim'
@@ -146,6 +146,8 @@ call vundle#begin()
  Bundle 'chriskempson/vim-tomorrow-theme'
 
 call vundle#end()
+
+let g:solarized_termcolors=256
 
 filetype on
 filetype plugin on
