@@ -79,7 +79,7 @@ set noswapfile
 " endif
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
-set lines=60 columns=200
+set lines=60 columns=240
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -126,8 +126,8 @@ call vundle#begin()
  Bundle 'mbriggs/mark.vim'
  Bundle 'scrooloose/nerdtree'
  Bundle 'Xuyuanp/nerdtree-git-plugin'
- Bundle 'majutsushi/tagbar'
- Bundle 'hushicai/tagbar-javascript.vim'
+ "Bundle 'majutsushi/tagbar'
+ "Bundle 'hushicai/tagbar-javascript.vim'
  Bundle 'airblade/vim-gitgutter'
  Bundle 'tpope/vim-fugitive'
  Bundle 'matthewsimo/angular-vim-snippets'
@@ -139,6 +139,7 @@ call vundle#begin()
  Bundle 'mattn/emmet-vim'
  Bundle 'mxw/vim-jsx'
  Bundle 'scrooloose/nerdcommenter'
+ "Bundle 'editorconfig/editorconfig-vim'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
@@ -167,7 +168,8 @@ let g:miniBufExplMapWindowsNavVim=1
 let g:miniBufExplorerMoreThanOne=0
 let g:miniBufExplModSelTarget=1
 
-let g:winManagerWindowLayout='NERDTree|Tagbar'
+"let g:winManagerWindowLayout='NERDTree|Tagbar'
+let g:winManagerWindowLayout='NERDTree'
 let g:winManagerWidth=30
 let g:AutoOpenWinManager = 1
 
