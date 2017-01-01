@@ -285,7 +285,7 @@ function! NERDTree_IsValid()
 endfunction
 
 noremap <f5> :NERDTreeFind<cr>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree() | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 let g:Tagbar_title = "[Tagbar]"
 function! Tagbar_Start()
