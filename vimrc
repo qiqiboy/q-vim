@@ -79,7 +79,9 @@ set noswapfile
 " endif
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
-set lines=60 columns=240
+if has('gui_running')
+    set lines=60 columns=240
+endif
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -283,6 +285,7 @@ function! NERDTree_IsValid()
 endfunction
 
 noremap <f5> :NERDTreeFind<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree() | q | endif
 
 let g:Tagbar_title = "[Tagbar]"
 function! Tagbar_Start()
@@ -319,7 +322,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn guibg = #002b36
 
 let g:indentLine_enabled = 1
-let g:indentLine_fileType = ['javascript', 'python']
+let g:indentLine_fileType = ['javascript', 'javascript.jsx', 'python']
 let g:indentLine_color_gui = '#394f51'
 
 let g:user_emmet_install_global = 0
