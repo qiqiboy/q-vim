@@ -174,7 +174,7 @@ let g:miniBufExplModSelTarget=1
 
 "let g:winManagerWindowLayout='NERDTree|Tagbar'
 let g:winManagerWindowLayout='NERDTree'
-let g:winManagerWidth=30
+let g:winManagerWidth=25
 let g:AutoOpenWinManager = 1
 
 let g:ycm_min_num_of_chars_for_completion = 1
