@@ -177,6 +177,9 @@ let g:winManagerWindowLayout='NERDTree'
 let g:winManagerWidth=25
 let g:AutoOpenWinManager = 1
 
+"delimitMate
+let delimitMate_expand_cr = 1
+
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
