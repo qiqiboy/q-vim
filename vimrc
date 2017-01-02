@@ -100,7 +100,7 @@ call vundle#begin()
  """"""""git上的插件"""""""""""""""
  Bundle 'Valloric/YouCompleteMe'
  Bundle 'Lokaltog/vim-powerline'
- Bundle 'kien/ctrlp.vim'
+ Bundle 'ctrlpvim/ctrlp.vim'
  Bundle 'godlygeek/tabular'
  Bundle 'terryma/vim-multiple-cursors'
  Bundle 'lilydjwg/colorizer'
