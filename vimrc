@@ -188,6 +188,7 @@ let g:ycm_semantic_triggers =  {
   \   'javascript,javascript.jsx,typescript' : ['re![a-zA-Z_$]+', '.', '['],
   \   'css,less,sass,scss' : ['-', ':'],
   \ }
+nnoremap <leader>w :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_prev_key='<C-p>'
