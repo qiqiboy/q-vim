@@ -99,7 +99,8 @@ call vundle#begin()
 
  """"""""git上的插件"""""""""""""""
  Bundle 'Valloric/YouCompleteMe'
- Bundle 'Lokaltog/vim-powerline'
+ Bundle 'vim-airline/vim-airline'
+ Bundle 'vim-airline/vim-airline-themes'
  Bundle 'ctrlpvim/ctrlp.vim'
  Bundle 'godlygeek/tabular'
  Bundle 'terryma/vim-multiple-cursors'
@@ -146,6 +147,8 @@ call vundle#begin()
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
  Bundle 'chriskempson/vim-tomorrow-theme'
+ Bundle 'tomasr/molokai'
+ Bundle 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
 
@@ -158,13 +161,21 @@ filetype plugin indent on
 syntax enable
 syntax on
 
-set background=dark
-colorscheme solarized 				"  主题设置
+if has('gui_running')
+    set background=dark
+    colorscheme solarized
+else
+    set background=dark
+    colorscheme PaperColor
+endif
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplMapWindowsNavVim=1
