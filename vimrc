@@ -211,20 +211,16 @@ let g:multi_cursor_skip_key='<C-o>'
 let g:multi_cursor_quit_key='<Esc>'
 
 let g:EasyMotion_smartcase = 1
-map f <Plug>(easymotion-f)
-map F <Plug>(easymotion-F)
-map ? <Plug>(easymotion-Fn)
-map / <Plug>(easymotion-sn)
-map t <Plug>(easymotion-t)
-map T <Plug>(easymotion-T)
-map n <Plug>(easymotion-next)
-map N <Plug>(easymotion-prev)
-map <leader>. <Plug>(easymotion-repeat)
+nmap ? <Plug>(easymotion-Fn)
+nmap / <Plug>(easymotion-sn)
+nmap n <Plug>(easymotion-next)
+nmap N <Plug>(easymotion-prev)
+nmap <leader>. <Plug>(easymotion-repeat)
 
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+nmap <Leader>l <Plug>(easymotion-lineforward)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+nmap <Leader>h <Plug>(easymotion-linebackward)
 
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
