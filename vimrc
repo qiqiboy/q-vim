@@ -163,10 +163,16 @@ syntax on
 
 if has('gui_running')
     set background=dark
-    colorscheme solarized
+    colorscheme PaperColor
+
+    "let g:indentLine_color_gui = '#394f51'
+    "highlight SignColumn guibg = #002b36
 else
     set background=dark
     colorscheme PaperColor
+
+    "let g:indentLine_color_gui = '#394f51'
+    "highlight SignColumn guibg = #002b36
 endif
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
@@ -328,11 +334,9 @@ endif
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
 "let g:gitgutter_max_signs = 1000
-highlight SignColumn guibg = #002b36
 
 let g:indentLine_enabled = 1
 let g:indentLine_fileType = ['javascript', 'javascript.jsx', 'python']
-let g:indentLine_color_gui = '#394f51'
 
 let g:user_emmet_install_global = 0
 let g:user_emmet_settings = {
