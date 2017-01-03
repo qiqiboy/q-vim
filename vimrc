@@ -53,7 +53,7 @@ set guioptions-=m               " 把gui的菜单栏去掉
 set guioptions-=b
 set shortmess=atI               " 启动的时候不显示援助索马里儿童的提示(是I而不是L)
 
-set completeopt=preview,menu
+set completeopt=longest,menu
 set ruler
 set cursorline
 set autowrite
@@ -190,6 +190,7 @@ let g:AutoOpenWinManager = 1
 
 "delimitMate
 let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
 
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_complete_in_comments = 1
@@ -281,9 +282,6 @@ autocmd FileType html vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<cr>
 autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
 autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
-
-let g:tern_show_signature_in_pum = 1
-autocmd BufEnter * set completeopt-=preview
 
 let g:NERDTree_title = "[NERDTree]"
 function! NERDTree_Start()
