@@ -142,6 +142,7 @@ call vundle#begin()
  Bundle 'mattn/emmet-vim'
  Bundle 'mxw/vim-jsx'
  Bundle 'scrooloose/nerdcommenter'
+ Bundle 'vim-syntastic/syntastic'
  "Bundle 'editorconfig/editorconfig-vim'
 
  """"""""themes"""""""""""""""
@@ -350,4 +351,22 @@ autocmd FileType html,css,sass,scss,less,php EmmetInstall
 
 noremap  <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
 noremap  <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
+
+"syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_signs=1
+let g:syntastic_reuse_loc_lists = 0
+let g:syntastic_mode_map = {
+        \ "mode": "passive" }
+"let g:syntastic_debug=3
+
+let g:airline#extensions#syntastic#enabled = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+"let g:syntastic_javascript.jsx_checkers = ['eslint']
+
+noremap <f6> :SyntasticToggleMode<cr>
 
