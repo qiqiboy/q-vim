@@ -176,8 +176,6 @@ else
     "highlight SignColumn guibg = #002b36
 endif
 
-autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
