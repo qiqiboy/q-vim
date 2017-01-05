@@ -373,6 +373,6 @@ function! MySyntasticCheck()
 endfunction
 
 nnoremap <silent> <F6> :SyntasticToggleMode<cr>
-nnoremap <silent> <C-s> :w<cr> | :SyntasticCheck<cr>
+nnoremap <silent> <C-s> :call MySyntasticCheck()<cr>
 inoremap <silent> <C-s> <c-r>=MySyntasticCheck()<cr>
 
