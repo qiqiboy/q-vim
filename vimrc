@@ -366,5 +366,12 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 "let g:syntastic_javascript.jsx_checkers = ['eslint']
 
-noremap <f6> :SyntasticToggleMode<cr>
+function! MySyntasticCheck()
+    exe 'w'
+    exe 'SyntasticCheck'
+    return ''
+endfunction
+
+nnoremap <silent> <F6> :SyntasticToggleMode<cr>
+inoremap <silent> <C-s> <c-r>=MySyntasticCheck()<cr>
 
