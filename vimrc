@@ -347,8 +347,8 @@ autocmd FileType html,css,sass,scss,less,php EmmetInstall
 
 "let g:jsx_ext_required = 0
 
-noremap  <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
-noremap  <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
+noremap <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
+noremap <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
 
 "syntastic
 let g:syntastic_always_populate_loc_list = 1
