@@ -205,8 +205,8 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_always_populate_location_list = 1
 let g:ycm_semantic_triggers =  {
-  \   'javascript,javascript.jsx,typescript' : ['re![a-zA-Z_$]+', '.', '['],
-  \   'css,less,sass,scss' : ['-', ':'],
+  \   'javascript,javascript.jsx,typescript' : ['re![0-9a-zA-Z_$]{3}', '.', '['],
+  \   'css,less,sass,scss' : ['-', 're!:\s*']
   \ }
 nnoremap <leader>w :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
@@ -252,7 +252,7 @@ nnoremap <Leader>pm :CtrlPMixed<Cr>
 nnoremap <Leader>pb :CtrlPBuffer<Cr>
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules|images)$',
-  \ 'file': '\v\.(exe|so|dll)$'
+  \ 'file': '\v\.(exe|so|dll|png|jpg|gif)$'
   \ }
 
 nnoremap <Leader>fu :CtrlPFunky<Cr>
