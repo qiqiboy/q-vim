@@ -200,7 +200,6 @@ let delimitMate_expand_space = 1
 
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 0
-let g:ycm_cache_omnifunc = 0
 let g:ycm_use_ultisnips_completer = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
@@ -223,16 +222,18 @@ let g:multi_cursor_skip_key='<C-o>'
 let g:multi_cursor_quit_key='<Esc>'
 
 let g:EasyMotion_smartcase = 1
+nmap f <Plug>(easymotion-sl)
+nmap F <Plug>(easymotion-lineanywhere)
 nmap ? <Plug>(easymotion-Fn)
 nmap / <Plug>(easymotion-sn)
 nmap n <Plug>(easymotion-next)
 nmap N <Plug>(easymotion-prev)
 nmap <leader>. <Plug>(easymotion-repeat)
 
-nmap <Leader>l <Plug>(easymotion-lineforward)
+nmap <Leader>l <Plug>(easymotion-E)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
-nmap <Leader>h <Plug>(easymotion-linebackward)
+nmap <Leader>h <Plug>(easymotion-gE)
 
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
