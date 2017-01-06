@@ -143,6 +143,7 @@ call vundle#begin()
  Bundle 'mxw/vim-jsx'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'vim-syntastic/syntastic'
+ Bundle 'mtscout6/syntastic-local-eslint.vim'
  "Bundle 'editorconfig/editorconfig-vim'
 
  """"""""themes"""""""""""""""
@@ -363,7 +364,7 @@ let g:syntastic_mode_map = {
 
 let g:airline#extensions#syntastic#enabled = 1
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
+"let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 "let g:syntastic_javascript.jsx_checkers = ['eslint']
 
 function! MySyntasticCheck()
