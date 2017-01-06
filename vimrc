@@ -200,6 +200,8 @@ let delimitMate_expand_space = 1
 
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 0
+let g:ycm_cache_omnifunc = 0
+let g:ycm_use_ultisnips_completer = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -211,6 +213,8 @@ let g:ycm_semantic_triggers =  {
   \   'css,less,sass,scss' : ['-', 're!:\s*']
   \ }
 nnoremap <leader>w :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>wr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>wd :YcmCompleter GetDoc<CR>
 
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_prev_key='<C-p>'
