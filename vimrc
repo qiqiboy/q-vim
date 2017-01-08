@@ -111,7 +111,7 @@ call vundle#begin()
  Bundle 'hail2u/vim-css3-syntax'
  Bundle 'othree/html5.vim'
  Bundle 'docunext/closetag.vim'
- Bundle 'gregsexton/MatchTag'
+ Bundle 'Valloric/MatchTagAlways'
  Bundle 'easymotion/vim-easymotion'
  Bundle 'terryma/vim-expand-region'
  Bundle 'tpope/vim-surround'
@@ -207,7 +207,6 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_semantic_triggers =  {
-  \   'javascript,javascript.jsx,typescript' : ['re![0-9a-zA-Z_$]{3}', '.', '['],
   \   'css,less,sass,scss' : ['-', 're!:\s*']
   \ }
 nnoremap <leader>w :YcmCompleter GoToDefinitionElseDeclaration<CR>
