@@ -381,3 +381,10 @@ nnoremap <silent> <F6> :SyntasticToggleMode<cr>
 nnoremap <silent> <C-s> :call MySyntasticCheck()<cr>
 inoremap <silent> <C-s> <c-r>=MySyntasticCheck()<cr>
 
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \ 'javascript.jsx': 1
+    \}
