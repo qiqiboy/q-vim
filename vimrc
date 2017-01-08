@@ -74,6 +74,9 @@ set selectmode=mouse,key
 set nobackup
 set noswapfile
 
+set scrolloff=5
+set pumheight=20
+
 " if has("persistent_undo")
 "    set undodir = ~/.undodir/
 " endif
