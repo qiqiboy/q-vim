@@ -138,7 +138,6 @@ call vundle#begin()
  "Bundle 'hushicai/tagbar-javascript.vim'
  Bundle 'airblade/vim-gitgutter'
  Bundle 'tpope/vim-fugitive'
- Bundle 'matthewsimo/angular-vim-snippets'
  Bundle 'suan/vim-instant-markdown'
  Bundle 'Yggdroot/indentLine'
  Bundle 'elzr/vim-json'
