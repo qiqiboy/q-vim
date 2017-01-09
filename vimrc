@@ -351,7 +351,7 @@ let g:user_emmet_settings = {
     \    'indent_blockelement': 1
     \}
 \}
-autocmd FileType html,css,sass,scss,less,php EmmetInstall
+autocmd FileType html,css,sass,scss,less,php,javascript,javascript.jsx  EmmetInstall
 
 "let g:jsx_ext_required = 0
 
