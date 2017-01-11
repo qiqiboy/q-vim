@@ -248,8 +248,9 @@ nnoremap <Leader>a :Tabularize /
 
 map <leader>ue :UltiSnipsEdit<CR>
 let g:UltiSnipsExpandTrigger = "<a-tab>"
-let g:UltiSnipsListSnippets = "<nop>"
-let g:UltiSnipsJumpBackwardTrigger = "<nop>"
+let g:UltiSnipsListSnippets = "<c-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:UltiSnipsEnableSnipMate = 1
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
