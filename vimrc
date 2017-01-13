@@ -67,7 +67,7 @@ set backspace=indent,eol,start
 set undofile
 
 set mouse=a
-set selection=inclusive
+set selection=exclusive
 set selectmode=mouse,key
 
 " 禁止生成临时文件
