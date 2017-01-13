@@ -309,7 +309,7 @@ function! NERDTree_IsValid()
 	return 1
 endfunction
 
-let g:NERDTreeMouseMode = 2
+let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let NERDTreeAutoDeleteBuffer = 1
 noremap <f5> :NERDTreeFind<cr>
