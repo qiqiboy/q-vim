@@ -147,6 +147,7 @@ call vundle#begin()
  Bundle 'mattn/emmet-vim'
  Bundle 'mxw/vim-jsx'
  Bundle 'scrooloose/nerdcommenter'
+ Bundle 'ivyl/vim-bling'
  Bundle 'vim-syntastic/syntastic'
  Bundle 'mtscout6/syntastic-local-eslint.vim'
  "Bundle 'editorconfig/editorconfig-vim'
@@ -400,3 +401,9 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \ 'javascript.jsx': 1
     \}
+
+" vim-bling
+let g:bling_time = 80
+let g:bling_count = 2
+let g:bling_color_gui_fg = 'green'
+let g:bling_color_gui_bg = 'white'
