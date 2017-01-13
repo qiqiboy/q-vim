@@ -309,6 +309,9 @@ function! NERDTree_IsValid()
 	return 1
 endfunction
 
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeWinSize = 25
+let NERDTreeAutoDeleteBuffer = 1
 noremap <f5> :NERDTreeFind<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
