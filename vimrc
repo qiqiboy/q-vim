@@ -405,5 +405,5 @@ let g:mta_filetypes = {
 " vim-bling
 let g:bling_time = 80
 let g:bling_count = 2
-let g:bling_color_gui_fg = 'green'
-let g:bling_color_gui_bg = 'white'
+let g:bling_color_gui_fg = 'white'
+let g:bling_color_gui_bg = '#af005f'
