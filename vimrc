@@ -128,8 +128,8 @@ call vundle#begin()
  Bundle 'jceb/emmet.snippets'
  Bundle 'tacahiroy/ctrlp-funky'
  Bundle 'dyng/ctrlsf.vim'
- Bundle 'othree/yajs.vim'
- Bundle "pangloss/vim-javascript"
+ "Bundle 'othree/yajs.vim'
+ Bundle 'pangloss/vim-javascript'
  Bundle 'othree/javascript-libraries-syntax.vim'
  Bundle 'maksimr/vim-jsbeautify'
  Bundle 'mbriggs/mark.vim'
@@ -328,6 +328,9 @@ let g:tagbar_vertical = 30
 let g:tagbar_expand = 1
 let g:tagbar_foldlevel = 2
 let g:tagbar_autoshowtag = 1
+
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
 
 nmap <Leader>c <Plug>MarkAllClear
 
