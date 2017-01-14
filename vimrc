@@ -132,7 +132,7 @@ call vundle#begin()
  Bundle 'pangloss/vim-javascript'
  Bundle 'othree/javascript-libraries-syntax.vim'
  Bundle 'maksimr/vim-jsbeautify'
- Bundle 'mbriggs/mark.vim'
+ Bundle 'Yggdroot/vim-mark'
  Bundle 'scrooloose/nerdtree'
  Bundle 'Xuyuanp/nerdtree-git-plugin'
  "Bundle 'majutsushi/tagbar'
@@ -155,7 +155,7 @@ call vundle#begin()
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
  Bundle 'chriskempson/vim-tomorrow-theme'
- Bundle 'tomasr/molokai'
+ Bundle 'morhetz/gruvbox'
  Bundle 'NLKNguyen/papercolor-theme'
 
 call vundle#end()
@@ -231,7 +231,7 @@ nmap F <Plug>(easymotion-lineanywhere)
 nmap ? <Plug>(easymotion-Fn)
 nmap / <Plug>(easymotion-sn)
 nmap n <Plug>(easymotion-next)
-nmap N <Plug>(easymotion-prev)
+nmap N <Plug>(easymotion-prev) 
 nmap <leader>. <Plug>(easymotion-repeat)
 
 nmap <Leader>l <Plug>(easymotion-E)
@@ -334,7 +334,10 @@ let g:tagbar_autoshowtag = 1
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
-nmap <Leader>c <Plug>MarkAllClear
+let g:mwDefaultHighlightingPalette = 'maximum'
+nmap m <Plug>MarkSearchNext
+nmap M <Plug>MarkSearchPrev
+nmap <Leader>c :nohl<cr> <Plug>MarkAllClear
 
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>gd :Gdiff<cr>
