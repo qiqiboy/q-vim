@@ -97,8 +97,8 @@ call vundle#begin()
  Plugin 'gmarik/Vundle.vim'
 
  """"""""vim scripts""""""""""""""""""
- Bundle 'minibufexpl.vim'
  Bundle 'winmanager'
+ Bundle 'fholgado/minibufexpl.vim'
 
  """"""""git上的插件"""""""""""""""
  Bundle 'Valloric/YouCompleteMe'
@@ -189,11 +189,13 @@ source $VIMRUNTIME/menu.vim
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplMapWindowsNavVim=1
-"let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplorerMoreThanOne=0
-let g:miniBufExplModSelTarget=1
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplSplitToEdge = 0
+let g:miniBufExplCycleArround = 1
+let g:miniBufExplBuffersNeeded = 1
+let g:miniBufExplShowBufNumbers = 0
+noremap <C-TAB>   :MBEbn<CR>
+noremap <C-S-TAB> :MBEbp<CR>
 
 "let g:winManagerWindowLayout='NERDTree|Tagbar'
 let g:winManagerWindowLayout='NERDTree'
