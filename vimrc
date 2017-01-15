@@ -346,8 +346,8 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
 let g:mwDefaultHighlightingPalette = 'maximum'
-nmap m <Plug>MarkSearchNext
-nmap M <Plug>MarkSearchPrev
+nmap m <Plug>MarkSearchOrCurNext
+nmap M <Plug>MarkSearchOrCurPrev
 nmap <Leader>c :nohl<cr> <Plug>MarkAllClear
 
 nnoremap <Leader>gs :Gstatus<cr>
