@@ -189,12 +189,12 @@ source $VIMRUNTIME/menu.vim
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
+hi MBENormal               guifg=#808080 guibg=fg
+hi MBEChanged              guifg=#CD5907 guibg=fg
+hi MBEVisibleNormal        guifg=#5faf5f guibg=fg
+hi MBEVisibleChanged       guifg=#af005f guibg=fg
+hi MBEVisibleActiveNormal  guifg=#afd700 guibg=fg
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplSplitToEdge = 0
 let g:miniBufExplCycleArround = 1
