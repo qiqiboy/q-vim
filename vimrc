@@ -324,6 +324,7 @@ endfunction
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeMinimalUI = 1
 noremap <f3> :NERDTreeToggle<cr>
 noremap <f5> :NERDTreeFind<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
