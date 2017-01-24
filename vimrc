@@ -109,7 +109,7 @@ call vundle#begin()
  Bundle 'terryma/vim-multiple-cursors'
  Bundle 'lilydjwg/colorizer'
  Bundle 'tpope/vim-haml'
- Bundle 'rstacruz/vim-hyperstyle' 
+ Bundle 'rstacruz/vim-hyperstyle'
  Bundle 'genoma/vim-less'
  Bundle 'Raimondi/delimitMate'
  Bundle 'hail2u/vim-css3-syntax'
@@ -128,15 +128,12 @@ call vundle#begin()
  Bundle 'jceb/emmet.snippets'
  Bundle 'tacahiroy/ctrlp-funky'
  Bundle 'dyng/ctrlsf.vim'
- "Bundle 'othree/yajs.vim'
  Bundle 'pangloss/vim-javascript'
  Bundle 'othree/javascript-libraries-syntax.vim'
  Bundle 'maksimr/vim-jsbeautify'
  Bundle 'Yggdroot/vim-mark'
  Bundle 'scrooloose/nerdtree'
  Bundle 'Xuyuanp/nerdtree-git-plugin'
- "Bundle 'majutsushi/tagbar'
- "Bundle 'hushicai/tagbar-javascript.vim'
  Bundle 'airblade/vim-gitgutter'
  Bundle 'tpope/vim-fugitive'
  Bundle 'iamcco/markdown-preview.vim'
@@ -243,7 +240,7 @@ nmap F <Plug>(easymotion-lineanywhere)
 nmap ? <Plug>(easymotion-Fn)
 nmap / <Plug>(easymotion-sn)
 nmap n <Plug>(easymotion-next)
-nmap N <Plug>(easymotion-prev) 
+nmap N <Plug>(easymotion-prev)
 nmap <leader>. <Plug>(easymotion-repeat)
 
 nmap <Leader>l <Plug>(easymotion-E)
@@ -407,4 +404,5 @@ let g:bling_color_gui_bg = '#af005f'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 1
+let g:ale_sign_error = 'xx'
 let g:ale_sign_warning = '!!'
