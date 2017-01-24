@@ -139,7 +139,7 @@ call vundle#begin()
  "Bundle 'hushicai/tagbar-javascript.vim'
  Bundle 'airblade/vim-gitgutter'
  Bundle 'tpope/vim-fugitive'
- Bundle 'suan/vim-instant-markdown'
+ Bundle 'iamcco/markdown-preview.vim'
  Bundle 'Yggdroot/indentLine'
  Bundle 'elzr/vim-json'
  Bundle 'dkprice/vim-easygrep'
@@ -367,6 +367,10 @@ endif
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
 "let g:gitgutter_max_signs = 1000
+
+" markdown-preview
+let g:mkdp_auto_start = 1
+let g:mkdp_path_to_chrome = "open -a Safari"
 
 let g:indentLine_enabled = 1
 let g:indentLine_fileType = ['javascript', 'javascript.jsx', 'python']
