@@ -148,8 +148,6 @@ call vundle#begin()
  Bundle 'mxw/vim-jsx'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'ivyl/vim-bling'
- Bundle 'vim-syntastic/syntastic'
- Bundle 'mtscout6/syntastic-local-eslint.vim'
  if has('gui_running')
  Bundle 'w0rp/ale'
  endif
@@ -386,32 +384,7 @@ autocmd FileType html,css,sass,scss,less,php,javascript,javascript.jsx  EmmetIns
 noremap <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
 noremap <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
 
-"syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_enable_signs=1
-let g:syntastic_reuse_loc_lists = 0
-let g:syntastic_mode_map = {
-        \ "mode": "passive" }
-"let g:syntastic_debug=3
-
-let g:airline#extensions#syntastic#enabled = 1
-let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
-"let g:syntastic_javascript.jsx_checkers = ['eslint']
-
-function! MySyntasticCheck()
-    exe 'w'
-    exe 'SyntasticCheck'
-    return ''
-endfunction
-
-nnoremap <silent> <F6> :SyntasticToggleMode<cr>
-nnoremap <silent> <C-s> :call MySyntasticCheck()<cr>
-inoremap <silent> <C-s> <c-r>=MySyntasticCheck()<cr>
-
+" matchTagAlways
 let g:mta_filetypes = {
     \ 'html' : 1,
     \ 'xhtml' : 1,
@@ -430,3 +403,4 @@ let g:bling_color_gui_bg = '#af005f'
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 0
 let g:ale_open_list = 1
+let g:ale_sign_warning = '!!'
