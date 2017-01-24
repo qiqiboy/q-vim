@@ -150,6 +150,9 @@ call vundle#begin()
  Bundle 'ivyl/vim-bling'
  Bundle 'vim-syntastic/syntastic'
  Bundle 'mtscout6/syntastic-local-eslint.vim'
+ if has('gui_running')
+ Bundle 'w0rp/ale'
+ endif
  "Bundle 'editorconfig/editorconfig-vim'
 
  """"""""themes"""""""""""""""
@@ -422,3 +425,8 @@ let g:bling_time = 80
 let g:bling_count = 2
 let g:bling_color_gui_fg = 'white'
 let g:bling_color_gui_bg = '#af005f'
+
+" ale
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 0
+let g:ale_open_list = 1
