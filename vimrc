@@ -8,7 +8,7 @@ set encoding=utf-8
 set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
-set nu!
+set number!
 
 filetype off
 
@@ -86,11 +86,11 @@ if has('gui_running')
     set lines=60 columns=240
 endif
 
-if has("autocmd")
+if has('autocmd')
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set runtimepath += ~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
  "let Vundle manage Vundle, required
@@ -257,10 +257,10 @@ vmap V <Plug>(expand_region_shrink)
 nnoremap <Leader>a :Tabularize /
 
 map <leader>ue :UltiSnipsEdit<CR>
-let g:UltiSnipsExpandTrigger = "<a-tab>"
-let g:UltiSnipsListSnippets = "<c-tab>"
-let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnipsExpandTrigger = '<a-tab>'
+let g:UltiSnipsListSnippets = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<c-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
 let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:UltiSnipsEnableSnipMate = 1
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
@@ -285,8 +285,8 @@ let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>sf :CtrlSF<space>
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_mapping = {
-    \ "next": "n",
-    \ "prev": "N",
+    \ 'next': 'n',
+    \ 'prev': 'N',
     \ }
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100'
@@ -309,7 +309,7 @@ autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBe
 autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
 
-let g:NERDTree_title = "[NERDTree]"
+let g:NERDTree_title = '[NERDTree]'
 function! NERDTree_Start()
     exe 'q'
     exe 'NERDTree'
@@ -326,7 +326,7 @@ noremap <f3> :NERDTreeToggle<cr>
 noremap <f5> :NERDTreeFind<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-let g:Tagbar_title = "[Tagbar]"
+let g:Tagbar_title = '[Tagbar]'
 function! Tagbar_Start()
     exe 'q'
     exe 'TagbarOpen'
@@ -367,7 +367,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 " markdown-preview
 let g:mkdp_auto_start = 1
-let g:mkdp_path_to_chrome = "open -a Safari"
+let g:mkdp_path_to_chrome = 'open -a Safari'
 
 let g:indentLine_enabled = 1
 let g:indentLine_fileType = ['javascript', 'javascript.jsx', 'python']
@@ -378,7 +378,7 @@ let g:user_emmet_settings = {
     \    'indent_blockelement': 1
     \}
 \}
-autocmd FileType html,css,sass,scss,less,php,javascript,javascript.jsx  EmmetInstall
+autocmd FileType html,css,sass,scss,less,php,javascript,javascript.jsx EmmetInstall
 
 "let g:jsx_ext_required = 0
 
@@ -407,5 +407,5 @@ let g:ale_set_quickfix = 0
 let g:ale_open_list = 1
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
-hi ALEErrorSign guifg=#af005f guibg=None
-hi ALEWarningSign guifg=#ff8700 guibg=None
+hi ALEErrorSign guifg=#af005f guibg=NONE
+hi ALEWarningSign guifg=#ff8700 guibg=NONE
