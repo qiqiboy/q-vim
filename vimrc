@@ -140,7 +140,7 @@ call vundle#begin()
  Bundle 'dkprice/vim-easygrep'
  Bundle 'mbbill/undotree'
  Bundle 'mattn/emmet-vim'
- Bundle 'mxw/vim-jsx'
+ Bundle 'neoclide/vim-jsx-improve'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'ivyl/vim-bling'
  if has('gui_running')
@@ -379,6 +379,8 @@ let g:user_emmet_settings = {
 autocmd FileType html,css,sass,scss,less,php,javascript,javascript.jsx EmmetInstall
 
 "let g:jsx_ext_required = 0
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+let g:jsx_improve_motion_disable = 1
 
 noremap <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
 noremap <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
