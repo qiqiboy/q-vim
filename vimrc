@@ -368,7 +368,7 @@ let g:mkdp_auto_start = 1
 let g:mkdp_path_to_chrome = 'open -a Safari'
 
 let g:indentLine_enabled = 1
-let g:indentLine_fileType = ['javascript', 'javascript.jsx', 'python']
+let g:indentLine_fileType = ['javascript', 'javascript.jsx', 'python', 'php']
 
 let g:user_emmet_install_global = 0
 let g:user_emmet_settings = {
@@ -376,9 +376,8 @@ let g:user_emmet_settings = {
     \    'indent_blockelement': 1
     \}
 \}
-autocmd FileType html,css,sass,scss,less,php,javascript,javascript.jsx EmmetInstall
+autocmd FileType html,css,sass,scss,less,php,javascript EmmetInstall
 
-"let g:jsx_ext_required = 0
 autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 let g:jsx_improve_motion_disable = 1
 
@@ -391,7 +390,8 @@ let g:mta_filetypes = {
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \ 'jinja' : 1,
-    \ 'javascript.jsx': 1
+    \ 'php': 1,
+    \ 'javascript' : 1
     \}
 
 " vim-bling
