@@ -208,8 +208,8 @@ let g:winManagerWidth=25
 let g:AutoOpenWinManager = 1
 
 "delimitMate
-let delimitMate_expand_cr = 1
-let delimitMate_expand_space = 1
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1
 
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 0
@@ -403,8 +403,9 @@ let g:bling_color_gui_bg = '#af005f'
 " ale
 let g:ale_sign_column_always = 1
 let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 0
-let g:ale_open_list = 1
+let g:ale_set_quickfix = 1
+let g:ale_open_list = 0
+let g:ale_keep_list_window_open = 0
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
 hi ALEErrorSign guifg=#af005f guibg=NONE
