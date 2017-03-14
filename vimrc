@@ -75,6 +75,8 @@ set noswapfile
 set scrolloff=5
 set pumheight=20
 
+set t_Co=256 
+
 " if has("persistent_undo")
 "    set undodir = ~/.undodir/
 " endif
@@ -167,17 +169,16 @@ syntax on
 
 if has('gui_running')
     set background=dark
-    colorscheme PaperColor
 
     "let g:indentLine_color_gui = '#394f51'
-    "highlight SignColumn guibg = #002b36
 else
     set background=dark
-    colorscheme PaperColor
 
     "let g:indentLine_color_gui = '#394f51'
-    "highlight SignColumn guibg = #002b36
 endif
+
+colorscheme PaperColor
+highlight SignColumn guibg = NONE
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
