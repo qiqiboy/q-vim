@@ -107,7 +107,7 @@ call vundle#begin()
  Bundle 'ctrlpvim/ctrlp.vim'
  Bundle 'godlygeek/tabular'
  Bundle 'terryma/vim-multiple-cursors'
- Bundle 'lilydjwg/colorizer'
+ Bundle 'ap/vim-css-color'
  Bundle 'tpope/vim-haml'
  Bundle 'rstacruz/vim-hyperstyle'
  Bundle 'genoma/vim-less'
@@ -145,6 +145,7 @@ call vundle#begin()
  Bundle 'neoclide/vim-jsx-improve'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'ivyl/vim-bling'
+ Bundle 'myusuf3/numbers.vim'
  if has('gui_running')
  Bundle 'w0rp/ale'
  endif
@@ -411,3 +412,6 @@ let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
 hi ALEErrorSign guifg=#af005f guibg=NONE
 hi ALEWarningSign guifg=#ff8700 guibg=NONE
+
+" numbers
+let g:numbers_exclude = ['unite', 'tagbar', 'startify', 'gundo', 'vimshell', 'w3m', 'tagbar', 'gundo', 'minibufexpl', 'nerdtree', 'undotree', 'diff']
