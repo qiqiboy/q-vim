@@ -169,16 +169,13 @@ syntax on
 
 if has('gui_running')
     set background=dark
-
     "let g:indentLine_color_gui = '#394f51'
 else
     set background=dark
-
     "let g:indentLine_color_gui = '#394f51'
 endif
 
 colorscheme PaperColor
-highlight SignColumn guibg = NONE
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
