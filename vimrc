@@ -96,11 +96,7 @@ call vundle#begin()
  "let Vundle manage Vundle, required
  Plugin 'gmarik/Vundle.vim'
 
- """"""""vim scripts""""""""""""""""""
- Bundle 'winmanager'
  Bundle 'fholgado/minibufexpl.vim'
-
- """"""""git上的插件"""""""""""""""
  Bundle 'Valloric/YouCompleteMe'
  Bundle 'vim-airline/vim-airline'
  Bundle 'vim-airline/vim-airline-themes'
@@ -190,7 +186,7 @@ hi MBEVisibleChanged       guifg=#af005f guibg=fg
 hi MBEVisibleActiveNormal  guifg=#afd700 guibg=fg
 hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplSplitToEdge = 0
+let g:miniBufExplSplitToEdge = 1
 let g:miniBufExplCycleArround = 1
 let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplShowBufNumbers = 0
@@ -305,36 +301,14 @@ autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBe
 autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<cr>
 autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
 
-let g:NERDTree_title = '[NERDTree]'
-function! NERDTree_Start()
-    exe 'q'
-    exe 'NERDTree'
-endfunction
-
-function! NERDTree_IsValid()
-	return 1
-endfunction
-
+" NERDTree
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
 noremap <f3> :NERDTreeToggle<cr>
 noremap <f5> :NERDTreeFind<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-let g:Tagbar_title = '[Tagbar]'
-function! Tagbar_Start()
-    exe 'q'
-    exe 'TagbarOpen'
-endfunction
-
-function! Tagbar_IsValid()
-    return 1
-endfunction
-let g:tagbar_vertical = 30
-let g:tagbar_expand = 1
-let g:tagbar_foldlevel = 2
-let g:tagbar_autoshowtag = 1
+autocmd vimenter * NERDTree
 
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
