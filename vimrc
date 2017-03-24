@@ -196,11 +196,6 @@ endif
 noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 
-"let g:winManagerWindowLayout='NERDTree|Tagbar'
-let g:winManagerWindowLayout='NERDTree'
-let g:winManagerWidth=25
-let g:AutoOpenWinManager = 1
-
 "delimitMate
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
@@ -305,6 +300,7 @@ autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
 noremap <f3> :NERDTreeToggle<cr>
 noremap <f5> :NERDTreeFind<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
