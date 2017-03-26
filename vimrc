@@ -141,7 +141,7 @@ call vundle#begin()
  Bundle 'neoclide/vim-jsx-improve'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'ivyl/vim-bling'
- if has('gui_running')
+ if v:version >= 800
  Bundle 'w0rp/ale'
  endif
  "Bundle 'editorconfig/editorconfig-vim'
