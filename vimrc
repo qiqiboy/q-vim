@@ -18,7 +18,8 @@ set hidden
 
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)
 set foldenable      " 允许折叠
-set foldmethod=manual   " 手动折叠
+set foldmethod=indent
+set foldlevel=99
 
 set number                      " 显示行号
 set tabstop=4                   " 设定tab长度为4
