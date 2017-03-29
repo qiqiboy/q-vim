@@ -143,6 +143,7 @@ call vundle#begin()
  Bundle 'neoclide/vim-jsx-improve'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'ivyl/vim-bling'
+ Bundle 'milkypostman/vim-togglelist'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -371,8 +372,8 @@ let g:bling_color_gui_bg = '#af005f'
 
 " ale
 let g:ale_sign_column_always = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
 let g:ale_open_list = 0
 let g:ale_keep_list_window_open = 0
 let g:ale_lint_on_text_changed = 1
@@ -383,4 +384,4 @@ let g:ale_sign_warning = '•'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 hi ALEErrorSign guifg=#af005f guibg=NONE
 hi ALEWarningSign guifg=#ff8700 guibg=NONE
-noremap <f3> :cw<cr>
+noremap <silent> <f3> :call ToggleLocationList()<CR>
