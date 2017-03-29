@@ -261,10 +261,6 @@ let g:ctrlp_map = '<leader>p'
 nnoremap <Leader>pr :CtrlPMRU<Cr>
 nnoremap <Leader>pm :CtrlPMixed<Cr>
 nnoremap <Leader>pb :CtrlPBuffer<Cr>
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|node_modules|images|media|bower_components|build|buildDev|dist)$',
-  \ 'file': '\v\.(exe|so|dll|png|jpg|jpeg|gif|pyc|pem|dmg|pdf)$'
-  \ }
 
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
@@ -359,7 +355,7 @@ let g:EasyGrepCommand = 1
 let g:EasyGrepRecursive = 1
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepRoot = 'search:.git,.svn,.hg'
-let g:EasyGrepFilesToExclude = '.svn,.git,.hg,node_modules,bower_components,dist,build,buildDev,images,media,*.swp,*~,*.pyc'
+let g:EasyGrepFilesToExclude = '.svn,.git,.hg,node_modules,bower_components,dist,build,buildDev,images,*.swp,*~,*.pyc'
 
 " matchTagAlways
 let g:mta_filetypes = {
