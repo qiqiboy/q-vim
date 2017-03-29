@@ -143,7 +143,7 @@ call vundle#begin()
  Bundle 'neoclide/vim-jsx-improve'
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'ivyl/vim-bling'
- Bundle 'milkypostman/vim-togglelist'
+ Bundle 'Valloric/ListToggle'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -384,4 +384,7 @@ let g:ale_sign_warning = '•'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 hi ALEErrorSign guifg=#af005f guibg=NONE
 hi ALEWarningSign guifg=#ff8700 guibg=NONE
-noremap <silent> <f3> :call ToggleLocationList()<CR>
+
+" ListToggle
+let g:lt_quickfix_list_toggle_map = '<f2>'
+let g:lt_location_list_toggle_map = '<f3>'
