@@ -356,6 +356,10 @@ noremap <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
 
 " easygrep
 let g:EasyGrepCommand = 1
+let g:EasyGrepRecursive = 1
+let g:EasyGrepJumpToMatch = 0
+let g:EasyGrepRoot = 'search:.git,.svn,.hg'
+let g:EasyGrepFilesToExclude = '.svn,.git,.hg,node_modules,bower_components,dist,build,buildDev,*.swp,*~,*.pyc'
 
 " matchTagAlways
 let g:mta_filetypes = {
