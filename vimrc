@@ -303,7 +303,6 @@ let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
-noremap <f3> :NERDTreeToggle<cr>
 noremap <f5> :NERDTreeFind<cr>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "autocmd vimEnter * NERDTree
@@ -384,3 +383,4 @@ let g:ale_sign_warning = '•'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 hi ALEErrorSign guifg=#af005f guibg=NONE
 hi ALEWarningSign guifg=#ff8700 guibg=NONE
+noremap <f3> :cw<cr>
