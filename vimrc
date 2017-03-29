@@ -354,6 +354,9 @@ let g:jsx_improve_motion_disable = 1
 noremap <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
 noremap <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
 
+" easygrep
+let g:EasyGrepCommand = 1
+
 " matchTagAlways
 let g:mta_filetypes = {
     \ 'html' : 1,
