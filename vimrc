@@ -354,6 +354,7 @@ noremap <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
 let g:EasyGrepCommand = 1
 let g:EasyGrepRecursive = 1
 let g:EasyGrepJumpToMatch = 0
+let g:EasyGrepWindowPosition = 'botright'
 let g:EasyGrepRoot = 'search:.git,.svn,.hg'
 let g:EasyGrepFilesToExclude = '.svn,.git,.hg,node_modules,bower_components,dist,build,buildDev,images,*.swp,*~,*.pyc'
 
