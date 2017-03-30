@@ -144,6 +144,7 @@ call vundle#begin()
  Bundle 'scrooloose/nerdcommenter'
  Bundle 'ivyl/vim-bling'
  Bundle 'Valloric/ListToggle'
+ Bundle 'mhinz/vim-startify'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -393,3 +394,46 @@ hi ALEWarningSign guifg=#ff8700 guibg=NONE
 let g:lt_quickfix_list_toggle_map = '<f2>'
 let g:lt_location_list_toggle_map = '<f3>'
 let g:lt_height = 10
+
+" startify
+let g:startify_padding_left = 20
+let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}]
+let g:startify_enable_special = 0
+let g:startify_commands = [
+    \ ':NERDTree',
+    \ ':ALEToggle'
+    \ ]
+let g:startify_list_order = [
+            \ ['                最近访问:'],
+            \ 'files',
+            \ ['                已存会话:'],
+            \ 'sessions',
+            \ ['                已存书签:'],
+            \ 'bookmarks',
+            \ ['                常用命令:'],
+            \ 'commands',
+            \ ]
+let g:start_header = [
+          \ '                                                                     ▄               ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄                                           ',
+          \ '                                                                    ▐░▌             ▐░▌▐░░░░░░░░░░░▌▐░░▌     ▐░░▌',
+          \ '                                                                     ▐░▌           ▐░▌  ▀▀▀▀█░█▀▀▀▀ ▐░▌░▌   ▐░▐░▌',
+          \ '  ██████╗  ██╗ ██████╗   ██╗ ██████╗  ██████╗  ██╗   ██╗              ▐░▌         ▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌',
+          \ ' ██╔═══██╗ ██║ ██╔═══██╗ ██║ ██╔══██╗ ██╔═══██╗╚██╗ ██╔╝               ▐░▌       ▐░▌        ▐░▌     ▐░▌ ▐░▐░▌ ▐░▌',
+          \ ' ██║   ██║ ██║ ██║   ██║ ██║ ██████╔╝ ██║   ██║ ╚████╔╝                 ▐░▌     ▐░▌         ▐░▌     ▐░▌  ▐░▌  ▐░▌',
+          \ ' ██║▄▄ ██║ ██║ ██║▄▄ ██║ ██║ ██╔══██╗ ██║   ██║  ╚██╔╝                   ▐░▌   ▐░▌          ▐░▌     ▐░▌   ▀   ▐░▌',
+          \ ' ╚██████╔╝ ██║ ╚██████╔╝ ██║ ██████╔╝ ╚██████╔╝   ██║                     ▐░▌ ▐░▌           ▐░▌     ▐░▌       ▐░▌',
+          \ '  ╚══▀▀═╝  ╚═╝  ╚══▀▀═╝  ╚═╝ ╚═════╝  ╚═════╝     ╚═╝                      ▐░▐░▌        ▄▄▄▄█░█▄▄▄▄ ▐░▌       ▐░▌',
+          \ '                                                                            ▐░▌        ▐░░░░░░░░░░░▌▐░▌       ▐░▌',
+          \ '                                                                             ▀          ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀ ',
+          \'',
+          \'',
+          \'    ======================================================================================================='
+          \]
+hi StartifyHeader  ctermfg=114 guifg=#F1266F
+function! s:filter_header(lines) abort
+    let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+    let centered_lines = map(copy(a:lines),
+        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+    return centered_lines
+endfunction
+let g:startify_custom_header = s:filter_header(g:start_header)
