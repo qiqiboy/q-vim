@@ -74,7 +74,7 @@ set selectmode=mouse,key
 set nobackup
 set noswapfile
 
-set scrolloff=5
+"set scrolloff=5
 set pumheight=20
 
 set t_Co=256 
