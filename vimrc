@@ -391,3 +391,4 @@ hi ALEWarningSign guifg=#ff8700 guibg=NONE
 " ListToggle
 let g:lt_quickfix_list_toggle_map = '<f2>'
 let g:lt_location_list_toggle_map = '<f3>'
+let g:lt_height = 10
