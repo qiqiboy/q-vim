@@ -396,40 +396,41 @@ let g:lt_location_list_toggle_map = '<f3>'
 let g:lt_height = 10
 
 " startify
-let g:startify_padding_left = 20
-let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}]
+let g:startify_padding_left = 30
+let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'h': '/etc/hosts'}]
 let g:startify_enable_special = 0
 let g:startify_commands = [
     \ ':NERDTree',
     \ ':ALEToggle'
     \ ]
 let g:startify_list_order = [
-            \ ['                最近访问:'],
+            \ [repeat(' ', g:startify_padding_left - 4) . '最近访问:'],
             \ 'files',
-            \ ['                已存会话:'],
+            \ [repeat(' ', g:startify_padding_left - 4) . '已存会话:'],
             \ 'sessions',
-            \ ['                已存书签:'],
+            \ [repeat(' ', g:startify_padding_left - 4) . '已存书签:'],
             \ 'bookmarks',
-            \ ['                常用命令:'],
+            \ [repeat(' ', g:startify_padding_left - 4) . '常用命令:'],
             \ 'commands',
             \ ]
 let g:start_header = [
-          \ '                                                                     ▄               ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄                                           ',
+          \ '                                                                     ▄               ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄',
           \ '                                                                    ▐░▌             ▐░▌▐░░░░░░░░░░░▌▐░░▌     ▐░░▌',
           \ '                                                                     ▐░▌           ▐░▌  ▀▀▀▀█░█▀▀▀▀ ▐░▌░▌   ▐░▐░▌',
-          \ '  ██████╗  ██╗ ██████╗   ██╗ ██████╗  ██████╗  ██╗   ██╗              ▐░▌         ▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌',
+          \ '  ██████╗  ██╗  ██████╗  ██╗ ██████╗  ██████╗  ██╗   ██╗              ▐░▌         ▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌',
           \ ' ██╔═══██╗ ██║ ██╔═══██╗ ██║ ██╔══██╗ ██╔═══██╗╚██╗ ██╔╝               ▐░▌       ▐░▌        ▐░▌     ▐░▌ ▐░▐░▌ ▐░▌',
           \ ' ██║   ██║ ██║ ██║   ██║ ██║ ██████╔╝ ██║   ██║ ╚████╔╝                 ▐░▌     ▐░▌         ▐░▌     ▐░▌  ▐░▌  ▐░▌',
           \ ' ██║▄▄ ██║ ██║ ██║▄▄ ██║ ██║ ██╔══██╗ ██║   ██║  ╚██╔╝                   ▐░▌   ▐░▌          ▐░▌     ▐░▌   ▀   ▐░▌',
           \ ' ╚██████╔╝ ██║ ╚██████╔╝ ██║ ██████╔╝ ╚██████╔╝   ██║                     ▐░▌ ▐░▌           ▐░▌     ▐░▌       ▐░▌',
-          \ '  ╚══▀▀═╝  ╚═╝  ╚══▀▀═╝  ╚═╝ ╚═════╝  ╚═════╝     ╚═╝                      ▐░▐░▌        ▄▄▄▄█░█▄▄▄▄ ▐░▌       ▐░▌',
+          \ '  ╚══▀▀═╝  ╚═╝  ╚══▀▀═╝  ╚═╝ ╚═════╝   ╚═════╝    ╚═╝                      ▐░▐░▌        ▄▄▄▄█░█▄▄▄▄ ▐░▌       ▐░▌',
           \ '                                                                            ▐░▌        ▐░░░░░░░░░░░▌▐░▌       ▐░▌',
           \ '                                                                             ▀          ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀ ',
           \'',
           \'',
-          \'    ======================================================================================================='
+          \ repeat(' ', 6) . repeat('=', 100)
           \]
 hi StartifyHeader  ctermfg=114 guifg=#F1266F
+
 function! s:filter_header(lines) abort
     let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
     let centered_lines = map(copy(a:lines),
