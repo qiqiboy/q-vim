@@ -85,7 +85,7 @@ set t_Co=256
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 if has('gui_running')
-    set lines=60 columns=240
+    set lines=48 columns=200
 endif
 
 if has('autocmd')
