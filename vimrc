@@ -387,8 +387,8 @@ let g:ale_lint_on_save = 0
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-hi ALEErrorSign guifg=#af005f guibg=NONE
-hi ALEWarningSign guifg=#ff8700 guibg=NONE
+hi ALEErrorSign ctermfg=196 guifg=#af005f guibg=NONE
+hi ALEWarningSign ctermfg=220 guifg=#ff8700 guibg=NONE
 
 " ListToggle
 let g:lt_quickfix_list_toggle_map = '<f2>'
@@ -429,7 +429,7 @@ let g:start_header = [
           \'',
           \ repeat(' ', 6) . repeat('=', 100)
           \]
-hi StartifyHeader  ctermfg=114 guifg=#F1266F
+hi StartifyHeader  ctermfg=197 guifg=#F1266F
 
 function! s:filter_header(lines) abort
     let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
