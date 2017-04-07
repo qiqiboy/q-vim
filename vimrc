@@ -77,7 +77,7 @@ set noswapfile
 "set scrolloff=5
 set pumheight=20
 
-set t_Co=256 
+set t_Co=256
 
 " if has("persistent_undo")
 "    set undodir = ~/.undodir/
@@ -387,6 +387,8 @@ let g:ale_lint_on_save = 0
 let g:ale_sign_error = '•'
 let g:ale_sign_warning = '•'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:airline#extensions#ale#error_symbol = g:ale_sign_error . ' '
+let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
 hi ALEErrorSign ctermfg=196 ctermbg=NONE guifg=#af005f guibg=NONE
 hi ALEWarningSign ctermfg=220 ctermbg=NONE guifg=#ff8700 guibg=NONE
 
