@@ -155,6 +155,7 @@ call vundle#begin()
  Bundle 'chriskempson/vim-tomorrow-theme'
  Bundle 'morhetz/gruvbox'
  Bundle 'NLKNguyen/papercolor-theme'
+ Bundle 'nanotech/jellybeans.vim'
 
 call vundle#end()
 
@@ -175,7 +176,8 @@ else
     "let g:indentLine_color_gui = '#394f51'
 endif
 
-colorscheme PaperColor
+colorscheme gruvbox
+hi SignColumn guibg=NONE ctermbg=NONE
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
