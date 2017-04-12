@@ -185,11 +185,11 @@ source $VIMRUNTIME/menu.vim
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-hi MBENormal               guifg=#808080 guibg=fg
+hi MBENormal               guifg=#928374 guibg=fg
 hi MBEChanged              guifg=#CD5907 guibg=fg
-hi MBEVisibleNormal        guifg=#5faf5f guibg=fg
-hi MBEVisibleChanged       guifg=#af005f guibg=fg
-hi MBEVisibleActiveNormal  guifg=#afd700 guibg=fg
+hi MBEVisibleNormal        guifg=#8ec07c guibg=fg
+hi MBEVisibleChanged       guifg=#CC241D guibg=fg
+hi MBEVisibleActiveNormal  guifg=#AFD700 guibg=fg
 hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplSplitToEdge = 1
@@ -433,7 +433,7 @@ let g:start_header = [
           \'',
           \ repeat(' ', 6) . repeat('=', 100)
           \]
-hi StartifyHeader ctermfg=197 guifg=#F1266F
+hi StartifyHeader ctermfg=197 guifg=#B8BB26
 
 function! s:filter_header(lines) abort
     let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
