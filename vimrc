@@ -433,7 +433,7 @@ let g:start_header = [
           \'',
           \ repeat(' ', 6) . repeat('=', 100)
           \]
-hi StartifyHeader ctermfg=197 guifg=#B8BB26
+hi StartifyHeader ctermfg=172 guifg=#D79926
 
 function! s:filter_header(lines) abort
     let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
