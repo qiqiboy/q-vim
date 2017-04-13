@@ -10,6 +10,7 @@ language message zh_CN.UTF-8
 
 filetype off
 
+set background=dark
 set guifont=monaco:h12
 set linespace=1
 
@@ -168,16 +169,10 @@ filetype plugin indent on
 syntax enable
 syntax on
 
-if has('gui_running')
-    set background=dark
-    "let g:indentLine_color_gui = '#394f51'
-else
-    set background=dark
-    "let g:indentLine_color_gui = '#394f51'
-endif
-
+"let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_sign_column = 'dark0'
+let g:gruvbox_vert_split = 'bg0'
 colorscheme gruvbox
-hi SignColumn guibg=NONE ctermbg=NONE
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
