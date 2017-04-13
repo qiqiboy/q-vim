@@ -171,8 +171,9 @@ syntax on
 
 "let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column = 'dark0'
-"let g:gruvbox_vert_split = 'bg0'
+let g:gruvbox_vert_split = 'dark0'
 colorscheme gruvbox
+hi VertSplit guifg=#504945 ctermfg=239
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
