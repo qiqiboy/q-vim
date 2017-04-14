@@ -11,7 +11,7 @@ language message zh_CN.UTF-8
 filetype off
 
 set background=dark
-set guifont=Fantasque\ Sans\ Mono:h13
+set guifont=Fantasque\ Sans\ Mono:h14
 set linespace=3
 
 set tags=tags;
@@ -87,10 +87,6 @@ set t_Co=256
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 if has('gui_running')
     set lines=48 columns=200
-endif
-
-if has('autocmd')
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
@@ -177,6 +173,15 @@ hi VertSplit guifg=#504945 ctermfg=239
 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
+
+augroup customAutocmd
+  au!
+  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+  au BufNewFile,BufRead .tern-project setf json
+  au FileType json,vim set shiftwidth=2 softtabstop=2
+  au FileType html,css,sass,scss,less,php,javascript EmmetInstall
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
 
 let g:airline_left_sep=''
 let g:airline_right_sep=''
@@ -282,17 +287,20 @@ nnoremap <tab> %
 vnoremap <tab> %
 inoremap <C-tab> <c-x><c-o>
 
-autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
-autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<cr>
-autocmd FileType javascript.jsx noremap <buffer> <leader>b :call JsxBeautify()<cr>
-autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
+augroup jsbeautify
+  autocmd!
+  autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
+  autocmd FileType html noremap <buffer> <leader>b :call HtmlBeautify()<cr>
+  autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<cr>
+  autocmd FileType javascript.jsx noremap <buffer> <leader>b :call JsxBeautify()<cr>
+  autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
 
-autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<cr>
-autocmd FileType html vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<cr>
-autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
-autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<cr>
-autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
+  autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<cr>
+  autocmd FileType html vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<cr>
+  autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
+  autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<cr>
+  autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
+augroup END
 
 " NERDTree
 let g:NERDTreeMouseMode = 1
@@ -341,9 +349,8 @@ let g:user_emmet_settings = {
     \    'indent_blockelement': 1
     \}
 \}
-autocmd FileType html,css,sass,scss,less,php,javascript EmmetInstall
 
-autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+" vim-jsx-improve
 let g:jsx_improve_motion_disable = 1
 
 noremap <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
@@ -432,9 +439,9 @@ let g:start_header = [
 hi StartifyHeader ctermfg=172 guifg=#D79926
 
 function! s:filter_header(lines) abort
-    let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
-    let centered_lines = map(copy(a:lines),
-        \ 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
-    return centered_lines
+    let l:longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+    let l:centered_lines = map(copy(a:lines),
+        \ 'repeat(" ", (&columns / 2) - (l:longest_line / 2)) . v:val')
+    return l:centered_lines
 endfunction
 let g:startify_custom_header = s:filter_header(g:start_header)
