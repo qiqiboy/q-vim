@@ -441,7 +441,7 @@ hi StartifyHeader ctermfg=172 guifg=#D79926
 function! s:filter_header(lines) abort
     let l:longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
     let l:centered_lines = map(copy(a:lines),
-        \ 'repeat(" ", (&columns / 2) - (l:longest_line / 2)) . v:val')
+        \ 'repeat('' '', (&columns / 2) - (l:longest_line / 2)) . v:val')
     return l:centered_lines
 endfunction
 let g:startify_custom_header = s:filter_header(g:start_header)
