@@ -1,10 +1,11 @@
 " System vimrc file for MacVim
-set nocompatible
+" set nocompatible
+set encoding=utf-8
+scriptencoding utf-8
 
 set fileencodings=utf-8,gb2312,gbk,gb18030
 set termencoding=utf-8
 set fileformats=unix,dos
-set encoding=utf-8
 set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
@@ -145,7 +146,6 @@ call vundle#begin()
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
- "Bundle 'editorconfig/editorconfig-vim'
 
  """"""""themes"""""""""""""""
  Bundle 'altercation/vim-colors-solarized'
