@@ -32,6 +32,8 @@ set expandtab                 " 是否在缩进和遇到Tab键时使用空格代
 set smarttab
 set autoindent                  " 自动缩进
 set smartindent
+set ignorecase
+set smartcase
 set cindent
 set confirm
 
@@ -77,7 +79,12 @@ set nobackup
 set noswapfile
 
 "set scrolloff=5
+set sidescrolloff=3
 set pumheight=20
+
+set formatoptions+=j              " Delete comment character when joining commented lines
+set wildmenu
+set wildignore=*.un~,*.pyc,*.zip,*.rar,*.dll,*.dmg
 
 set t_Co=256
 
@@ -228,7 +235,12 @@ let g:multi_cursor_next_key='<C-n>'
 let g:multi_cursor_skip_key='<C-o>'
 let g:multi_cursor_quit_key='<Esc>'
 
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
 nmap f <Plug>(easymotion-sl)
 nmap F <Plug>(easymotion-lineanywhere)
 nmap ? <Plug>(easymotion-Fn)
@@ -242,14 +254,15 @@ nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 nmap <Leader>h <Plug>(easymotion-gE)
 
-let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
-
+" vim-trailing-whitespace
 map <leader><space> :FixWhitespace<cr>
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
+" Tabular
 nnoremap <Leader>a :Tabularize /
 
+" UltiSnips
 map <leader>ue :UltiSnipsEdit<CR>
 let g:UltiSnipsExpandTrigger = '<a-tab>'
 let g:UltiSnipsListSnippets = '<c-tab>'
@@ -259,6 +272,7 @@ let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 let g:UltiSnipsEnableSnipMate = 1
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
+" ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_map = '<leader>p'
