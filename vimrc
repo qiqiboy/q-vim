@@ -39,6 +39,7 @@ set confirm
 
 set showcmd              "在状态栏显示当前输入的命令
 set showmode			 "显示INSERT NORMAL等
+set lazyredraw           " Don't redraw while executing macros (good performance config)
 
 set hlsearch
 set incsearch
@@ -96,6 +97,20 @@ set t_Co=256
 if has('gui_running')
     set lines=48 columns=200
 endif
+
+if v:version >= 800
+  packadd! matchit
+else
+  runtime! macros/matchit.vim
+endif
+
+nmap <tab> %
+vmap <tab> %
+inoremap <C-tab> <c-x><c-o>
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -185,9 +200,9 @@ augroup customAutocmd
   au!
   au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
   au BufNewFile,BufRead .tern-project setf json
-  au FileType json,vim set shiftwidth=2 softtabstop=2
+  au FileType json,vim setlocal shiftwidth=2 softtabstop=2
   au FileType html,css,sass,scss,less,php,javascript EmmetInstall
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+  au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
 augroup END
 
 let g:airline_left_sep=''
@@ -296,10 +311,6 @@ let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100'
 
 let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
-
-nnoremap <tab> %
-vnoremap <tab> %
-inoremap <C-tab> <c-x><c-o>
 
 augroup jsbeautify
   autocmd!
