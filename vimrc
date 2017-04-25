@@ -165,6 +165,7 @@ call vundle#begin()
  Bundle 'ivyl/vim-bling'
  Bundle 'Valloric/ListToggle'
  Bundle 'mhinz/vim-startify'
+ Bundle 'matze/vim-move'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -256,18 +257,20 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
-nmap f <Plug>(easymotion-sl)
-nmap F <Plug>(easymotion-lineanywhere)
+nmap f <Plug>(easymotion-f)
+nmap F <Plug>(easymotion-F)
+nmap t <Plug>(easymotion-t)
+nmap T <Plug>(easymotion-T)
 nmap ? <Plug>(easymotion-Fn)
 nmap / <Plug>(easymotion-sn)
 nmap n <Plug>(easymotion-next)
 nmap N <Plug>(easymotion-prev)
 nmap <leader>. <Plug>(easymotion-repeat)
 
-nmap <Leader>l <Plug>(easymotion-E)
+nmap <Leader>l <Plug>(easymotion-w)
 nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
-nmap <Leader>h <Plug>(easymotion-gE)
+nmap <Leader>h <Plug>(easymotion-b)
 
 " vim-trailing-whitespace
 map <leader><space> :FixWhitespace<cr>
@@ -470,3 +473,10 @@ function! s:filter_header(lines) abort
     return l:centered_lines
 endfunction
 let g:startify_custom_header = s:filter_header(g:start_header)
+
+" vim-move
+let g:move_map_keys = 0
+vmap <silent> <leader><leader>j <Plug>MoveBlockDown
+vmap <silent> <leader><leader>k <Plug>MoveBlockUp
+nmap <silent> <leader><leader>j <Plug>MoveLineDown
+nmap <silent> <leader><leader>k <Plug>MoveLineUp
