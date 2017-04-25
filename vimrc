@@ -166,6 +166,7 @@ call vundle#begin()
  Bundle 'Valloric/ListToggle'
  Bundle 'mhinz/vim-startify'
  Bundle 'matze/vim-move'
+ Bundle 'tommcdo/vim-exchange'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -267,10 +268,10 @@ nmap n <Plug>(easymotion-next)
 nmap N <Plug>(easymotion-prev)
 nmap <leader>. <Plug>(easymotion-repeat)
 
-nmap <Leader>l <Plug>(easymotion-w)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
-nmap <Leader>h <Plug>(easymotion-b)
+nmap <Leader><Leader>l <Plug>(easymotion-w)
+nmap <Leader><Leader>j <Plug>(easymotion-j)
+nmap <Leader><Leader>k <Plug>(easymotion-k)
+nmap <Leader><Leader>h <Plug>(easymotion-b)
 
 " vim-trailing-whitespace
 map <leader><space> :FixWhitespace<cr>
@@ -476,7 +477,7 @@ let g:startify_custom_header = s:filter_header(g:start_header)
 
 " vim-move
 let g:move_map_keys = 0
-vmap <silent> <leader><leader>j <Plug>MoveBlockDown
-vmap <silent> <leader><leader>k <Plug>MoveBlockUp
-nmap <silent> <leader><leader>j <Plug>MoveLineDown
-nmap <silent> <leader><leader>k <Plug>MoveLineUp
+vmap <silent> <leader>j <Plug>MoveBlockDown :call repeat#set("\<Plug>MoveBlockDown", v:count)<CR>
+vmap <silent> <leader>k <Plug>MoveBlockUp :call repeat#set("\<Plug>MoveBlockUp", v:count)<CR>
+nmap <silent> <leader>j <Plug>MoveLineDown :call repeat#set("\<Plug>MoveLineDown", v:count)<CR>
+nmap <silent> <leader>k <Plug>MoveLineUp :call repeat#set("\<Plug>MoveLineUp", v:count)<CR>
