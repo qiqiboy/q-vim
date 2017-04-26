@@ -209,9 +209,11 @@ augroup customAutocmd
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
 augroup END
 
+" airline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
+" minibufexplorer
 hi MBENormal               guifg=#928374 guibg=fg
 hi MBEChanged              guifg=#CD5907 guibg=fg
 hi MBEVisibleNormal        guifg=#8ec07c guibg=fg
@@ -233,6 +235,7 @@ noremap <C-S-TAB> :MBEbp<CR>
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
 
+" YCM
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_min_num_identifier_candidate_chars = 0
 let g:ycm_use_ultisnips_completer = 1
@@ -248,6 +251,7 @@ nnoremap <leader>w :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>wr :YcmCompleter GoToReferences<CR>
 nnoremap <leader>wd :YcmCompleter GetDoc<CR>
 
+" vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_prev_key='<C-p>'
 let g:multi_cursor_next_key='<C-n>'
@@ -296,6 +300,7 @@ let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 " ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+let g:ctrlp_tilde_homedir = 1
 let g:ctrlp_map = '<leader>p'
 nnoremap <Leader>pr :CtrlPMRU<Cr>
 nnoremap <Leader>pm :CtrlPMixed<Cr>
@@ -307,6 +312,7 @@ let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
 
+" CtrlSF
 nnoremap <Leader>sf :CtrlSF<space>
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_mapping = {
