@@ -167,6 +167,7 @@ call vundle#begin()
  Bundle 'mhinz/vim-startify'
  Bundle 'matze/vim-move'
  Bundle 'tommcdo/vim-exchange'
+ Bundle 'AndrewRadev/sideways.vim'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -477,7 +478,11 @@ let g:startify_custom_header = s:filter_header(g:start_header)
 
 " vim-move
 let g:move_map_keys = 0
-vmap <silent> <leader>j <Plug>MoveBlockDown :call repeat#set("\<Plug>MoveBlockDown", v:count)<CR>
-vmap <silent> <leader>k <Plug>MoveBlockUp :call repeat#set("\<Plug>MoveBlockUp", v:count)<CR>
-nmap <silent> <leader>j <Plug>MoveLineDown :call repeat#set("\<Plug>MoveLineDown", v:count)<CR>
-nmap <silent> <leader>k <Plug>MoveLineUp :call repeat#set("\<Plug>MoveLineUp", v:count)<CR>
+vmap <silent> <leader>j <Plug>MoveBlockDown :call repeat#set("\<leader>j", v:count)<CR>
+vmap <silent> <leader>k <Plug>MoveBlockUp :call repeat#set("\<leader>k", v:count)<CR>
+nmap <silent> <leader>j <Plug>MoveLineDown :call repeat#set("\<leader>j", v:count)<CR>
+nmap <silent> <leader>k <Plug>MoveLineUp :call repeat#set("\<leader>k", v:count)<CR>
+
+" sideways.vim
+nnoremap <silent> <leader>h :SidewaysLeft<cr>
+nnoremap <silent> <leader>l :SidewaysRight<cr>
