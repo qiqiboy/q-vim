@@ -299,9 +299,9 @@ let g:ctrlp_map = '<leader>p'
 nnoremap <Leader>pr :CtrlPMRU<Cr>
 nnoremap <Leader>pm :CtrlPMixed<Cr>
 nnoremap <Leader>pb :CtrlPBuffer<Cr>
-
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+nnoremap <Space> :CtrlP<Cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['funky']
