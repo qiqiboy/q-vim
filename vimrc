@@ -168,6 +168,7 @@ call vundle#begin()
  Bundle 'matze/vim-move'
  Bundle 'tommcdo/vim-exchange'
  Bundle 'AndrewRadev/sideways.vim'
+ Bundle 'leafgarland/typescript-vim'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
