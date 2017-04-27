@@ -85,7 +85,9 @@ set pumheight=20
 
 set formatoptions+=j              " Delete comment character when joining commented lines
 set wildmenu
-set wildignore=*.un~,*.pyc,*.zip,*.rar,*.dll,*.dmg
+set wildignore+=*.un~,*.pyc,*.zip,*.rar,*.dll,*.dmg
+set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.svg,*.ico
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/bower_components/*
 
 set t_Co=256
 
@@ -305,12 +307,16 @@ let g:ctrlp_map = '<leader>p'
 nnoremap <Leader>pr :CtrlPMRU<Cr>
 nnoremap <Leader>pm :CtrlPMixed<Cr>
 nnoremap <Leader>pb :CtrlPBuffer<Cr>
+nnoremap <Leader>pl :CtrlPLine<Cr>
+nnoremap <Leader>pu :CtrlPUndo<Cr>
+nnoremap <Leader>pc :CtrlPChange<Cr>
+nnoremap <Leader>pq :CtrlPQuickfix<Cr>
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 nnoremap <Space> :CtrlP<Cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_extensions = ['funky']
+let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
 
 " CtrlSF
 nnoremap <Leader>sf :CtrlSF<space>
