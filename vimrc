@@ -406,6 +406,7 @@ let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepWindowPosition = 'botright'
 let g:EasyGrepRoot = 'search:.git,.svn,.hg'
 let g:EasyGrepFilesToExclude = '.svn,.git,.hg,node_modules,bower_components,dist,build,buildDev,images,*.swp,*~,*.pyc'
+nnoremap <Leader>vc :Grep 
 
 " matchTagAlways
 let g:mta_filetypes = {
