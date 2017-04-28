@@ -360,7 +360,7 @@ let g:javascript_plugin_ngdoc = 1
 let g:mwDefaultHighlightingPalette = 'maximum'
 nmap m <Plug>MarkSearchOrCurNext
 nmap M <Plug>MarkSearchOrCurPrev
-nmap <Leader>c :nohl<cr> <Plug>MarkAllClear
+nmap <Leader>c :nohl<cr><Plug>MarkAllClear
 
 nnoremap <Leader>gs :Gstatus<cr>
 nnoremap <Leader>gd :Gdiff<cr>
@@ -440,6 +440,9 @@ let g:airline#extensions#ale#error_symbol = g:ale_sign_error . ' '
 let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
 hi ALEErrorSign ctermfg=196 ctermbg=NONE guifg=#af005f guibg=NONE
 hi ALEWarningSign ctermfg=220 ctermbg=NONE guifg=#ff8700 guibg=NONE
+
+" ale tslint
+let g:ale_typescript_tslint_config_path = '~/.tslint.json'
 
 " ListToggle
 let g:lt_quickfix_list_toggle_map = '<f2>'
