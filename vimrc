@@ -317,6 +317,7 @@ nnoremap <Space> :CtrlP<Cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
+let g:ctrlp_match_window = 'results:50'
 
 " CtrlSF
 nnoremap <Leader>sf :CtrlSF<space>
