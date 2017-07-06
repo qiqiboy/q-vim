@@ -320,7 +320,10 @@ let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
 let g:ctrlp_match_window = 'results:50'
 
 " CtrlSF
-nnoremap <Leader>sf :CtrlSF<space>
+nmap <Leader>sf <Plug>CtrlSFPrompt
+vmap <leader>sw <Plug>CtrlSFVwordExec
+nmap <leader>st :CtrlSFToggle<CR>
+nmap <leader>sw :execute 'CtrlSF ' . expand('<cword>')<Cr>
 let g:ctrlsf_default_root = 'project'
 let g:ctrlsf_mapping = {
     \ 'next': 'n',
