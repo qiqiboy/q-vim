@@ -282,7 +282,7 @@ nmap <Leader><Leader>k <Plug>(easymotion-k)
 nmap <Leader><Leader>h <Plug>(easymotion-b)
 
 " vim-trailing-whitespace
-map <leader><space> :FixWhitespace<cr>
+map <leader><space> :FixWhitespace<CR>
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
@@ -304,16 +304,16 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_tilde_homedir = 1
 let g:ctrlp_map = '<leader>p'
-nnoremap <Leader>pr :CtrlPMRU<Cr>
-nnoremap <Leader>pm :CtrlPMixed<Cr>
-nnoremap <Leader>pb :CtrlPBuffer<Cr>
-nnoremap <Leader>pl :CtrlPLine<Cr>
-nnoremap <Leader>pu :CtrlPUndo<Cr>
-nnoremap <Leader>pc :CtrlPChange<Cr>
-nnoremap <Leader>pq :CtrlPQuickfix<Cr>
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-nnoremap <Space> :CtrlP<Cr>
+nnoremap <Leader>pr :CtrlPMRU<CR>
+nnoremap <Leader>pm :CtrlPMixed<CR>
+nnoremap <Leader>pb :CtrlPBuffer<CR>
+nnoremap <Leader>pl :CtrlPLine<CR>
+nnoremap <Leader>pu :CtrlPUndo<CR>
+nnoremap <Leader>pc :CtrlPChange<CR>
+nnoremap <Leader>pq :CtrlPQuickfix<CR>
+nnoremap <Leader>fu :CtrlPFunky<CR>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
+nnoremap <Space> :CtrlP<CR>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
@@ -323,30 +323,30 @@ let g:ctrlp_match_window = 'results:50'
 nmap <Leader>sf <Plug>CtrlSFPrompt
 vmap <leader>sw <Plug>CtrlSFVwordExec
 nmap <leader>st :CtrlSFToggle<CR>
-nmap <leader>sw :execute 'CtrlSF ' . expand('<cword>')<Cr>
-let g:ctrlsf_default_root = 'project'
+nmap <leader>sw :execute 'CtrlSF ' . expand('<cword>')<CR>
+let g:ctrlsf_default_root = 'project+fw'
 let g:ctrlsf_mapping = {
     \ 'next': 'n',
     \ 'prev': 'N',
     \ }
 let g:ctrlsf_position = 'bottom'
-let g:ctrlsf_winsize = '100'
+let g:ctrlsf_winsize = '50%'
 
 let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 
 augroup jsbeautify
   autocmd!
-  autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<cr>
-  autocmd FileType html,htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<cr>
-  autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<cr>
-  autocmd FileType javascript.jsx noremap <buffer> <leader>b :call JsxBeautify()<cr>
-  autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<cr>
+  autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<CR>
+  autocmd FileType html,htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
+  autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<CR>
+  autocmd FileType javascript.jsx noremap <buffer> <leader>b :call JsxBeautify()<CR>
+  autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<CR>
 
-  autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<cr>
-  autocmd FileType html,htmldjango vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<cr>
-  autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<cr>
-  autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<cr>
-  autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<cr>
+  autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<CR>
+  autocmd FileType html,htmldjango vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<CR>
+  autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<CR>
+  autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<CR>
+  autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<CR>
 augroup END
 
 " NERDTree
@@ -354,7 +354,7 @@ let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
-noremap <f5> :NERDTreeFind<cr>
+noremap <f5> :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "autocmd vimEnter * NERDTree
 
@@ -364,17 +364,17 @@ let g:javascript_plugin_ngdoc = 1
 let g:mwDefaultHighlightingPalette = 'maximum'
 nmap m <Plug>MarkSearchOrCurNext
 nmap M <Plug>MarkSearchOrCurPrev
-nmap <Leader>c :nohl<cr><Plug>MarkAllClear
+nmap <Leader>c :nohl<CR><Plug>MarkAllClear
 
-nnoremap <Leader>gs :Gstatus<cr>
-nnoremap <Leader>gd :Gdiff<cr>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gc :Gcommit -m""
-nnoremap <Leader>gb :Gblame<cr>
+nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :Glog
-nnoremap <Leader>gp :Gpush<cr>
-nnoremap <Leader>gpp :Gpull<cr>
+nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gpp :Gpull<CR>
 
-nnoremap <F4> :UndotreeToggle<cr>
+nnoremap <F4> :UndotreeToggle<CR>
 if !exists('g:undotree_WindowLayout')
     let g:undotree_WindowLayout = 3
 endif
@@ -506,5 +506,5 @@ nmap <silent> <leader>j <Plug>MoveLineDown:call repeat#set("\<leader>j", v:count
 nmap <silent> <leader>k <Plug>MoveLineUp:call repeat#set("\<leader>k", v:count)<CR>
 
 " sideways.vim
-nnoremap <silent> <leader>h :SidewaysLeft<cr>
-nnoremap <silent> <leader>l :SidewaysRight<cr>
+nnoremap <silent> <leader>h :SidewaysLeft<CR>
+nnoremap <silent> <leader>l :SidewaysRight<CR>
