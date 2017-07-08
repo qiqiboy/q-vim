@@ -16,7 +16,7 @@ set guifont=Fantasque\ Sans\ Mono:h14
 set linespace=3
 
 set tags=tags;
-set autochdir
+"set autochdir
 set hidden
 
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)
