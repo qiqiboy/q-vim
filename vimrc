@@ -89,6 +89,8 @@ set wildignore+=*.un~,*.pyc,*.zip,*.rar,*.dll,*.dmg
 set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.svg,*.ico
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/bower_components/*
 
+set grepprg=ag\ --nocolor\ --nogroup\ --column
+
 set t_Co=256
 
 " if has("persistent_undo")
@@ -409,7 +411,7 @@ let g:EasyGrepRecursive = 1
 let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepWindowPosition = 'botright'
 let g:EasyGrepRoot = 'search:.git,.svn,.hg'
-let g:EasyGrepFilesToExclude = '.svn,.git,.hg,node_modules,bower_components,dist,build,buildDev,images,*.swp,*~,*.pyc'
+let g:EasyGrepFilesToExclude = ''
 nnoremap <Leader>vc :Grep 
 
 " matchTagAlways
