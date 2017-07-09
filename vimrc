@@ -210,6 +210,7 @@ augroup customAutocmd
   au BufNewFile,BufRead .tern-project setf json
   au FileType json,vim setlocal shiftwidth=2 softtabstop=2
   au FileType html,css,sass,scss,less,php,javascript EmmetInstall
+  au FileType javascript UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
 augroup END
 
