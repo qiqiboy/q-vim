@@ -52,7 +52,14 @@ my vim config. 来自一个前端开发码农的vim配置方案。
  * `mac osx`（其它平台没测试，部分功能可能会有问题）
  * `vim8+`（否则无法使用`ale`代码检查功能）
  * `node6+`、`npm2+`、`ternjs`、`typescript`、`eslint`、`tslint`等
- * `ag`(the silver searcher)
+    ```
+    brew install node
+    npm install -g tern eslint tslint typescript
+    ```
+ * `ag`(the silver searcher) 
+    ```
+    brew install the_silver_searcher
+    ```
  * 安装 `FantasqueSansMono` 字体（如果不安装，需要修改第 15 行， 改为 `set guifont=monoca`）
 
 ##### 安装

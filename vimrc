@@ -324,9 +324,10 @@ let g:ctrlp_match_window = 'results:50'
 
 " CtrlSF
 nmap <Leader>sf <Plug>CtrlSFPrompt
+vmap <Leader>sf <Plug>CtrlSFVwordPath
+nmap <leader>sw <Plug>CtrlSFCwordPath<CR>
 vmap <leader>sw <Plug>CtrlSFVwordExec
 nmap <leader>st :CtrlSFToggle<CR>
-nmap <leader>sw :execute 'CtrlSF ' . expand('<cword>')<CR>
 let g:ctrlsf_default_root = 'project+fw'
 let g:ctrlsf_mapping = {
     \ 'next': 'n',
@@ -339,13 +340,13 @@ let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 
 augroup jsbeautify
   autocmd!
-  autocmd FileType javascript noremap <buffer>  <leader>b :call JsBeautify()<CR>
+  autocmd FileType javascript noremap <buffer> <leader>b :call JsBeautify()<CR>
   autocmd FileType html,htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
   autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<CR>
   autocmd FileType javascript.jsx noremap <buffer> <leader>b :call JsxBeautify()<CR>
   autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<CR>
 
-  autocmd FileType javascript vnoremap <buffer>  <leader>b :call RangeJsBeautify()<CR>
+  autocmd FileType javascript vnoremap <buffer> <leader>b :call RangeJsBeautify()<CR>
   autocmd FileType html,htmldjango vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<CR>
   autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<CR>
   autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<CR>
