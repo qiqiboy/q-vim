@@ -16,7 +16,6 @@ set guifont=Fantasque\ Sans\ Mono:h14
 set linespace=3
 
 set tags=tags;
-"set autochdir
 set hidden
 
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)
@@ -45,7 +44,7 @@ set hlsearch
 set incsearch
 
 set showmatch                   " 显示括号配对情况
-set paste                       " 支持外部复制(好像不管用)
+set nopaste
 set clipboard+=unnamed          " 与windows共享剪贴板
 
 set history=99                  " keep 99 lines of command history
@@ -185,8 +184,6 @@ call vundle#begin()
  Bundle 'nanotech/jellybeans.vim'
 
 call vundle#end()
-
-let g:solarized_termcolors=256
 
 filetype on
 filetype plugin on
