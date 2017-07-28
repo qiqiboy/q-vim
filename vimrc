@@ -107,13 +107,21 @@ else
   runtime! macros/matchit.vim
 endif
 
-nmap <tab> %
-vmap <tab> %
+" some enhance map
+cnoremap Q q
+noremap K kJ
+noremap H ^
+noremap L $
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>w :x<CR>
+nnoremap U <C-r>
+nnoremap <tab> %
+vnoremap <tab> %
 inoremap <C-tab> <c-x><c-o>
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
