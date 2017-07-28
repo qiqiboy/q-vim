@@ -113,7 +113,7 @@ noremap K kJ
 noremap H ^
 noremap L $
 nnoremap <leader>q :q!<CR>
-nnoremap <leader>w :x<CR>
+nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
 nnoremap <tab> %
 vnoremap <tab> %
