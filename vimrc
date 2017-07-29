@@ -112,6 +112,7 @@ cnoremap Q q
 noremap K kJ
 noremap H ^
 noremap L $
+noremap ; :
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
