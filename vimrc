@@ -225,12 +225,12 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 " minibufexplorer
-hi MBENormal               guifg=#928374 guibg=fg
-hi MBEChanged              guifg=#CD5907 guibg=fg
-hi MBEVisibleNormal        guifg=#8ec07c guibg=fg
-hi MBEVisibleChanged       guifg=#CC241D guibg=fg
-hi MBEVisibleActiveNormal  guifg=#AFD700 guibg=fg
-hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
+hi MBENormal               guifg=#928374 guibg=fg ctermfg=244
+hi MBEChanged              guifg=#CD5907 guibg=fg ctermfg=208
+hi MBEVisibleNormal        guifg=#8ec07c guibg=fg ctermfg=72
+hi MBEVisibleChanged       guifg=#CC241D guibg=fg ctermfg=124
+hi MBEVisibleActiveNormal  guifg=#AFD700 guibg=fg ctermfg=142
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg ctermfg=167
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplSplitToEdge = 1
 let g:miniBufExplCycleArround = 1
