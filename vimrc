@@ -181,6 +181,7 @@ call vundle#begin()
  Bundle 'tommcdo/vim-exchange'
  Bundle 'AndrewRadev/sideways.vim'
  Bundle 'leafgarland/typescript-vim'
+ Bundle 'terryma/vim-smooth-scroll'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -520,3 +521,14 @@ nmap <silent> <leader>k <Plug>MoveLineUp:call repeat#set("\<leader>k", v:count)<
 " sideways.vim
 nnoremap <silent> <leader>h :SidewaysLeft<CR>
 nnoremap <silent> <leader>l :SidewaysRight<CR>
+
+" vim-smooth-scroll
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
+if !has('gui_running')
+  noremap <ScrollWheelUp> :call smooth_scroll#up(3, 0, 2)<CR>
+  noremap <ScrollWheelDown> :call smooth_scroll#down(3, 0, 2)<CR>
+endif
