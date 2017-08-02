@@ -107,12 +107,13 @@ else
   runtime! macros/matchit.vim
 endif
 
-" some enhance map
+" some enhanced mapping
 cnoremap Q q
 noremap K kJ
 noremap H ^
 noremap L $
 noremap ; :
+nnoremap Q :qa!<CR>
 nnoremap <leader>q :q!<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
