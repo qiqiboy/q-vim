@@ -514,8 +514,8 @@ let g:startify_custom_header = s:filter_header(g:start_header)
 
 " vim-move
 let g:move_map_keys = 0
-vmap <silent> <leader>j <Plug>MoveBlockDown:call repeat#set("\<leader>j", v:count)<CR>
-vmap <silent> <leader>k <Plug>MoveBlockUp:call repeat#set("\<leader>k", v:count)<CR>
+vmap <silent> <leader>j <Plug>MoveBlockDown:call repeat#set("gv\<leader>j", v:count)<CR>
+vmap <silent> <leader>k <Plug>MoveBlockUp:call repeat#set("gv\<leader>k", v:count)<CR>
 nmap <silent> <leader>j <Plug>MoveLineDown:call repeat#set("\<leader>j", v:count)<CR>
 nmap <silent> <leader>k <Plug>MoveLineUp:call repeat#set("\<leader>k", v:count)<CR>
 
