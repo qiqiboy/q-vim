@@ -238,9 +238,7 @@ let g:miniBufExplSplitToEdge = 1
 let g:miniBufExplCycleArround = 1
 let g:miniBufExplBuffersNeeded = 1
 let g:miniBufExplShowBufNumbers = 0
-if has('gui_running')
-    let g:did_minibufexplorer_syntax_inits = 1
-endif
+let g:did_minibufexplorer_syntax_inits = 1
 noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 
