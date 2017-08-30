@@ -114,7 +114,7 @@ noremap H ^
 noremap L $
 noremap ; :
 nnoremap Q :qa!<CR>
-nnoremap <leader>q :q!<CR>
+nnoremap <leader>q :MBEbw<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
 nnoremap <tab> %
