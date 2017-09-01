@@ -57,6 +57,8 @@ set guioptions-=m               " 把gui的菜单栏去掉
 set guioptions-=b
 set shortmess=atI               " 启动的时候不显示援助索马里儿童的提示(是I而不是L)
 
+set signcolumn=yes
+
 set completeopt=longest,menu
 set ruler
 set cursorline
@@ -114,7 +116,7 @@ noremap H ^
 noremap L $
 noremap ; :
 nnoremap Q :qa!<CR>
-nnoremap <leader>q :MBEbw<CR>
+nnoremap <leader>q :MBEbw!<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
 nnoremap <tab> %
@@ -389,7 +391,6 @@ if !exists('g:undotree_WindowLayout')
     let g:undotree_WindowLayout = 3
 endif
 
-let g:gitgutter_sign_column_always = 1
 let g:gitgutter_override_sign_column_highlight = 0
 "let g:gitgutter_max_signs = 1000
 
