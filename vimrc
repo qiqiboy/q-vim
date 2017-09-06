@@ -144,7 +144,7 @@ call vundle#begin()
  Bundle 'tpope/vim-haml'
  Bundle 'rstacruz/vim-hyperstyle'
  Bundle 'genoma/vim-less'
- Bundle 'Raimondi/delimitMate'
+ Bundle 'jiangmiao/auto-pairs'
  Bundle 'hail2u/vim-css3-syntax'
  Bundle 'othree/html5.vim'
  Bundle 'docunext/closetag.vim'
@@ -243,10 +243,6 @@ let g:miniBufExplShowBufNumbers = 0
 let g:did_minibufexplorer_syntax_inits = 1
 noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
-
-"delimitMate
-let g:delimitMate_expand_cr = 1
-let g:delimitMate_expand_space = 1
 
 " YCM
 let g:ycm_min_num_of_chars_for_completion = 1
