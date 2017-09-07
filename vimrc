@@ -190,11 +190,10 @@ call vundle#begin()
  endif
 
  """"""""themes"""""""""""""""
- Bundle 'altercation/vim-colors-solarized'
- Bundle 'chriskempson/vim-tomorrow-theme'
  Bundle 'morhetz/gruvbox'
  Bundle 'NLKNguyen/papercolor-theme'
  Bundle 'nanotech/jellybeans.vim'
+ Bundle 'rakr/vim-one'
 
 call vundle#end()
 
@@ -243,6 +242,10 @@ let g:miniBufExplShowBufNumbers = 0
 let g:did_minibufexplorer_syntax_inits = 1
 noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
+
+"auto-pair
+let g:AutoPairsShortcutFastWrap = '<C-e>'
+let g:AutoPairsShortcutJump = '<C-a>'
 
 " YCM
 let g:ycm_min_num_of_chars_for_completion = 1
