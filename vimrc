@@ -259,9 +259,10 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_semantic_triggers =  {
   \   'css,less,sass,scss' : ['-', 're!:\s*']
   \ }
-nnoremap <leader>w :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <leader>wr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>w :YcmCompleter GoTo<CR>
+nnoremap <leader>ww :YcmCompleter GoToReferences<CR>
 nnoremap <leader>wd :YcmCompleter GetDoc<CR>
+nnoremap <leader>wr :YcmCompleter RefactorRename 
 
 " vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
@@ -365,7 +366,7 @@ let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
-noremap <f5> :NERDTreeFind<CR>
+noremap <F5> :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "autocmd vimEnter * NERDTree
 
