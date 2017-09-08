@@ -463,8 +463,8 @@ hi ALEWarningSign ctermfg=220 ctermbg=NONE guifg=#ff8700 guibg=NONE
 let g:ale_typescript_tslint_config_path = '~/.tslint.json'
 
 " ListToggle
-let g:lt_quickfix_list_toggle_map = '<f2>'
-let g:lt_location_list_toggle_map = '<f3>'
+let g:lt_quickfix_list_toggle_map = '<F2>'
+let g:lt_location_list_toggle_map = '<F3>'
 let g:lt_height = 10
 
 " startify
@@ -501,7 +501,7 @@ let g:start_header = [
           \'',
           \ repeat(' ', 6) . repeat('=', 100)
           \]
-hi StartifyHeader ctermfg=172 guifg=#D79926
+hi link StartifyHeader StartifySection
 
 function! s:filter_header(lines) abort
     let l:longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
