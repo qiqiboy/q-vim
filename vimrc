@@ -116,7 +116,6 @@ noremap H ^
 noremap L $
 noremap ; :
 nnoremap Q :qa!<CR>
-nnoremap <leader>q :MBEbw!<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
 nnoremap <tab> %
@@ -242,6 +241,15 @@ let g:miniBufExplShowBufNumbers = 0
 let g:did_minibufexplorer_syntax_inits = 1
 noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
+nnoremap <leader>q :call s:CloseOrQuitBuffer()<CR>
+function! s:CloseOrQuitBuffer()
+   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+   if l:buf_num > 1
+     exec ':MBEbw!'
+   else
+      exec 'q!'
+    endif
+endfunction
 
 "auto-pair
 let g:AutoPairsShortcutFastWrap = '<C-e>'
