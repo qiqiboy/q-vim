@@ -243,12 +243,12 @@ noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
-   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
-   if l:buf_num > 1
-     exec ':MBEbw!'
-   else
-      exec 'q!'
-    endif
+  let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && bufname(v:val) != ""'))
+  if l:buf_num > 1
+    exec ':MBEbw!'
+  else
+    exec 'qa!'
+  endif
 endfunction
 
 "auto-pair
