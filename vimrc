@@ -241,8 +241,8 @@ let g:miniBufExplShowBufNumbers = 0
 let g:did_minibufexplorer_syntax_inits = 1
 noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
-nnoremap <leader>q :call s:CloseOrQuitBuffer()<CR>
-function! s:CloseOrQuitBuffer()
+nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
+function! <SID>CloseOrQuitBuffer()
    let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
    if l:buf_num > 1
      exec ':MBEbw!'
