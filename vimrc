@@ -247,7 +247,7 @@ function! <SID>CloseOrQuitBuffer()
   if l:buf_num > 1
     exec ':MBEbw!'
   else
-    exec 'qa!'
+    exec 'q!'
   endif
 endfunction
 
@@ -373,6 +373,9 @@ augroup END
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeChDirMode = 2
+let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
 noremap <F5> :NERDTreeFind<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
