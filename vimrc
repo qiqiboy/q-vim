@@ -184,6 +184,7 @@ call vundle#begin()
  Bundle 'AndrewRadev/sideways.vim'
  Bundle 'leafgarland/typescript-vim'
  Bundle 'terryma/vim-smooth-scroll'
+ Bundle 'wellle/targets.vim'
  if v:version >= 800
  Bundle 'w0rp/ale'
  endif
@@ -243,8 +244,9 @@ noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
-  let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && bufname(v:val) != ""'))
-  if l:buf_num > 1
+  let l:buftype = getbufvar('%', '&bt')
+  let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && !empty(bufname(v:val))'))
+  if empty(l:buftype) && l:buf_num > 1
     exec ':MBEbw!'
   else
     exec 'q!'
