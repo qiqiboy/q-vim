@@ -221,6 +221,7 @@ augroup customAutocmd
   au FileType html,css,sass,scss,less,php,javascript EmmetInstall
   au FileType javascript UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
+  au bufenter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 augroup END
 
 " airline
@@ -244,9 +245,8 @@ noremap <C-TAB>   :MBEbn<CR>
 noremap <C-S-TAB> :MBEbp<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
-  let l:buftype = getbufvar('%', '&bt')
   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && !empty(bufname(v:val))'))
-  if empty(l:buftype) && l:buf_num > 1
+  if empty(&buftype) && l:buf_num > 1
     exec ':MBEbw!'
   else
     exec 'q!'
@@ -380,17 +380,20 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
 noremap <F5> :NERDTreeFind<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" 启动vim自动打开 nerdtree
 "autocmd vimEnter * NERDTree
 
+" vim-javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
+" vim-mark
 let g:mwDefaultHighlightingPalette = 'maximum'
 nmap m <Plug>MarkSearchOrCurNext
 nmap M <Plug>MarkSearchOrCurPrev
 nmap <Leader>c :nohl<CR><Plug>MarkAllClear
 
+" vim-gitgutter
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gc :Gcommit -m""
@@ -399,13 +402,14 @@ nnoremap <Leader>gl :Glog
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gpp :Gpull<CR>
 
+let g:gitgutter_override_sign_column_highlight = 0
+"let g:gitgutter_max_signs = 1000
+
+" vim-undotree
 nnoremap <F4> :UndotreeToggle<CR>
 if !exists('g:undotree_WindowLayout')
     let g:undotree_WindowLayout = 3
 endif
-
-let g:gitgutter_override_sign_column_highlight = 0
-"let g:gitgutter_max_signs = 1000
 
 " markdown-preview
 let g:mkdp_auto_start = 1
