@@ -115,6 +115,7 @@ noremap K kJ
 noremap H ^
 noremap L $
 noremap ; :
+nnoremap <cr> o<esc>
 nnoremap Q :qa!<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
@@ -221,7 +222,7 @@ augroup customAutocmd
   au FileType html,css,sass,scss,less,php,javascript EmmetInstall
   au FileType javascript UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
-  au bufenter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+  au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 augroup END
 
 " airline
