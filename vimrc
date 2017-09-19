@@ -94,6 +94,13 @@ set grepprg=ag\ --nocolor\ --nogroup\ --column
 
 set t_Co=256
 
+filetype on
+filetype plugin on
+filetype plugin indent on
+
+syntax enable
+syntax on
+
 " if has("persistent_undo")
 "    set undodir = ~/.undodir/
 " endif
@@ -127,83 +134,72 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
- "let Vundle manage Vundle, required
- Plugin 'gmarik/Vundle.vim'
-
- Bundle 'fholgado/minibufexpl.vim'
- Bundle 'Valloric/YouCompleteMe'
- Bundle 'vim-airline/vim-airline'
- Bundle 'vim-airline/vim-airline-themes'
- Bundle 'ctrlpvim/ctrlp.vim'
- Bundle 'godlygeek/tabular'
- Bundle 'terryma/vim-multiple-cursors'
- Bundle 'ap/vim-css-color'
- Bundle 'tpope/vim-haml'
- Bundle 'rstacruz/vim-hyperstyle'
- Bundle 'genoma/vim-less'
- Bundle 'jiangmiao/auto-pairs'
- Bundle 'hail2u/vim-css3-syntax'
- Bundle 'othree/html5.vim'
- Bundle 'docunext/closetag.vim'
- Bundle 'Valloric/MatchTagAlways'
- Bundle 'easymotion/vim-easymotion'
- Bundle 'terryma/vim-expand-region'
- Bundle 'tpope/vim-surround'
- Bundle 'tpope/vim-repeat'
- Bundle 'bronson/vim-trailing-whitespace'
- Bundle 'epilande/vim-es2015-snippets'
- Bundle 'epilande/vim-react-snippets'
- Bundle 'SirVer/ultisnips'
- Bundle 'honza/vim-snippets'
- Bundle 'jceb/emmet.snippets'
- Bundle 'tacahiroy/ctrlp-funky'
- Bundle 'dyng/ctrlsf.vim'
- Bundle 'pangloss/vim-javascript'
- Bundle 'othree/javascript-libraries-syntax.vim'
- Bundle 'maksimr/vim-jsbeautify'
- Bundle 'Yggdroot/vim-mark'
- Bundle 'scrooloose/nerdtree'
- Bundle 'Xuyuanp/nerdtree-git-plugin'
- Bundle 'airblade/vim-gitgutter'
- Bundle 'tpope/vim-fugitive'
- Bundle 'iamcco/markdown-preview.vim'
- Bundle 'Yggdroot/indentLine'
- Bundle 'elzr/vim-json'
- Bundle 'dkprice/vim-easygrep'
- Bundle 'mbbill/undotree'
- Bundle 'mattn/emmet-vim'
- Bundle 'neoclide/vim-jsx-improve'
- Bundle 'scrooloose/nerdcommenter'
- Bundle 'ivyl/vim-bling'
- Bundle 'Valloric/ListToggle'
- Bundle 'mhinz/vim-startify'
- Bundle 'matze/vim-move'
- Bundle 'tommcdo/vim-exchange'
- Bundle 'AndrewRadev/sideways.vim'
- Bundle 'leafgarland/typescript-vim'
- Bundle 'terryma/vim-smooth-scroll'
- Bundle 'wellle/targets.vim'
+ Plug 'fholgado/minibufexpl.vim'
+ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+ Plug 'ctrlpvim/ctrlp.vim'
+ Plug 'godlygeek/tabular'
+ Plug 'terryma/vim-multiple-cursors'
+ Plug 'ap/vim-css-color'
+ Plug 'tpope/vim-haml'
+ Plug 'rstacruz/vim-hyperstyle'
+ Plug 'genoma/vim-less'
+ Plug 'jiangmiao/auto-pairs'
+ Plug 'hail2u/vim-css3-syntax'
+ Plug 'othree/html5.vim'
+ Plug 'docunext/closetag.vim'
+ Plug 'Valloric/MatchTagAlways'
+ Plug 'easymotion/vim-easymotion'
+ Plug 'terryma/vim-expand-region'
+ Plug 'tpope/vim-surround'
+ Plug 'tpope/vim-repeat'
+ Plug 'bronson/vim-trailing-whitespace'
+ Plug 'epilande/vim-es2015-snippets'
+ Plug 'epilande/vim-react-snippets'
+ Plug 'SirVer/ultisnips'
+ Plug 'honza/vim-snippets'
+ Plug 'jceb/emmet.snippets'
+ Plug 'tacahiroy/ctrlp-funky'
+ Plug 'dyng/ctrlsf.vim'
+ Plug 'pangloss/vim-javascript'
+ Plug 'othree/javascript-libraries-syntax.vim'
+ Plug 'maksimr/vim-jsbeautify'
+ Plug 'Yggdroot/vim-mark'
+ Plug 'scrooloose/nerdtree'
+ Plug 'Xuyuanp/nerdtree-git-plugin'
+ Plug 'airblade/vim-gitgutter'
+ Plug 'tpope/vim-fugitive'
+ Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+ Plug 'Yggdroot/indentLine'
+ Plug 'elzr/vim-json'
+ Plug 'dkprice/vim-easygrep'
+ Plug 'mbbill/undotree'
+ Plug 'mattn/emmet-vim'
+ Plug 'neoclide/vim-jsx-improve'
+ Plug 'scrooloose/nerdcommenter'
+ Plug 'ivyl/vim-bling'
+ Plug 'Valloric/ListToggle'
+ Plug 'mhinz/vim-startify'
+ Plug 'matze/vim-move'
+ Plug 'tommcdo/vim-exchange'
+ Plug 'AndrewRadev/sideways.vim'
+ Plug 'leafgarland/typescript-vim'
+ Plug 'terryma/vim-smooth-scroll'
+ Plug 'wellle/targets.vim'
  if v:version >= 800
- Bundle 'w0rp/ale'
+ Plug 'w0rp/ale'
  endif
 
  """"""""themes"""""""""""""""
- Bundle 'morhetz/gruvbox'
- Bundle 'NLKNguyen/papercolor-theme'
- Bundle 'nanotech/jellybeans.vim'
- Bundle 'rakr/vim-one'
+ Plug 'morhetz/gruvbox'
+ Plug 'NLKNguyen/papercolor-theme'
+ Plug 'nanotech/jellybeans.vim'
+ Plug 'rakr/vim-one'
 
-call vundle#end()
-
-filetype on
-filetype plugin on
-filetype plugin indent on
-
-syntax enable
-syntax on
+call plug#end()
 
 "let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_sign_column = 'dark0'
