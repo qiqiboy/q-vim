@@ -63,10 +63,10 @@ my vim config. 来自一个前端开发码农的vim配置方案。
  * 安装 `FantasqueSansMono` 字体（如果不安装，需要修改第 15 行， 改为 `set guifont=monoca`）
 
 ##### 安装
- * 安装好 `Vundle` 
+ * 安装好 `vim-plug` 
  * 将 vimrc 里内容复制到你的 `~/.vimrc` 或者 `~/.vim/vimrc` 里
- * 执行 `BundleInstall`
- * 进入到 `~/.vim/bundle/YouCompleteMe` 目录，执行 `./install.py --tern-completer` 编译ycm
+ * 执行 `:PlugInstall`
+ * ~~进入到 `~/.vim/plugged/YouCompleteMe` 目录，执行 `./install.py --tern-completer` 编译ycm~~ Plug插件支持自动执行编译，如果失败再按照该方式手动编译ycm插件
 
 
 ### 截图 & Screenshots
