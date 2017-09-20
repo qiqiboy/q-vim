@@ -172,7 +172,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
  Plug 'Yggdroot/indentLine'
  Plug 'elzr/vim-json', { 'for': 'json' }
- Plug 'dkprice/vim-easygrep', { 'on': ['<plug>EgMapGrep', 'Grep', 'Replace'] }
+ Plug 'dkprice/vim-easygrep', { 'on': ['<plug>EgMap', 'Grep', 'Replace'] }
  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
  Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
  Plug 'jceb/emmet.snippets', { 'on': 'EmmetInstall' }
@@ -439,13 +439,13 @@ let g:EasyGrepRoot = 'search:.git,.svn,.hg'
 let g:EasyGrepFilesToExclude = ''
 let g:EasyGrepDefaultUserPattern = '*.js,*.scss'
 nmap <silent> <leader>vc :Grep 
-map <silent> <Leader>vo <plug>EgMapGrepOptions
-map <silent> <Leader>vv <plug>EgMapGrepCurrentWord_v
-vmap <silent> <Leader>vv <plug>EgMapGrepSelection_v
-map <silent> <Leader>va <plug>EgMapGrepCurrentWord_a
-vmap <silent> <Leader>va <plug>EgMapGrepSelection_a
-map <silent> <Leader>vr <plug>EgMapReplaceCurrentWord_r
-vmap <silent> <Leader>vr <plug>EgMapReplaceSelection_r
+map <silent> <leader>vo <plug>EgMapGrepOptions
+map <silent> <leader>vv <plug>EgMapGrepCurrentWord_v
+vmap <silent> <leader>vv <plug>EgMapGrepSelection_v
+map <silent> <leader>va <plug>EgMapGrepCurrentWord_a
+vmap <silent> <leader>va <plug>EgMapGrepSelection_a
+map <silent> <leader>vr <plug>EgMapReplaceCurrentWord_r
+vmap <silent> <leader>vr <plug>EgMapReplaceSelection_r
 
 " matchTagAlways
 let g:mta_filetypes = {
