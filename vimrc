@@ -88,7 +88,7 @@ set wildignore+=*.un~,*.pyc,*.zip,*.rar,*.dll,*.dmg
 set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.svg,*.ico
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/bower_components/*
 
-set grepprg=ag\ --nocolor\ --nogroup\ --column
+set grepprg=ag\ --nocolor\ --nogroup\ --column\ --vimgrep
 
 set t_Co=256
 
@@ -436,8 +436,6 @@ let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepReplaceWindowMode = 2
 let g:EasyGrepWindowPosition = 'botright'
 let g:EasyGrepRoot = 'search:.git,.svn,.hg'
-let g:EasyGrepFilesToExclude = ''
-let g:EasyGrepDefaultUserPattern = '*.js,*.scss'
 nmap <silent> <leader>vc :Grep 
 map <silent> <leader>vo <plug>EgMapGrepOptions
 map <silent> <leader>vv <plug>EgMapGrepCurrentWord_v
