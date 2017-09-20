@@ -154,7 +154,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'terryma/vim-expand-region', { 'on': '<Plug>(expand_region' }
  Plug 'tpope/vim-surround'
  Plug 'tpope/vim-repeat'
- Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+ Plug 'bronson/vim-trailing-whitespace'
  Plug 'epilande/vim-es2015-snippets'
  Plug 'epilande/vim-react-snippets'
  Plug 'SirVer/ultisnips'
