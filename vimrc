@@ -172,7 +172,7 @@ call plug#begin('~/.vim/plugged')
  Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
  Plug 'Yggdroot/indentLine'
  Plug 'elzr/vim-json', { 'for': 'json' }
- Plug 'dkprice/vim-easygrep'
+ Plug 'dkprice/vim-easygrep', { 'on': ['<plug>EgMapGrep', 'Grep', 'Replace'] }
  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
  Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
  Plug 'jceb/emmet.snippets', { 'on': 'EmmetInstall' }
@@ -204,9 +204,6 @@ let g:gruvbox_sign_column = 'dark0'
 let g:gruvbox_vert_split = 'dark0'
 colorscheme gruvbox
 hi VertSplit guifg=#504945 ctermfg=239
-
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
 
 augroup customAutocmd
   au!
@@ -441,7 +438,14 @@ let g:EasyGrepWindowPosition = 'botright'
 let g:EasyGrepRoot = 'search:.git,.svn,.hg'
 let g:EasyGrepFilesToExclude = ''
 let g:EasyGrepDefaultUserPattern = '*.js,*.scss'
-nnoremap <Leader>vc :Grep 
+nmap <silent> <leader>vc :Grep 
+map <silent> <Leader>vo <plug>EgMapGrepOptions
+map <silent> <Leader>vv <plug>EgMapGrepCurrentWord_v
+vmap <silent> <Leader>vv <plug>EgMapGrepSelection_v
+map <silent> <Leader>va <plug>EgMapGrepCurrentWord_a
+vmap <silent> <Leader>va <plug>EgMapGrepSelection_a
+map <silent> <Leader>vr <plug>EgMapReplaceCurrentWord_r
+vmap <silent> <Leader>vr <plug>EgMapReplaceSelection_r
 
 " matchTagAlways
 let g:mta_filetypes = {
