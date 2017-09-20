@@ -9,8 +9,6 @@ set fileformats=unix,dos
 set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
-filetype off
-
 set background=dark
 set guifont=Fantasque\ Sans\ Mono:h14
 set linespace=3
@@ -141,51 +139,51 @@ call plug#begin('~/.vim/plugged')
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim'
- Plug 'godlygeek/tabular'
+ Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'terryma/vim-multiple-cursors'
  Plug 'ap/vim-css-color'
  Plug 'tpope/vim-haml'
- Plug 'rstacruz/vim-hyperstyle'
+ Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
  Plug 'genoma/vim-less'
  Plug 'jiangmiao/auto-pairs'
  Plug 'hail2u/vim-css3-syntax'
  Plug 'othree/html5.vim'
  Plug 'docunext/closetag.vim'
- Plug 'Valloric/MatchTagAlways'
- Plug 'easymotion/vim-easymotion'
- Plug 'terryma/vim-expand-region'
+ Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xhtml', 'xml', 'javascript'] }
+ Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion' }
+ Plug 'terryma/vim-expand-region', { 'on': '<Plug>(expand_region' }
  Plug 'tpope/vim-surround'
  Plug 'tpope/vim-repeat'
- Plug 'bronson/vim-trailing-whitespace'
+ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
  Plug 'epilande/vim-es2015-snippets'
  Plug 'epilande/vim-react-snippets'
  Plug 'SirVer/ultisnips'
  Plug 'honza/vim-snippets'
- Plug 'jceb/emmet.snippets'
  Plug 'tacahiroy/ctrlp-funky'
  Plug 'dyng/ctrlsf.vim'
  Plug 'pangloss/vim-javascript'
  Plug 'othree/javascript-libraries-syntax.vim'
  Plug 'maksimr/vim-jsbeautify'
- Plug 'Yggdroot/vim-mark'
- Plug 'scrooloose/nerdtree'
- Plug 'Xuyuanp/nerdtree-git-plugin'
+ Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
+ Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle'] }
+ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeFind' }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
  Plug 'Yggdroot/indentLine'
- Plug 'elzr/vim-json'
+ Plug 'elzr/vim-json', { 'for': 'json' }
  Plug 'dkprice/vim-easygrep'
- Plug 'mbbill/undotree'
- Plug 'mattn/emmet-vim'
+ Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+ Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
+ Plug 'jceb/emmet.snippets', { 'on': 'EmmetInstall' }
  Plug 'neoclide/vim-jsx-improve'
- Plug 'scrooloose/nerdcommenter'
+ Plug 'scrooloose/nerdcommenter', { 'on': '<Plug>NERDCommenter' }
  Plug 'ivyl/vim-bling'
  Plug 'Valloric/ListToggle'
  Plug 'mhinz/vim-startify'
- Plug 'matze/vim-move'
- Plug 'tommcdo/vim-exchange'
- Plug 'AndrewRadev/sideways.vim'
+ Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
+ Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
+ Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
  Plug 'leafgarland/typescript-vim'
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
@@ -212,10 +210,10 @@ source $VIMRUNTIME/menu.vim
 
 augroup customAutocmd
   au!
-  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+  au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project setf json
   au FileType json,vim setlocal shiftwidth=2 softtabstop=2
-  au FileType html,css,sass,scss,less,php,javascript EmmetInstall
+  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript EmmetInstall
   au FileType javascript UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
@@ -301,6 +299,8 @@ nmap <Leader><Leader>h <Plug>(easymotion-b)
 
 " vim-trailing-whitespace
 map <leader><space> :FixWhitespace<CR>
+
+" expand-region
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
@@ -356,15 +356,13 @@ let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 augroup jsbeautify
   autocmd!
   autocmd FileType javascript noremap <buffer> <leader>b :call JsBeautify()<CR>
-  autocmd FileType html,htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
+  autocmd FileType html,xhtml,htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
   autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<CR>
-  autocmd FileType javascript.jsx noremap <buffer> <leader>b :call JsxBeautify()<CR>
   autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<CR>
 
   autocmd FileType javascript vnoremap <buffer> <leader>b :call RangeJsBeautify()<CR>
-  autocmd FileType html,htmldjango vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<CR>
+  autocmd FileType html,xhtml,htmldjango vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<CR>
   autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<CR>
-  autocmd FileType javascript.jsx vnoremap <buffer> <leader>b :call RangeJsxBeautify()<CR>
   autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<CR>
 augroup END
 
@@ -390,7 +388,7 @@ nmap m <Plug>MarkSearchOrCurNext
 nmap M <Plug>MarkSearchOrCurPrev
 nmap <Leader>c :nohl<CR><Plug>MarkAllClear
 
-" vim-gitgutter
+" vim-fugitive
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gc :Gcommit -m""
@@ -399,6 +397,7 @@ nnoremap <Leader>gl :Glog
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gpp :Gpull<CR>
 
+" vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
 "let g:gitgutter_max_signs = 1000
 
@@ -413,7 +412,7 @@ let g:mkdp_auto_start = 1
 let g:mkdp_path_to_chrome = 'open -a Safari'
 
 let g:indentLine_enabled = 1
-let g:indentLine_fileType = ['javascript', 'javascript.jsx', 'python', 'php', 'css', 'scss', 'less']
+let g:indentLine_fileType = ['javascript', 'python', 'php', 'css', 'scss', 'sass', 'less']
 
 let g:user_emmet_install_global = 0
 let g:user_emmet_settings = {
@@ -425,8 +424,10 @@ let g:user_emmet_settings = {
 " vim-jsx-improve
 let g:jsx_improve_motion_disable = 1
 
-noremap <silent> <C-C> :call NERDComment(1, "Sexy")<CR>
-noremap <silent> <C-X> :call NERDComment(1, "Uncomment")<CR>
+" nerdcommenter
+let g:NERDCreateDefaultMappings = 0
+map <silent> <C-c> <Plug>NERDCommenterSexy
+map <silent> <C-x> <Plug>NERDCommenterUncomment
 
 " easygrep
 let g:EasyGrepCommand = 1
@@ -535,6 +536,13 @@ nmap <silent> <leader>k <Plug>MoveLineUp:call repeat#set("\<leader>k", v:count)<
 " sideways.vim
 nnoremap <silent> <leader>h :SidewaysLeft<CR>
 nnoremap <silent> <leader>l :SidewaysRight<CR>
+
+" vim-exchange
+let g:exchange_no_mappings = 1
+nmap cx <Plug>(Exchange)
+xmap X <Plug>(Exchange)
+nmap cxc <Plug>(ExchangeClear)
+nmap cxx <Plug>(ExchangeLine)
 
 " vim-smooth-scroll
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
