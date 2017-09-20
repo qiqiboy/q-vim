@@ -426,7 +426,10 @@ let g:jsx_improve_motion_disable = 1
 
 " nerdcommenter
 let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
 map <silent> <C-c> <Plug>NERDCommenterSexy
+nmap <silent> <C-c> <Plug>NERDCommenterComment
 map <silent> <C-x> <Plug>NERDCommenterUncomment
 
 " easygrep
