@@ -134,12 +134,20 @@ nnoremap <c-l> <c-w>l
 
 call plug#begin('~/.vim/plugged')
 
+let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
+  \ 'CtrlPMixed', 'CtrlPBuffer',
+  \ 'CtrlPLine', 'CtrlPUndo',
+  \ 'CtrlPChange', 'CtrlPQuickfix',
+  \ 'CtrlPMRU', 'CtrlPFunky']
+
+let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
+
  Plug 'fholgado/minibufexpl.vim'
  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
- Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tacahiroy/ctrlp-funky'
+ Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
+  Plug 'tacahiroy/ctrlp-funky', { 'on': ctrlp_cmds }
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'terryma/vim-multiple-cursors'
  Plug 'ap/vim-css-color'
@@ -160,13 +168,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'honza/vim-snippets'
   Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
   Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
- Plug 'dyng/ctrlsf.vim'
+ Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  Plug 'pangloss/vim-javascript'
   Plug 'othree/javascript-libraries-syntax.vim'
  Plug 'maksimr/vim-jsbeautify'
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
- Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle'] }
-  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle'] }
+ Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
+  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
@@ -319,16 +327,16 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_tilde_homedir = 1
 let g:ctrlp_map = '<leader>p'
-nnoremap <Leader>pr :CtrlPMRU<CR>
-nnoremap <Leader>pm :CtrlPMixed<CR>
-nnoremap <Leader>pb :CtrlPBuffer<CR>
-nnoremap <Leader>pl :CtrlPLine<CR>
-nnoremap <Leader>pu :CtrlPUndo<CR>
-nnoremap <Leader>pc :CtrlPChange<CR>
-nnoremap <Leader>pq :CtrlPQuickfix<CR>
-nnoremap <Leader>fu :CtrlPFunky<CR>
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
-nnoremap <Space> :CtrlP<CR>
+nmap <Leader>pr :CtrlPMRU<CR>
+nmap <Leader>pm :CtrlPMixed<CR>
+nmap <Leader>pb :CtrlPBuffer<CR>
+nmap <Leader>pl :CtrlPLine<CR>
+nmap <Leader>pu :CtrlPUndo<CR>
+nmap <Leader>pc :CtrlPChange<CR>
+nmap <Leader>pq :CtrlPQuickfix<CR>
+nmap <Leader>fu :CtrlPFunky<CR>
+nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
+nmap <Space> <plug>(ctrlp)
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
