@@ -137,8 +137,9 @@ call plug#begin('~/.vim/plugged')
  Plug 'fholgado/minibufexpl.vim'
  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
  Plug 'vim-airline/vim-airline'
- Plug 'vim-airline/vim-airline-themes'
+  Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'tacahiroy/ctrlp-funky'
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'terryma/vim-multiple-cursors'
  Plug 'ap/vim-css-color'
@@ -155,18 +156,17 @@ call plug#begin('~/.vim/plugged')
  Plug 'tpope/vim-surround'
  Plug 'tpope/vim-repeat'
  Plug 'bronson/vim-trailing-whitespace'
- Plug 'epilande/vim-es2015-snippets'
- Plug 'epilande/vim-react-snippets'
  Plug 'SirVer/ultisnips'
- Plug 'honza/vim-snippets'
- Plug 'tacahiroy/ctrlp-funky'
+  Plug 'honza/vim-snippets'
+  Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
+  Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
  Plug 'dyng/ctrlsf.vim'
  Plug 'pangloss/vim-javascript'
- Plug 'othree/javascript-libraries-syntax.vim'
+  Plug 'othree/javascript-libraries-syntax.vim'
  Plug 'maksimr/vim-jsbeautify'
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle'] }
- Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeFind' }
+  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle'] }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
