@@ -195,6 +195,8 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'leafgarland/typescript-vim'
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
+ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+  Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
  if v:version >= 800
  Plug 'w0rp/ale'
  endif
@@ -377,11 +379,18 @@ let g:NERDTreeWinSize = 25
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeChDirMode = 2
+let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
 noremap <F5> :NERDTreeFind<CR>
 " 启动vim自动打开 nerdtree
 "autocmd vimEnter * NERDTree
+
+" Tagbar
+let g:tagbar_width = 25
+let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_autoshowtag = 1
+nnoremap <silent> <F6> :TagbarToggle<CR>
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
