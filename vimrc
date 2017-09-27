@@ -171,6 +171,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  Plug 'pangloss/vim-javascript'
  Plug 'othree/javascript-libraries-syntax.vim'
+ Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript', 'on': ['JsDoc', '<Plug>(jsdoc)'] }
  Plug 'maksimr/vim-jsbeautify'
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
@@ -396,6 +397,11 @@ nnoremap <silent> <F6> :TagbarToggle<CR>
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
+
+
+" vim-jsdoc
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_enable_es6 = 1
 
 " vim-mark
 let g:mwDefaultHighlightingPalette = 'maximum'
