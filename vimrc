@@ -120,7 +120,7 @@ noremap K kJ
 noremap H ^
 noremap L $
 noremap ; :
-nnoremap <cr> o<esc>
+nnoremap <cr> O<esc>j
 nnoremap Q :qa!<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
@@ -170,7 +170,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  Plug 'pangloss/vim-javascript'
-  Plug 'othree/javascript-libraries-syntax.vim'
+ Plug 'othree/javascript-libraries-syntax.vim'
  Plug 'maksimr/vim-jsbeautify'
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
@@ -395,6 +395,7 @@ nnoremap <silent> <F6> :TagbarToggle<CR>
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 
 " vim-mark
 let g:mwDefaultHighlightingPalette = 'maximum'
