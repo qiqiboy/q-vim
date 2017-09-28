@@ -516,8 +516,9 @@ let g:startify_padding_left = 30
 let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'h': '/etc/hosts'}]
 let g:startify_enable_special = 0
 let g:startify_commands = [
-    \ ':NERDTree',
-    \ ':ALEToggle'
+    \ ['Status of Plugins', 'PlugStatus'],
+    \ ['Install Plugins', 'PlugInstall'],
+    \ ['Clean Plugins', 'PlugClean']
     \ ]
 let g:startify_list_order = [
             \ [repeat(' ', g:startify_padding_left - 4) . '最近访问:'],
