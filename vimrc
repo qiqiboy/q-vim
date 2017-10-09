@@ -92,6 +92,8 @@ set grepprg=ag\ --nocolor\ --nogroup\ --column\ --vimgrep
 
 set t_Co=256
 
+set termsize=10x0
+
 filetype on
 filetype plugin on
 filetype plugin indent on
@@ -215,6 +217,13 @@ let g:gruvbox_sign_column = 'dark0'
 let g:gruvbox_vert_split = 'dark0'
 colorscheme gruvbox
 hi VertSplit guifg=#504945 ctermfg=239
+
+" terminal
+nnoremap <leader>t :call <SID>OpenTerminal()<CR>
+function! <SID>OpenTerminal()
+  bo 10split
+  term ++curwin ++close
+endf
 
 augroup customAutocmd
   au!
