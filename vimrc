@@ -94,8 +94,6 @@ set t_Co=256
 
 set termsize=10x0
 
-filetype on
-filetype plugin on
 filetype plugin indent on
 
 syntax enable
@@ -220,6 +218,7 @@ hi VertSplit guifg=#504945 ctermfg=239
 
 " terminal
 nnoremap <leader>t :call <SID>OpenTerminal()<CR>
+tnoremap <Esc> <C-w>k
 function! <SID>OpenTerminal()
   bo 10split
   term ++curwin ++close
