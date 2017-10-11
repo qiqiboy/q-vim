@@ -92,8 +92,6 @@ set grepprg=ag\ --nocolor\ --nogroup\ --column\ --vimgrep
 
 set t_Co=256
 
-set termsize=10x0
-
 filetype plugin indent on
 
 syntax enable
@@ -217,13 +215,17 @@ colorscheme gruvbox
 hi VertSplit guifg=#504945 ctermfg=239
 
 " terminal
-nnoremap <leader>t :call <SID>OpenTerminal()<CR>
-tnoremap <c-k> <C-w>k
-tnoremap <c-n> <C-w>N
-function! <SID>OpenTerminal()
-  bo 10split
-  term ++curwin ++close
-endf
+if has('terminal')
+  set termsize=10x0
+
+  nnoremap <leader>t :call <SID>OpenTerminal()<CR>
+  tnoremap <c-k> <C-w>k
+  tnoremap <c-n> <C-w>N
+  function! <SID>OpenTerminal()
+    bo 10split
+    term ++curwin ++close
+  endf
+endif
 
 augroup customAutocmd
   au!
