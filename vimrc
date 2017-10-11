@@ -218,7 +218,8 @@ hi VertSplit guifg=#504945 ctermfg=239
 
 " terminal
 nnoremap <leader>t :call <SID>OpenTerminal()<CR>
-tnoremap <Esc> <C-w>k
+tnoremap <c-k> <C-w>k
+tnoremap <c-n> <C-w>N
 function! <SID>OpenTerminal()
   bo 10split
   term ++curwin ++close
