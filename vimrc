@@ -136,12 +136,13 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
   \ 'CtrlPMixed', 'CtrlPBuffer',
   \ 'CtrlPLine', 'CtrlPUndo',
   \ 'CtrlPChange', 'CtrlPQuickfix',
-  \ 'CtrlPMRU', 'CtrlPFunky']
+  \ 'CtrlPMRU', 'CtrlPFunky',
+  \ 'CtrlPCurWD']
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 
  Plug 'fholgado/minibufexpl.vim'
- Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer' }
+ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
@@ -216,7 +217,7 @@ hi VertSplit guifg=#504945 ctermfg=239
 
 " terminal
 if has('terminal')
-  set termsize=10x0
+  set termsize=15x0
 
   nnoremap <leader>t :call <SID>OpenTerminal()<CR>
   tnoremap <c-k> <C-w>k
@@ -348,6 +349,7 @@ nmap <Leader>pl :CtrlPLine<CR>
 nmap <Leader>pu :CtrlPUndo<CR>
 nmap <Leader>pc :CtrlPChange<CR>
 nmap <Leader>pq :CtrlPQuickfix<CR>
+nmap <Leader>pw :CtrlPCurWD<CR>
 nmap <Leader>fu :CtrlPFunky<CR>
 nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 nmap <Space> <plug>(ctrlp)
