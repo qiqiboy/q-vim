@@ -7,6 +7,7 @@ my vim config. 来自一个前端开发码农的vim配置方案。
 也支持其它语言，例如`python`、`php`等
 * 内置了 `gruvbox` `paperColor` 等优秀主题
 * Lint 代码检查（由ALE提供支持，需要vim8+）
+* jsbeautify、prettier等格式化代码
 * minibufferexplore支持
 * NERDTree支持，目录树
     * `F5` 打开NERDTree面板，或者刷新基于当前文件刷新目录树
@@ -51,10 +52,10 @@ my vim config. 来自一个前端开发码农的vim配置方案。
 ##### 环境
  * `mac osx`（其它平台没测试，部分功能可能会有问题）
  * `vim8+`（否则无法使用`ale`代码检查功能）
- * `node6+`、`npm2+`、`ternjs`、`typescript`、`eslint`、`tslint`等
+ * `node6+`、`npm2+`、`ternjs`、`typescript`、`eslint`、`tslint`、`prettier`等
     ```
     brew install node
-    npm install -g tern eslint tslint typescript
+    npm install -g tern eslint tslint typescript prettier
     ```
  * `ag`(the silver searcher) 
     ```
@@ -72,6 +73,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
  * 执行 `:PlugInstall`
  * ~~进入到 `~/.vim/plugged/YouCompleteMe` 目录，执行 `./install.py --tern-completer` 编译ycm~~ vim-plug插件支持自动执行编译，如果失败再按照该方式手动编译ycm插件
 
+
+`eslint`、`tslint`、`prettier`、`ternjs` 等配置均为全局环境配置，请自己按照自己的需求配置。  
+例如：  
+eslint: **~/.eslintrc**  
+ternjs: **~/.tern-project**  
+prettier: **~/.prittierrc**
 
 ### 截图 & Screenshots
 ![startIfy](https://cloud.githubusercontent.com/assets/3774036/25426063/9016bcd4-2aa0-11e7-8f6a-769b655d386f.png)  

@@ -168,7 +168,8 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
   Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
- Plug 'pangloss/vim-javascript'
+ " Plug 'pangloss/vim-javascript'
+ Plug 'neoclide/vim-jsx-improve'
  Plug 'othree/javascript-libraries-syntax.vim'
  Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript', 'on': ['JsDoc', '<Plug>(jsdoc)'] }
  Plug 'maksimr/vim-jsbeautify'
@@ -184,7 +185,6 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
  Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
  Plug 'jceb/emmet.snippets', { 'on': 'EmmetInstall' }
- Plug 'neoclide/vim-jsx-improve'
  Plug 'scrooloose/nerdcommenter', { 'on': '<Plug>NERDCommenter' }
  Plug 'ivyl/vim-bling'
  Plug 'Valloric/ListToggle'
@@ -376,10 +376,10 @@ let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 
 augroup jsbeautify
   autocmd!
-  autocmd FileType javascript noremap <buffer> <leader>b :call JsBeautify()<CR>
+  " autocmd FileType javascript noremap <buffer> <leader>b :call JsBeautify()<CR>
   autocmd FileType html,xhtml,htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
-  autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<CR>
-  autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<CR>
+  " autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<CR>
+  " autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<CR>
 
   autocmd FileType javascript vnoremap <buffer> <leader>b :call RangeJsBeautify()<CR>
   autocmd FileType html,xhtml,htmldjango vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<CR>
@@ -518,6 +518,19 @@ hi ALEWarningSign ctermfg=220 ctermbg=NONE guifg=#ff8700 guibg=NONE
 
 " ale tslint
 let g:ale_typescript_tslint_config_path = '~/.tslint.json'
+" ale fixers
+nmap <leader>b <Plug>(ale_fix)
+" let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_options = '--config ~/.prettierrc'
+let g:ale_fixers = {
+\   'javascript': 'prettier',
+\   'css': 'prettier',
+\   'scss': 'prettier',
+\   'less': 'prettier',
+\   'markdown': 'prettier',
+\   'typescript': 'prettier',
+\   'json': 'prettier',
+\}
 
 " ListToggle
 let g:lt_quickfix_list_toggle_map = '<F2>'
