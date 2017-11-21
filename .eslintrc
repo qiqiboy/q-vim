@@ -1,0 +1,10 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "jquery": true,
+    "amd": true
+  },
+  "extends": "eslint:recommended"
+}
