@@ -526,6 +526,7 @@ let g:ale_fixers = {
 \   'javascript': 'prettier',
 \   'css': 'prettier',
 \   'scss': 'prettier',
+\   'sass': 'prettier',
 \   'less': 'prettier',
 \   'markdown': 'prettier',
 \   'typescript': 'prettier',

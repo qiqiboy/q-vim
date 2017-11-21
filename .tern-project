@@ -1,0 +1,16 @@
+{
+  "libs": [
+    "browser",
+    "jquery",
+    "ecma5",
+    "ecma6",
+    "underscore",
+    "angular"
+  ],
+  "plugins": {
+    "angular": {},
+    "node": {},
+    "es_modules": {},
+    "commonjs": {}
+  }
+}

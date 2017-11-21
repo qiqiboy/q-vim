@@ -1,0 +1,14 @@
+;.editorconfig
+
+root = true
+
+[**.json]
+indent_size = 2
+
+[**.js]
+e4x = true
+brace_style = collapse,preserve-inline
+
+[**.jsx]
+e4x = true
+brace_style = collapse,preserve-inline
