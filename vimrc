@@ -231,7 +231,7 @@ endif
 augroup customAutocmd
   au!
   au BufNewFile,BufRead *.jsx set filetype=javascript
-  au BufNewFile,BufRead .tern-project setf json
+  au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc setf json
   au FileType json,vim setlocal shiftwidth=2 softtabstop=2
   au FileType html,xhtml,xml,css,sass,scss,less,php,javascript EmmetInstall
   au FileType javascript UltiSnipsAddFiletypes html

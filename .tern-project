@@ -1,12 +1,5 @@
 {
-  "libs": [
-    "browser",
-    "jquery",
-    "ecma5",
-    "ecma6",
-    "underscore",
-    "angular"
-  ],
+  "libs": ["browser", "jquery", "ecma5", "ecma6", "underscore", "angular"],
   "plugins": {
     "angular": {},
     "node": {},
