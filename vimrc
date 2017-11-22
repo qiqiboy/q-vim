@@ -281,6 +281,9 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
+" replace with your python virtual environment path {{{
+let g:ycm_python_binary_path = $HOME . '/develop/portal/venv/bin/python2'
+" }}}
 let g:ycm_semantic_triggers =  {
   \   'css,less,sass,scss' : ['-', 're!:\s*']
   \ }
@@ -511,6 +514,7 @@ let g:ale_lint_on_save = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '▸'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_virtualenv_dir_names = ['.env', 'env', 've-py3', 've', 'virtualenv', 'venv']
 let g:airline#extensions#ale#error_symbol = g:ale_sign_error . ' '
 let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
 hi ALEErrorSign ctermfg=196 ctermbg=NONE guifg=#af005f guibg=NONE
