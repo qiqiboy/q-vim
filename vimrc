@@ -169,8 +169,8 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  " Plug 'pangloss/vim-javascript'
- Plug 'neoclide/vim-jsx-improve'
  Plug 'othree/javascript-libraries-syntax.vim'
+ Plug 'neoclide/vim-jsx-improve'
  Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript', 'on': ['JsDoc', '<Plug>(jsdoc)'] }
  Plug 'maksimr/vim-jsbeautify'
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
