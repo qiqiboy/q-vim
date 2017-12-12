@@ -118,7 +118,6 @@ noremap K kJ
 noremap H ^
 noremap L $
 noremap ; :
-nnoremap <cr> O<esc>j
 nnoremap Q :qa!<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
@@ -400,6 +399,7 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
 noremap <F5> :NERDTreeFind<CR>
+noremap <CR> :NERDTreeToggle<CR>
 " 启动vim自动打开 nerdtree
 "autocmd vimEnter * NERDTree
 
