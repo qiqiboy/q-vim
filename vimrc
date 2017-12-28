@@ -196,6 +196,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
+ Plug 'airblade/vim-rooter'
  if v:version >= 800
  Plug 'w0rp/ale'
  endif
@@ -221,9 +222,10 @@ if has('terminal')
   nnoremap <leader>t :call <SID>OpenTerminal()<CR>
   tnoremap <c-k> <C-w>k
   tnoremap <c-n> <C-w>N
+  tnoremap <c-d> <c-w>:quit!<CR>
   function! <SID>OpenTerminal()
     bo 10split
-    term ++curwin ++close
+    term ++curwin ++close ++open
   endf
 endif
 
@@ -396,10 +398,11 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeShowHidden = 1
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
-let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|)$']
+let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
 noremap <F5> :NERDTreeFind<CR>
-noremap <CR> :NERDTreeToggle<CR>
+noremap <CR> :NERDTreeFind<CR>
 " 启动vim自动打开 nerdtree
 "autocmd vimEnter * NERDTree
 
@@ -615,3 +618,7 @@ if !has('gui_running')
   noremap <ScrollWheelUp> 2<C-y>
   noremap <ScrollWheelDown> 2<C-e>
 endif
+
+" vim-rooter
+let g:rooter_change_directory_for_non_project_files = 'current'
+let g:rooter_silent_chdir = 1
