@@ -222,7 +222,7 @@ if has('terminal')
   nnoremap <leader>t :call <SID>OpenTerminal()<CR>
   tnoremap <c-k> <C-w>k
   tnoremap <c-n> <C-w>N
-  tnoremap <c-d> <c-w>:quit!<CR>
+  tnoremap <c-d> <c-w>:bd!<CR>
   function! <SID>OpenTerminal()
     bo 10split
     term ++curwin ++close ++open
