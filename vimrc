@@ -251,7 +251,7 @@ hi MBEVisibleNormal        guifg=#8ec07c guibg=fg ctermfg=72
 hi MBEVisibleChanged       guifg=#CC241D guibg=fg ctermfg=124
 hi MBEVisibleActiveNormal  guifg=#AFD700 guibg=fg ctermfg=142
 hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg ctermfg=167
-let g:miniBufExplUseSingleClick = 1
+" let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplSplitToEdge = 1
 let g:miniBufExplCycleArround = 1
 let g:miniBufExplBuffersNeeded = 1
@@ -479,7 +479,7 @@ let g:EasyGrepJumpToMatch = 0
 let g:EasyGrepReplaceWindowMode = 2
 let g:EasyGrepWindowPosition = 'botright'
 let g:EasyGrepRoot = 'search:.git,.svn,.hg'
-nmap <silent> <leader>vc :Grep 
+nmap <leader>vc :Grep 
 map <silent> <leader>vo <plug>EgMapGrepOptions
 map <silent> <leader>vv <plug>EgMapGrepCurrentWord_v
 vmap <silent> <leader>vv <plug>EgMapGrepSelection_v
