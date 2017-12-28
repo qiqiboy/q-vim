@@ -400,7 +400,7 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
-let g:NERDTreeIgnore=['\~$', '\v\.(pyc|ico|png|jpeg|gif|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
+let g:NERDTreeIgnore=['\~$', '\v\.(git|vscode|pyc|ico|png|jpeg|gif|svg|ttf|woff|woff2|eot|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
 noremap <F5> :NERDTreeFind<CR>
 noremap <CR> :NERDTreeFind<CR>
 " 启动vim自动打开 nerdtree
