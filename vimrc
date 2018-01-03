@@ -238,6 +238,12 @@ augroup customAutocmd
   au FileType javascript UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
+
+  "NERDTree autocmd
+  " 启动vim自动打开 nerdtree
+  " au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  au StdinReadPre * let s:std_in=1
+  au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 augroup END
 
 " airline
@@ -403,8 +409,6 @@ let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(git|vscode|pyc|ico|png|jpeg|gif|svg|ttf|woff|woff2|eot|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
 noremap <F5> :NERDTreeFind<CR>
 noremap <CR> :NERDTreeFind<CR>
-" 启动vim自动打开 nerdtree
-"autocmd vimEnter * NERDTree
 
 " Tagbar
 let g:tagbar_width = 25
