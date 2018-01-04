@@ -55,8 +55,6 @@ set guioptions-=m               " 把gui的菜单栏去掉
 set guioptions-=b
 set shortmess=atI               " 启动的时候不显示援助索马里儿童的提示(是I而不是L)
 
-set signcolumn=yes
-
 set completeopt=longest,menu
 set ruler
 set cursorline
@@ -103,7 +101,15 @@ syntax on
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 if has('gui_running')
-    set lines=48 columns=200
+  set lines=48 columns=200
+endif
+
+" make signColumn always show
+if exists('&signcolumn')
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+  let g:ale_sign_column_always = 1
 endif
 
 if v:version >= 800
@@ -624,5 +630,6 @@ if !has('gui_running')
 endif
 
 " vim-rooter
+let g:rooter_patterns = ['package.json', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
 let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_silent_chdir = 1
