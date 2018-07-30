@@ -48,11 +48,6 @@ set clipboard+=unnamed          " 与windows共享剪贴板
 set history=99                  " keep 99 lines of command history
 set showmatch                   " 显示括号配对情况
 
-set guioptions-=T               " windows下隐藏工具栏
-"set guioptions-=r               " 把gui右边的滑动条去掉
-set guioptions-=L               " 把gui左边的滑动条去掉
-set guioptions-=m               " 把gui的菜单栏去掉
-set guioptions-=b
 set shortmess=atI               " 启动的时候不显示援助索马里儿童的提示(是I而不是L)
 
 set completeopt=longest,menu
@@ -101,6 +96,11 @@ syntax on
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 if has('gui_running')
+  set guioptions-=T               " windows下隐藏工具栏
+  "set guioptions-=r               " 把gui右边的滑动条去掉
+  set guioptions-=L               " 把gui左边的滑动条去掉
+  set guioptions-=m               " 把gui的菜单栏去掉
+  set guioptions-=b
   set lines=48 columns=200
 endif
 
@@ -202,6 +202,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
   Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
+ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
  Plug 'airblade/vim-rooter'
  if v:version >= 800
  Plug 'w0rp/ale'
@@ -223,7 +224,11 @@ hi VertSplit guifg=#504945 ctermfg=239
 
 " terminal
 if has('terminal')
-  set termsize=15x0
+  if exists('&termwinsize')
+    set termwinsize=15x0
+  else
+    set termsize=15x0
+  endif
 
   nnoremap <leader>t :call <SID>OpenTerminal()<CR>
   tnoremap <c-k> <C-w>k
@@ -357,7 +362,7 @@ let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_tilde_homedir = 1
-let g:ctrlp_map = '<leader>p'
+nmap <Leader>p :CtrlP<CR>
 nmap <Leader>pr :CtrlPMRU<CR>
 nmap <Leader>pm :CtrlPMixed<CR>
 nmap <Leader>pb :CtrlPBuffer<CR>
@@ -470,6 +475,10 @@ let g:user_emmet_settings = {
     \    'indent_blockelement': 1
     \}
 \}
+
+" markdown toc
+let g:vmt_auto_update_on_save = 0
+let g:vmt_cycle_list_item_markers = 1
 
 " vim-jsx-improve
 let g:jsx_improve_motion_disable = 1
