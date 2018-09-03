@@ -119,7 +119,6 @@ else
 endif
 
 " some enhanced mapping
-cnoremap Q q
 noremap K kJ
 noremap H ^
 noremap L $
@@ -204,6 +203,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
  Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
  Plug 'airblade/vim-rooter'
+ Plug 'posva/vim-vue', { 'for': 'vue' }
  if v:version >= 800
  Plug 'w0rp/ale'
  endif
@@ -542,6 +542,9 @@ let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
 hi ALEErrorSign ctermfg=196 ctermbg=NONE guifg=#af005f guibg=NONE
 hi ALEWarningSign ctermfg=220 ctermbg=NONE guifg=#ff8700 guibg=NONE
 
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
 " ale tslint
 let g:ale_typescript_tslint_config_path = '~/.tslint.json'
 " ale fixers
@@ -557,6 +560,7 @@ let g:ale_fixers = {
 \   'markdown': 'prettier',
 \   'typescript': 'prettier',
 \   'json': 'prettier',
+\   'vue': 'prettier',
 \}
 
 " ListToggle
