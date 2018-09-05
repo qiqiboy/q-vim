@@ -203,7 +203,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
  Plug 'airblade/vim-rooter'
  Plug 'posva/vim-vue', { 'for': 'vue' }
- Plug 'maksimr/vim-jsbeautify', { 'for': 'htmldjango' }
+ Plug 'maksimr/vim-jsbeautify', { 'for': ['htmldjango', 'html', 'xhtml', 'jinja'] }
  if v:version >= 800
  Plug 'w0rp/ale'
  endif
@@ -399,7 +399,7 @@ let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 "jsbeautify
 augroup jsbeautify
   autocmd!
-  autocmd FileType htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
+  autocmd FileType html,xhtml,htmldjango,jinja noremap <buffer> <leader>b :call HtmlBeautify()<CR>
 augroup END
 
 " NERDTree
@@ -554,7 +554,6 @@ let g:ale_fixers = {
 \   'typescript': 'prettier',
 \   'json': 'prettier',
 \   'vue': 'prettier',
-\   'html': 'tidy',
 \}
 
 "ale tidy
