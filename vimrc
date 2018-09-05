@@ -176,7 +176,6 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'othree/javascript-libraries-syntax.vim'
  Plug 'neoclide/vim-jsx-improve'
  Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript', 'on': ['JsDoc', '<Plug>(jsdoc)'] }
- Plug 'maksimr/vim-jsbeautify'
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
@@ -204,6 +203,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
  Plug 'airblade/vim-rooter'
  Plug 'posva/vim-vue', { 'for': 'vue' }
+ Plug 'maksimr/vim-jsbeautify', { 'for': 'htmldjango' }
  if v:version >= 800
  Plug 'w0rp/ale'
  endif
@@ -393,19 +393,13 @@ let g:ctrlsf_mapping = {
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '50%'
 
+"javascript libs
 let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 
+"jsbeautify
 augroup jsbeautify
   autocmd!
-  " autocmd FileType javascript noremap <buffer> <leader>b :call JsBeautify()<CR>
-  autocmd FileType html,xhtml,htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
-  " autocmd FileType css,sass,scss,less noremap <buffer> <leader>b :call CSSBeautify()<CR>
-  " autocmd FileType json noremap <buffer> <leader>b :call JsonBeautify()<CR>
-
-  autocmd FileType javascript vnoremap <buffer> <leader>b :call RangeJsBeautify()<CR>
-  autocmd FileType html,xhtml,htmldjango vnoremap <buffer> <leader>b :call RangeHtmlBeautify()<CR>
-  autocmd FileType css,sass,scss,less vnoremap <buffer> <leader>b :call RangeCSSBeautify()<CR>
-  autocmd FileType json vnoremap <buffer> <leader>b :call RangeJsonBeautify()<CR>
+  autocmd FileType htmldjango noremap <buffer> <leader>b :call HtmlBeautify()<CR>
 augroup END
 
 " NERDTree
@@ -560,7 +554,12 @@ let g:ale_fixers = {
 \   'typescript': 'prettier',
 \   'json': 'prettier',
 \   'vue': 'prettier',
+\   'html': 'tidy',
 \}
+
+"ale tidy
+"let g:ale_html_tidy_use_global = 1
+let g:ale_html_tidy_options = '-q -e -language en --config ~/.tidyrc'
 
 " ListToggle
 let g:lt_quickfix_list_toggle_map = '<F2>'
