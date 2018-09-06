@@ -245,8 +245,8 @@ augroup customAutocmd
   au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc setf json
   au FileType json,vim setlocal shiftwidth=2 softtabstop=2
-  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript EmmetInstall
-  au FileType javascript UltiSnipsAddFiletypes html
+  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript EmmetInstall
+  au FileType javascript,typescript UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
@@ -537,9 +537,11 @@ let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'typescript': ['tslint'],
 \}
 " ale tslint
-let g:ale_typescript_tslint_config_path = '~/.tslint.json'
+let g:ale_typescript_tslint_use_global = 1
+let g:ale_typescript_tslint_config_path = $HOME . '/.tslint.json'
 " ale fixers
 nmap <leader>b <Plug>(ale_fix)
 " let g:ale_fix_on_save = 1
