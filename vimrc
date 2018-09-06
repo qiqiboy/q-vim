@@ -243,7 +243,7 @@ endif
 augroup customAutocmd
   au!
   au BufNewFile,BufRead *.jsx set filetype=javascript
-  au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc setf json
+  au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au FileType json,vim setlocal shiftwidth=2 softtabstop=2
   au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript EmmetInstall
   au FileType javascript,typescript UltiSnipsAddFiletypes html
@@ -547,7 +547,7 @@ nmap <leader>b <Plug>(ale_fix)
 " let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_options = '--config ~/.prettierrc'
 let g:ale_fixers = {
-\   'javascript': 'prettier',
+\   'javascript': ['prettier', 'eslint'],
 \   'css': 'prettier',
 \   'scss': 'prettier',
 \   'sass': 'prettier',
