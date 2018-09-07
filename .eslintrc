@@ -18,12 +18,33 @@
   "extends": "react-app",
   "rules": {
     "no-console": 0,
+    "eqeqeq": [1, "smart"],
+    "padded-blocks": [1, "never"],
+    "no-multi-spaces": [
+      1,
+      {
+        "ignoreEOLComments": true,
+        "exceptions": {
+          "VariableDeclarator": true,
+          "ImportDeclaration": true
+        }
+      }
+    ],
     "lines-between-class-members": [1, "always", { "exceptAfterSingleLine": true }],
     "padding-line-between-statements": [
       1,
-      { "blankLine": "always", "prev": ["multiline-block-like", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"], "next": "*" },
-      { "blankLine": "always", "prev": "*", "next": ["multiline-block-like", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"] },
+      {
+        "blankLine": "always",
+        "prev": ["multiline-block-like", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"],
+        "next": "*"
+      },
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": ["multiline-block-like", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"]
+      },
       { "blankLine": "any", "prev": ["cjs-import", "import"], "next": ["cjs-import", "import"] },
+      { "blankLine": "any", "prev": ["export", "cjs-export"], "next": ["export", "cjs-export"] },
       { "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"] }
     ]
   }
