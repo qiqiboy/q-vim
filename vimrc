@@ -545,7 +545,7 @@ let g:ale_typescript_tslint_config_path = $HOME . '/.tslint.json'
 " ale fixers
 nmap <leader>b <Plug>(ale_fix)
 " let g:ale_fix_on_save = 1
-let g:ale_javascript_prettier_options = '--config ~/.prettierrc'
+" let g:ale_javascript_prettier_options = '--config ~/.prettierrc'
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'css': 'prettier',
