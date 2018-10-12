@@ -204,6 +204,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'airblade/vim-rooter'
  Plug 'posva/vim-vue', { 'for': 'vue' }
  Plug 'maksimr/vim-jsbeautify', { 'for': ['htmldjango', 'html', 'xhtml', 'jinja'] }
+ Plug 'editorconfig/editorconfig-vim'
  if v:version >= 800
  Plug 'w0rp/ale'
  endif
