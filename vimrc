@@ -195,7 +195,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
  Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
  Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
- Plug 'leafgarland/typescript-vim'
+ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -243,7 +243,7 @@ endif
 
 augroup customAutocmd
   au!
-  au BufNewFile,BufRead *.jsx set filetype=javascript
+  " au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au FileType json,vim setlocal shiftwidth=2 softtabstop=2
   au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript EmmetInstall
@@ -646,3 +646,6 @@ endif
 let g:rooter_patterns = ['package.json', '.git', '.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']
 let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_silent_chdir = 1
+
+" editorconfig
+let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
