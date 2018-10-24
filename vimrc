@@ -161,7 +161,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'hail2u/vim-css3-syntax'
  Plug 'othree/html5.vim'
  Plug 'docunext/closetag.vim'
- Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xhtml', 'xml', 'javascript'] }
+ Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xhtml', 'xml', 'javascript', 'typescript'] }
  Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion' }
  Plug 'terryma/vim-expand-region', { 'on': '<Plug>(expand_region' }
  Plug 'tpope/vim-surround'
@@ -169,13 +169,13 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'bronson/vim-trailing-whitespace'
  Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'epilande/vim-es2015-snippets', { 'for': 'javascript' }
-  Plug 'epilande/vim-react-snippets', { 'for': 'javascript' }
+  Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'typescript'] }
+  Plug 'mlaursen/vim-react-snippets', { 'for': ['javascript', 'typescript'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  " Plug 'pangloss/vim-javascript'
  Plug 'othree/javascript-libraries-syntax.vim'
  Plug 'neoclide/vim-jsx-improve'
- Plug 'heavenshell/vim-jsdoc', { 'for': 'javascript', 'on': ['JsDoc', '<Plug>(jsdoc)'] }
+ Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'typescript'], 'on': ['JsDoc', '<Plug>(jsdoc)'] }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
@@ -196,6 +196,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
  Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+ Plug 'lucasecdb/vim-tsx'
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -246,8 +247,8 @@ augroup customAutocmd
   " au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au FileType json,vim setlocal shiftwidth=2 softtabstop=2
-  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript EmmetInstall
-  au FileType javascript,typescript UltiSnipsAddFiletypes html
+  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript.tsx EmmetInstall
+  au FileType javascript,typescript.tsx UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
@@ -309,6 +310,9 @@ let g:ycm_semantic_triggers =  {
 nnoremap <leader>w :YcmCompleter GoTo<CR>
 nnoremap <leader>ww :YcmCompleter GoToReferences<CR>
 nnoremap <leader>wd :YcmCompleter GetDoc<CR>
+nnoremap <leader>wt :YcmCompleter GetType<CR>
+nnoremap <leader>wf :YcmCompleter FixIt<CR>
+nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
 nnoremap <leader>wr :YcmCompleter RefactorRename 
 
 " vim-multiple-cursors
@@ -462,7 +466,7 @@ let g:mkdp_auto_start = 1
 let g:mkdp_path_to_chrome = 'open -a Safari'
 
 let g:indentLine_enabled = 1
-let g:indentLine_fileType = ['javascript', 'python', 'php', 'css', 'scss', 'sass', 'less']
+let g:indentLine_fileType = ['javascript', 'typescript', 'typescript.tsx', 'python', 'php', 'css', 'scss', 'sass', 'less']
 
 let g:user_emmet_install_global = 0
 let g:user_emmet_settings = {
@@ -510,7 +514,8 @@ let g:mta_filetypes = {
     \ 'xml' : 1,
     \ 'jinja' : 1,
     \ 'php': 1,
-    \ 'javascript' : 1
+    \ 'javascript' : 1,
+    \ 'typescript.tsx' : 1
     \}
 
 " vim-bling
@@ -554,7 +559,7 @@ let g:ale_fixers = {
 \   'sass': 'prettier',
 \   'less': 'prettier',
 \   'markdown': 'prettier',
-\   'typescript': 'prettier',
+\   'typescript': ['prettier', 'tslint'],
 \   'json': 'prettier',
 \   'vue': 'prettier',
 \}
