@@ -10,7 +10,7 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=Fantasque\ Sans\ Mono:h14
+set guifont=FantasqueSansMono\ Nerd\ Font\ Mono:h14
 set linespace=3
 
 set tags=tags;
@@ -151,6 +151,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
   Plug 'tacahiroy/ctrlp-funky', { 'on': ctrlp_cmds }
+  Plug 'ryanoasis/vim-devicons', { 'on': ctrlp_cmds + nerdtree_cmds }
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'terryma/vim-multiple-cursors'
  Plug 'ap/vim-css-color'
@@ -179,6 +180,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': nerdtree_cmds }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
@@ -262,6 +264,8 @@ augroup END
 " airline
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline_powerline_fonts = 90
+let g:airline_symbols_ascii = 1
 
 " minibufexplorer
 hi MBENormal               guifg=#928374 guibg=fg ctermfg=244
@@ -419,6 +423,10 @@ let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(git|vscode|pyc|ico|png|jpeg|gif|svg|ttf|woff|woff2|eot|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
 noremap <F5> :NERDTreeFind<CR>
 noremap <CR> :NERDTreeFind<CR>
+
+" devicons
+let g:webdevicons_enable_ctrlp = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 " Tagbar
 let g:tagbar_width = 25
@@ -617,6 +625,10 @@ function! s:filter_header(lines) abort
     return l:centered_lines
 endfunction
 let g:startify_custom_header = s:filter_header(g:start_header)
+
+function! StartifyEntryFormat()
+    return 'WebDevIconsGetFileTypeSymbol(absolute_path) ." ". entry_path'
+endfunction
 
 " vim-move
 let g:move_map_keys = 0
