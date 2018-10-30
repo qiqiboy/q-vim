@@ -10,8 +10,8 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
-set linespace=2
+set guifont=IosevkaNerdFontCompleteM-Light:h13
+set linespace=0
 
 set tags=tags;
 set hidden
@@ -262,8 +262,8 @@ augroup customAutocmd
 augroup END
 
 " airline
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
 let g:airline_powerline_fonts = 90
 
 " minibufexplorer
