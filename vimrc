@@ -265,7 +265,6 @@ augroup END
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_powerline_fonts = 90
-let g:airline_symbols_ascii = 1
 
 " minibufexplorer
 hi MBENormal               guifg=#928374 guibg=fg ctermfg=244
@@ -429,8 +428,13 @@ function! WebDevIconsGetFileTypeSymbol(...)
   return ''
 endfunction
 
-let g:webdevicons_enable_ctrlp = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+
+if has('gui_running')
+  let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+endif
+
 if !exists('g:ctrlp_formatline_func')
   " logic for ctrlpvim/ctrlp.vim:
   let g:ctrlp_formatline_func = 's:formatline(s:curtype() == "buf" ? v:val : WebDevIconsGetFileTypeSymbol(v:val) . " " . v:val) '
