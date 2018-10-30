@@ -10,8 +10,8 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=FantasqueSansMono\ Nerd\ Font\ Mono:h14
-set linespace=3
+set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
+set linespace=2
 
 set tags=tags;
 set hidden
