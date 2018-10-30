@@ -151,7 +151,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
   Plug 'tacahiroy/ctrlp-funky', { 'on': ctrlp_cmds }
-  Plug 'ryanoasis/vim-devicons', { 'on': ctrlp_cmds + nerdtree_cmds }
+ Plug 'ryanoasis/vim-devicons'
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'terryma/vim-multiple-cursors'
  Plug 'ap/vim-css-color'
@@ -198,7 +198,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
  Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
- Plug 'lucasecdb/vim-tsx'
+  Plug 'lucasecdb/vim-tsx', { 'for': 'typescript' }
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -425,8 +425,16 @@ noremap <F5> :NERDTreeFind<CR>
 noremap <CR> :NERDTreeFind<CR>
 
 " devicons
+function! WebDevIconsGetFileTypeSymbol(...)
+  return ''
+endfunction
+
 let g:webdevicons_enable_ctrlp = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
+if !exists('g:ctrlp_formatline_func')
+  " logic for ctrlpvim/ctrlp.vim:
+  let g:ctrlp_formatline_func = 's:formatline(s:curtype() == "buf" ? v:val : WebDevIconsGetFileTypeSymbol(v:val) . " " . v:val) '
+endif
 
 " Tagbar
 let g:tagbar_width = 25
@@ -466,7 +474,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 " vim-undotree
 nnoremap <F4> :UndotreeToggle<CR>
 if !exists('g:undotree_WindowLayout')
-    let g:undotree_WindowLayout = 3
+  let g:undotree_WindowLayout = 3
 endif
 
 " markdown-preview
