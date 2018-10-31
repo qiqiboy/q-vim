@@ -11,7 +11,7 @@ language message zh_CN.UTF-8
 
 set background=dark
 set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
-set linespace=0
+set linespace=1
 
 set tags=tags;
 set hidden
@@ -598,6 +598,7 @@ let g:lt_height = 10
 
 " startify
 let g:startify_padding_left = 30
+let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'h': '/etc/hosts'}]
 let g:startify_enable_special = 0
 let g:startify_commands = [
