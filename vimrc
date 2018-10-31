@@ -10,7 +10,7 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=IosevkaNerdFontCompleteM-Light:h13
+set guifont=IosevkaNerdFontComplete-Term:h13
 set linespace=0
 
 set tags=tags;
