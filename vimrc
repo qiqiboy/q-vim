@@ -10,7 +10,7 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=IosevkaNerdFontComplete-Term:h13
+set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
 set linespace=0
 
 set tags=tags;
@@ -101,7 +101,7 @@ if has('gui_running')
   set guioptions-=L               " 把gui左边的滑动条去掉
   set guioptions-=m               " 把gui的菜单栏去掉
   set guioptions-=b
-  set lines=48 columns=200
+  set lines=52 columns=200
 endif
 
 " make signColumn always show
