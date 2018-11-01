@@ -10,7 +10,7 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
+set guifont=IosevkaNerdFontComplete-Term:h13
 set linespace=1
 
 set tags=tags;
@@ -259,6 +259,7 @@ augroup customAutocmd
   " au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   au StdinReadPre * let s:std_in=1
   au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+  autocmd FileType nerdtree setlocal ambiwidth=double
 augroup END
 
 " airline
