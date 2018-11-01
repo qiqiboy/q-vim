@@ -10,7 +10,7 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=IosevkaNerdFontComplete-Term:h13
+set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
 set linespace=1
 
 set tags=tags;
@@ -259,7 +259,7 @@ augroup customAutocmd
   " au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   au StdinReadPre * let s:std_in=1
   au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-  autocmd FileType nerdtree setlocal ambiwidth=double
+  " autocmd FileType nerdtree setlocal ambiwidth=double
 augroup END
 
 " airline
@@ -318,6 +318,12 @@ nnoremap <leader>wt :YcmCompleter GetType<CR>
 nnoremap <leader>wf :YcmCompleter FixIt<CR>
 nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
 nnoremap <leader>wr :YcmCompleter RefactorRename 
+
+let g:ycm_warning_symbol = "\uf525"
+let g:ycm_error_symbol = "\uf5e3"
+let g:airline#extensions#ycm#enabled = 0
+let g:airline#extensions#ycm#error_symbol = g:ycm_error_symbol . ' '
+let g:airline#extensions#ycm#warning_symbol = g:ycm_warning_symbol . ' '
 
 " vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
@@ -435,9 +441,9 @@ endfunction
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
-" if has('gui_running')
+if has('gui_running')
   let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
-" endif
+endif
 
 if !exists('g:ctrlp_formatline_func')
   " logic for ctrlpvim/ctrlp.vim:
@@ -556,9 +562,9 @@ let g:ale_keep_list_window_open = 0
 let g:ale_lint_on_text_changed = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 0
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '▸'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = g:ycm_error_symbol
+let g:ale_sign_warning = g:ycm_warning_symbol
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%] [%code%]'
 let g:ale_virtualenv_dir_names = ['.env', 'env', 've-py3', 've', 'virtualenv', 'venv']
 let g:airline#extensions#ale#error_symbol = g:ale_sign_error . ' '
 let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
