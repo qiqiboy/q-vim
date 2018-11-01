@@ -435,9 +435,9 @@ endfunction
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 
-if has('gui_running')
+" if has('gui_running')
   let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
-endif
+" endif
 
 if !exists('g:ctrlp_formatline_func')
   " logic for ctrlpvim/ctrlp.vim:
