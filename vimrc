@@ -171,7 +171,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'typescript'] }
-  Plug 'mlaursen/vim-react-snippets', { 'for': ['javascript', 'typescript'] }
+  Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'typescript'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  " Plug 'pangloss/vim-javascript'
  Plug 'othree/javascript-libraries-syntax.vim'
