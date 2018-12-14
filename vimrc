@@ -146,7 +146,7 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 
  Plug 'fholgado/minibufexpl.vim'
- Plug 'Valloric/YouCompleteMe', { 'do': './install.py --js-completer' }
+ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
@@ -305,6 +305,7 @@ let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_show_diagnostics_ui = 0
 " replace with your python virtual environment path {{{
 let g:ycm_python_binary_path = $HOME . '/develop/portal/venv/bin/python2'
 " }}}
@@ -318,12 +319,6 @@ nnoremap <leader>wt :YcmCompleter GetType<CR>
 nnoremap <leader>wf :YcmCompleter FixIt<CR>
 nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
 nnoremap <leader>wr :YcmCompleter RefactorRename 
-
-let g:ycm_warning_symbol = "\uf525"
-let g:ycm_error_symbol = "\uf5e3"
-let g:airline#extensions#ycm#enabled = 0
-let g:airline#extensions#ycm#error_symbol = g:ycm_error_symbol . ' '
-let g:airline#extensions#ycm#warning_symbol = g:ycm_warning_symbol . ' '
 
 " vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
@@ -562,8 +557,8 @@ let g:ale_keep_list_window_open = 0
 let g:ale_lint_on_text_changed = 1
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_save = 0
-let g:ale_sign_error = g:ycm_error_symbol
-let g:ale_sign_warning = g:ycm_warning_symbol
+let g:ale_sign_error = "\uf5e3"
+let g:ale_sign_warning = "\uf525"
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%] [%code%]'
 let g:ale_virtualenv_dir_names = ['.env', 'env', 've-py3', 've', 'virtualenv', 'venv']
 let g:airline#extensions#ale#error_symbol = g:ale_sign_error . ' '
@@ -573,7 +568,7 @@ let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tslint'],
+\   'typescript': ['tsserver', 'tslint'],
 \}
 " ale tslint
 let g:ale_typescript_tslint_use_global = 1
