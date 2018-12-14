@@ -567,7 +567,7 @@ let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
 " hi ALEWarningSign ctermfg=220 ctermbg=NONE guifg=#ff8700 guibg=NONE
 
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['tsserver', 'eslint'],
 \   'typescript': ['tsserver', 'tslint'],
 \}
 " ale tslint
