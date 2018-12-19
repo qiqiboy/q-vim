@@ -563,8 +563,8 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%] [%code%]'
 let g:ale_virtualenv_dir_names = ['.env', 'env', 've-py3', 've', 'virtualenv', 'venv']
 let g:airline#extensions#ale#error_symbol = g:ale_sign_error . ' '
 let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
-" hi ALEErrorSign ctermfg=196 ctermbg=NONE guifg=#af005f guibg=NONE
-" hi ALEWarningSign ctermfg=220 ctermbg=NONE guifg=#ff8700 guibg=NONE
+let airline#extensions#ale#open_lnum_symbol = ":L"
+let airline#extensions#ale#close_lnum_symbol = ''
 
 let g:ale_linters = {
 \   'javascript': ['tsserver', 'eslint'],
