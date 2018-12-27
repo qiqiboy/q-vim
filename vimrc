@@ -224,7 +224,7 @@ call plug#end()
 let g:gruvbox_sign_column = 'dark0'
 let g:gruvbox_vert_split = 'dark0'
 colorscheme gruvbox
-hi VertSplit guifg=#504945 ctermfg=239
+hi VertSplit guifg=bg ctermfg=bg
 
 " terminal
 if has('terminal')
@@ -491,6 +491,7 @@ let g:mkdp_auto_start = 1
 let g:mkdp_path_to_chrome = 'open -a Safari'
 
 let g:indentLine_enabled = 1
+let g:indentLine_char = '┆'
 let g:indentLine_fileType = ['javascript', 'typescript', 'typescript.tsx', 'python', 'php', 'css', 'scss', 'sass', 'less']
 
 let g:user_emmet_install_global = 0
