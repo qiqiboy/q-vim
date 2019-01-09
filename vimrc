@@ -320,6 +320,11 @@ nnoremap <leader>wf :YcmCompleter FixIt<CR>
 nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
 nnoremap <leader>wr :YcmCompleter RefactorRename 
 
+function! ExpandSnippetOrCarriageReturn()
+    return UltiSnips#ExpandSnippetOrJump()
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
 " vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_prev_key='<C-p>'
