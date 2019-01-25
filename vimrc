@@ -495,11 +495,14 @@ endif
 " markdown-preview
 let g:mkdp_auto_start = 1
 let g:mkdp_path_to_chrome = 'open -a Safari'
+let g:mkdp_refresh_slow = 1
 
+" indentLine
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
 let g:indentLine_fileType = ['javascript', 'typescript', 'typescript.tsx', 'python', 'php', 'css', 'scss', 'sass', 'less']
 
+" emmet
 let g:user_emmet_install_global = 0
 let g:user_emmet_settings = {
     \'html' : {
