@@ -183,7 +183,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': nerdtree_cmds }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
- Plug 'iamcco/markdown-preview.vim', { 'for': 'markdown' }
+ Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
  Plug 'Yggdroot/indentLine'
  Plug 'elzr/vim-json', { 'for': 'json' }
  Plug 'dkprice/vim-easygrep', { 'on': ['<plug>EgMap', 'Grep', 'Replace'] }
