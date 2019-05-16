@@ -591,7 +591,7 @@ let airline#extensions#ale#close_lnum_symbol = ''
 
 let g:ale_linters = {
 \   'javascript': ['tsserver', 'eslint'],
-\   'typescript': ['tsserver', 'tslint'],
+\   'typescript': ['tsserver', 'eslint'],
 \}
 " ale tslint
 let g:ale_typescript_tslint_use_global = 1
@@ -607,7 +607,7 @@ let g:ale_fixers = {
 \   'sass': 'prettier',
 \   'less': 'prettier',
 \   'markdown': 'prettier',
-\   'typescript': ['prettier', 'tslint'],
+\   'typescript': ['prettier', 'eslint'],
 \   'json': 'prettier',
 \   'vue': 'prettier',
 \}

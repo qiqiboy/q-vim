@@ -1,4 +1,44 @@
 {
+  "extends": ["react-app"],
+  "overrides": {
+    "files": ["**/*.ts", "**/*.tsx"],
+    "rules": {
+      "@typescript-eslint/no-use-before-define": [2, { "functions": false, "classes": false }],
+      "@typescript-eslint/unified-signatures": 1,
+      "@typescript-eslint/camelcase": 0,
+      "@typescript-eslint/no-unused-vars": [
+        1,
+        {
+          "vars": "all",
+          "args": "after-used",
+          "ignoreRestSiblings": true,
+          "varsIgnorePattern": "^_",
+          "argsIgnorePattern": "^_|^err|^ev"
+        }
+      ],
+      "@typescript-eslint/adjacent-overload-signatures": 2,
+      "@typescript-eslint/array-type": 2,
+      "@typescript-eslint/ban-types": 2,
+      "@typescript-eslint/class-name-casing": 2,
+      "@typescript-eslint/explicit-function-return-type": 0,
+      "@typescript-eslint/explicit-member-accessibility": 0,
+      "@typescript-eslint/indent": 0,
+      "@typescript-eslint/interface-name-prefix": 0,
+      "@typescript-eslint/member-delimiter-style": 2,
+      "@typescript-eslint/no-empty-interface": 2,
+      "@typescript-eslint/no-explicit-any": 0,
+      "@typescript-eslint/no-inferrable-types": 2,
+      "@typescript-eslint/no-misused-new": 2,
+      "@typescript-eslint/no-non-null-assertion": 0,
+      "@typescript-eslint/no-object-literal-type-assertion": 0,
+      "@typescript-eslint/no-parameter-properties": 2,
+      "@typescript-eslint/no-triple-slash-reference": 2,
+      "@typescript-eslint/no-var-requires": 2,
+      "@typescript-eslint/prefer-interface": 2,
+      "@typescript-eslint/prefer-namespace-keyword": 2,
+      "@typescript-eslint/type-annotation-spacing": 2
+    }
+  },
   "env": {
     "es6": true,
     "browser": true,
@@ -15,7 +55,6 @@
       "experimentalObjectRestSpread": true
     }
   },
-  "extends": "react-app",
   "rules": {
     "no-console": 0,
     "eqeqeq": [1, "smart"],
@@ -29,6 +68,14 @@
     "switch-colon-spacing": 1,
     "func-call-spacing": [1, "never"],
     "keyword-spacing": 1,
+    "no-multiple-empty-lines": [
+      1,
+      {
+        "max": 2,
+        "maxEOF": 1,
+        "maxBOF": 1
+      }
+    ],
     "no-multi-spaces": [
       1,
       {
