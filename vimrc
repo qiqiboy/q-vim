@@ -410,7 +410,7 @@ let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 "jsbeautify
 augroup jsbeautify
   autocmd!
-  autocmd FileType html,xhtml,htmldjango,jinja noremap <buffer> <leader>b :call HtmlBeautify()<CR>
+  autocmd FileType xhtml,htmldjango,jinja noremap <buffer> <leader>b :call HtmlBeautify()<CR>
 augroup END
 
 " NERDTree
@@ -606,6 +606,7 @@ let g:ale_fixers = {
 \   'scss': 'prettier',
 \   'sass': 'prettier',
 \   'less': 'prettier',
+\   'html': 'prettier',
 \   'markdown': 'prettier',
 \   'typescript': ['prettier', 'eslint'],
 \   'json': 'prettier',

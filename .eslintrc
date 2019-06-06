@@ -17,7 +17,7 @@
         }
       ],
       "@typescript-eslint/adjacent-overload-signatures": 2,
-      "@typescript-eslint/array-type": 2,
+      "@typescript-eslint/array-type": [1, "array-simple"],
       "@typescript-eslint/ban-types": 2,
       "@typescript-eslint/class-name-casing": 2,
       "@typescript-eslint/explicit-function-return-type": 0,
@@ -51,8 +51,7 @@
     "ecmaVersion": 9,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
+      "jsx": true
     }
   },
   "rules": {
@@ -91,13 +90,13 @@
       1,
       {
         "blankLine": "always",
-        "prev": ["multiline-block-like", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"],
+        "prev": ["multiline-block-like", "multiline-expression", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"],
         "next": "*"
       },
       {
         "blankLine": "always",
         "prev": "*",
-        "next": ["multiline-block-like", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"]
+        "next": ["multiline-block-like", "multiline-expression", "const", "let", "var", "cjs-import", "import", "export", "cjs-export"]
       },
       { "blankLine": "any", "prev": ["cjs-import", "import"], "next": ["cjs-import", "import"] },
       { "blankLine": "any", "prev": ["export", "cjs-export"], "next": ["export", "cjs-export"] },
