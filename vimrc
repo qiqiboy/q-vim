@@ -206,7 +206,6 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
  Plug 'airblade/vim-rooter'
  Plug 'posva/vim-vue', { 'for': 'vue' }
- Plug 'maksimr/vim-jsbeautify', { 'for': ['htmldjango', 'html', 'xhtml', 'jinja'] }
  Plug 'editorconfig/editorconfig-vim'
  if v:version >= 800
  Plug 'w0rp/ale'
@@ -406,12 +405,6 @@ let g:ctrlsf_winsize = '50%'
 
 "javascript libs
 let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
-
-"jsbeautify
-augroup jsbeautify
-  autocmd!
-  autocmd FileType xhtml,htmldjango,jinja noremap <buffer> <leader>b :call HtmlBeautify()<CR>
-augroup END
 
 " NERDTree
 let g:NERDTreeMouseMode = 1
