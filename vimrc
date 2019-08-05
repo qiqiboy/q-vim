@@ -71,9 +71,12 @@ set selectmode=mouse,key
 set nobackup
 set noswapfile
 
-"set scrolloff=5
+" set scrolloff=5
 set sidescrolloff=3
 set pumheight=20
+
+" set list
+set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 
 set formatoptions+=j              " Delete comment character when joining commented lines
 set wildmenu
@@ -212,7 +215,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  endif
 
  """"""""themes"""""""""""""""
- Plug 'morhetz/gruvbox'
+ Plug 'gruvbox-community/gruvbox'
  Plug 'NLKNguyen/papercolor-theme'
  Plug 'nanotech/jellybeans.vim'
  Plug 'rakr/vim-one'
@@ -247,7 +250,7 @@ augroup customAutocmd
   au!
   " au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
-  au FileType json,vim setlocal shiftwidth=2 softtabstop=2
+  au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript.tsx EmmetInstall
   au FileType javascript,typescript.tsx UltiSnipsAddFiletypes html
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
@@ -600,6 +603,7 @@ let g:ale_fixers = {
 \   'sass': 'prettier',
 \   'less': 'prettier',
 \   'html': 'prettier',
+\   'yaml': 'prettier',
 \   'markdown': 'prettier',
 \   'typescript': ['prettier', 'eslint'],
 \   'json': 'prettier',

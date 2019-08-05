@@ -7,16 +7,9 @@
   "singleQuote": true,
   "overrides": [
     {
-      "files": ["*.json", ".eslintrc", ".tslintrc", ".prettierrc", ".tern-project"],
+      "files": ["*.json", ".eslintrc", ".tslintrc", ".prettierrc", ".tern-project", "*.yml"],
       "options": {
         "tabWidth": 2
-      }
-    },
-    {
-      "files": ["*.vue"],
-      "options": {
-        "tabWidth": 2,
-        "parser": "vue"
       }
     }
   ]

@@ -82,7 +82,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+# alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+# alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
 alias kao=fuck
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/Applications/MacVim.app/Contents/bin:$PATH"
