@@ -149,7 +149,7 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 
  Plug 'fholgado/minibufexpl.vim'
- Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
+ Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
@@ -211,7 +211,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'posva/vim-vue', { 'for': 'vue' }
  Plug 'editorconfig/editorconfig-vim'
  if v:version >= 800
- Plug 'w0rp/ale'
+ Plug 'dense-analysis/ale'
  endif
 
  """"""""themes"""""""""""""""
