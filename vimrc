@@ -158,7 +158,6 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'terryma/vim-multiple-cursors'
  Plug 'ap/vim-css-color'
- Plug 'tpope/vim-haml'
  Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
  Plug 'genoma/vim-less'
  Plug 'jiangmiao/auto-pairs'
@@ -231,9 +230,9 @@ hi VertSplit guifg=bg ctermfg=bg
 " terminal
 if has('terminal')
   if exists('&termwinsize')
-    set termwinsize=15x0
+    set termwinsize=20x0
   else
-    set termsize=15x0
+    set termsize=20x0
   endif
 
   nnoremap <leader>t :call <SID>OpenTerminal()<CR>
@@ -287,7 +286,7 @@ noremap <C-S-TAB> :MBEbp<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && !empty(bufname(v:val))'))
-  if empty(&buftype) && l:buf_num > 1
+  if empty(&buftype) && l:buf_num > 1 && match(&filetype, 'fugitive') < 0
     exec ':MBEbw!'
   else
     exec 'q!'
