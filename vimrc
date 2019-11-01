@@ -221,9 +221,14 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 
 call plug#end()
 
-"let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_sign_column = 'dark0'
-let g:gruvbox_vert_split = 'dark0'
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_sign_column = 'dark0_hard'
+let g:gruvbox_vert_split = 'dark0_hard'
+let g:gruvbox_invert_indent_guides = 1
+let g:gruvbox_italicize_strings = 1
+let g:gruvbox_improved_strings = 1
+let g:gruvbox_improved_warnings = 1
+let g:gruvbox_invert_tabline = 1
 colorscheme gruvbox
 hi VertSplit guifg=bg ctermfg=bg
 
