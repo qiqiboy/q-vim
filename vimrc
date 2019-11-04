@@ -147,6 +147,8 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
   \ 'CtrlPCurWD']
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
+let indentLine_types = ['javascript', 'typescript', 'typescript.tsx', 'python', 'php', 'css', 'scss', 'sass', 'less']
+let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'typescript']
 
  Plug 'fholgado/minibufexpl.vim'
  Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
@@ -159,12 +161,11 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'terryma/vim-multiple-cursors'
  Plug 'ap/vim-css-color'
  Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
- Plug 'genoma/vim-less'
  Plug 'jiangmiao/auto-pairs'
  Plug 'hail2u/vim-css3-syntax'
- Plug 'othree/html5.vim'
- Plug 'docunext/closetag.vim'
- Plug 'Valloric/MatchTagAlways', { 'for': ['html', 'xhtml', 'xml', 'javascript', 'typescript'] }
+ Plug 'othree/html5.vim',  { 'for':htmltag_types }
+ Plug 'docunext/closetag.vim', { 'for': htmltag_types }
+ Plug 'Valloric/MatchTagAlways', { 'for': htmltag_types }
  Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion' }
  Plug 'terryma/vim-expand-region', { 'on': '<Plug>(expand_region' }
  Plug 'tpope/vim-surround'
@@ -175,9 +176,9 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
   Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'typescript'] }
   Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'typescript'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
- " Plug 'pangloss/vim-javascript'
- Plug 'othree/javascript-libraries-syntax.vim'
- Plug 'neoclide/vim-jsx-improve'
+ " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
+ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'typescript'] }
+ Plug 'neoclide/vim-jsx-improve', { 'for': ['javascript', 'typescript'] }
  Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'typescript'], 'on': ['JsDoc', '<Plug>(jsdoc)'] }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
@@ -186,7 +187,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
- Plug 'Yggdroot/indentLine'
+ Plug 'Yggdroot/indentLine', { 'for': indentLine_types }
  Plug 'elzr/vim-json', { 'for': 'json' }
  Plug 'dkprice/vim-easygrep', { 'on': ['<plug>EgMap', 'Grep', 'Replace'] }
  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -513,7 +514,7 @@ let g:mkdp_refresh_slow = 1
 " indentLine
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
-let g:indentLine_fileType = ['javascript', 'typescript', 'typescript.tsx', 'python', 'php', 'css', 'scss', 'sass', 'less']
+let g:indentLine_fileType = indentLine_types
 
 " emmet
 let g:user_emmet_install_global = 0
