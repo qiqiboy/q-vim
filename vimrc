@@ -147,7 +147,7 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
   \ 'CtrlPCurWD']
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
-let indentLine_types = ['javascript', 'typescript', 'typescript.tsx', 'python', 'php', 'css', 'scss', 'sass', 'less']
+let indentLine_types = ['javascript', 'typescript', 'typescript.tsx', 'typescriptreact', 'python', 'php', 'css', 'scss', 'sass', 'less']
 let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'typescript']
 
  Plug 'fholgado/minibufexpl.vim'
@@ -201,7 +201,7 @@ let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'typescript']
  Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
  Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
  Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-  Plug 'lucasecdb/vim-tsx', { 'for': 'typescript' }
+  Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript' }
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -345,16 +345,15 @@ nmap f <Plug>(easymotion-f)
 nmap F <Plug>(easymotion-F)
 nmap t <Plug>(easymotion-t)
 nmap T <Plug>(easymotion-T)
-nmap ? <Plug>(easymotion-Fn)
+nmap ? <Plug>(easymotion-repeat)
 nmap / <Plug>(easymotion-sn)
 nmap n <Plug>(easymotion-next)
 nmap N <Plug>(easymotion-prev)
-nmap <leader>. <Plug>(easymotion-repeat)
 
-nmap <Leader><Leader>l <Plug>(easymotion-w)
+nmap <Leader><Leader>l <Plug>(easymotion-W)
 nmap <Leader><Leader>j <Plug>(easymotion-j)
 nmap <Leader><Leader>k <Plug>(easymotion-k)
-nmap <Leader><Leader>h <Plug>(easymotion-b)
+nmap <Leader><Leader>h <Plug>(easymotion-B)
 
 " vim-trailing-whitespace
 map <leader><space> :FixWhitespace<CR>
