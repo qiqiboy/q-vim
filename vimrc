@@ -263,6 +263,7 @@ augroup customAutocmd
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript.tsx,typescriptreact EmmetInstall
   au FileType javascript,typescript.tsx,typescriptreact UltiSnipsAddFiletypes html
+  au FileType markdown setlocal wrap
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
