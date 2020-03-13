@@ -107,8 +107,8 @@ if has('gui_running')
   set lines=52 columns=200
 endif
 
-if has('patch-8.1.1902')
-  set completeopt+=popup
+if has('popupwin')
+  " set completeopt+=popup
   set completepopup=height:20,width:60,highlight:Pmenu,border:off
 endif
 
@@ -155,7 +155,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let indentLine_types = ['javascript', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'python', 'php', 'css', 'scss', 'sass', 'less']
 let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'typescript', 'typescriptreact']
 
- Plug 'qiqiboy/minibufexpl.vim'
+ Plug 'fholgado/minibufexpl.vim'
  Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -321,6 +321,7 @@ let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_show_diagnostics_ui = 0
+let g:ycm_disable_signature_help = 0
 let g:ycm_key_invoke_completion = '<C-c>'
 " replace with your python virtual environment path {{{
 let g:ycm_python_binary_path = $HOME . '/develop/portal/venv/bin/python2'
