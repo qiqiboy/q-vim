@@ -181,9 +181,9 @@ let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'javascriptreact', 't
   Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
   Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
- " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
+ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
- Plug 'neoclide/vim-jsx-improve', { 'for': ['javascript', 'javascriptreact'] }
+ Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
  Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'], 'on': ['JsDoc', '<Plug>(jsdoc)'] }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
@@ -205,8 +205,6 @@ let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'javascriptreact', 't
  Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
  Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
  Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
- " Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescriptreact'] }
-  " Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript', 'typescriptreact'] }
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -260,7 +258,6 @@ augroup customAutocmd
   au!
   " au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
-  au BufNewFile,BufRead *.jsx setf javascript.jsx
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
   au FileType javascript,javascriptreact,typescript.tsx,typescriptreact UltiSnipsAddFiletypes html
@@ -485,6 +482,7 @@ nnoremap <silent> <F6> :TagbarToggle<CR>
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
+let g:vim_jsx_pretty_colorful_config = 1
 
 
 " vim-jsdoc
