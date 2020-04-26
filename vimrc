@@ -152,8 +152,8 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
   \ 'CtrlPCurWD']
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
-let indentLine_types = ['javascript', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'python', 'php', 'css', 'scss', 'sass', 'less']
-let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'typescript', 'typescriptreact']
+let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'python', 'php', 'css', 'scss', 'sass', 'less']
+let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 
  Plug 'fholgado/minibufexpl.vim'
  Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
@@ -178,13 +178,13 @@ let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'typescript', 'typesc
  Plug 'bronson/vim-trailing-whitespace'
  Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'typescript', 'typescriptreact'] }
-  Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'typescript', 'typescriptreact'] }
+  Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
+  Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
- " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript', 'typescriptreact'] }
- Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'typescript', 'typescriptreact'] }
- Plug 'neoclide/vim-jsx-improve', { 'for': ['javascript'] }
- Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'typescript', 'typescriptreact'], 'on': ['JsDoc', '<Plug>(jsdoc)'] }
+ " Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
+ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
+ Plug 'neoclide/vim-jsx-improve', { 'for': ['javascript', 'javascriptreact'] }
+ Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'], 'on': ['JsDoc', '<Plug>(jsdoc)'] }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
@@ -205,8 +205,8 @@ let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'typescript', 'typesc
  Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
  Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
  Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
- Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescriptreact'] }
-  Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript', 'typescriptreact'] }
+ " Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescriptreact'] }
+  " Plug 'peitalin/vim-jsx-typescript', { 'for': ['typescript', 'typescriptreact'] }
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
  Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
@@ -261,8 +261,8 @@ augroup customAutocmd
   " au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
-  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,typescript.tsx,typescriptreact EmmetInstall
-  au FileType javascript,typescript.tsx,typescriptreact UltiSnipsAddFiletypes html
+  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
+  au FileType javascript,javascriptreact,typescript.tsx,typescriptreact UltiSnipsAddFiletypes html
   au FileType markdown setlocal wrap
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
@@ -573,6 +573,7 @@ let g:mta_filetypes = {
     \ 'jinja' : 1,
     \ 'php': 1,
     \ 'javascript' : 1,
+    \ 'javascriptreact' : 1,
     \ 'typescript.tsx' : 1,
     \ 'typescriptreact' : 1
     \}
@@ -602,6 +603,7 @@ let airline#extensions#ale#close_lnum_symbol = ''
 
 let g:ale_linters = {
 \   'javascript': ['tsserver', 'eslint'],
+\   'javascriptreact': ['tsserver', 'eslint'],
 \   'typescript': ['tsserver', 'eslint'],
 \   'typescriptreact': ['tsserver', 'eslint'],
 \}
@@ -614,6 +616,7 @@ nmap <leader>b <Plug>(ale_fix)
 " let g:ale_javascript_prettier_options = '--config ~/.prettierrc'
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'javascriptreact': ['prettier', 'eslint'],
 \   'css': 'prettier',
 \   'scss': 'prettier',
 \   'sass': 'prettier',
