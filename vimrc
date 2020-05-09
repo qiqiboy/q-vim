@@ -259,6 +259,8 @@ augroup customAutocmd
   " au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
+  " enable auto comment in newline
+  au FileType typescript,typescriptreact,scss,less setlocal formatoptions+=cro
   au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
   au FileType javascript,javascriptreact,typescript.tsx,typescriptreact UltiSnipsAddFiletypes html
   au FileType markdown setlocal wrap
