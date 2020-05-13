@@ -646,6 +646,7 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'h': '/etc/hosts'}]
 let g:startify_enable_special = 0
 let g:startify_files_number = 15
+let g:startify_update_oldfiles = 1
 let g:startify_commands = [
     \ ['Status of Plugins', 'PlugStatus'],
     \ ['Install Plugins', 'PlugInstall'],
