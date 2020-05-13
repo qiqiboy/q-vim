@@ -645,6 +645,7 @@ let g:startify_padding_left = 30
 let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'h': '/etc/hosts'}]
 let g:startify_enable_special = 0
+let g:startify_files_number = 15
 let g:startify_commands = [
     \ ['Status of Plugins', 'PlugStatus'],
     \ ['Install Plugins', 'PlugInstall'],
@@ -660,22 +661,17 @@ let g:startify_list_order = [
             \ [repeat(' ', g:startify_padding_left - 4) . '常用命令:'],
             \ 'commands',
             \ ]
+let g:start_indent_str = repeat(' ', (100 - strwidth('░██████╗░░░░░░░██╗░░░██╗██╗███╗░░░███╗')) / 2)
 let g:start_header = [
-          \ '                                                                     ▄               ▄  ▄▄▄▄▄▄▄▄▄▄▄  ▄▄       ▄▄',
-          \ '                                                                    ▐░▌             ▐░▌▐░░░░░░░░░░░▌▐░░▌     ▐░░▌',
-          \ '                                                                     ▐░▌           ▐░▌  ▀▀▀▀█░█▀▀▀▀ ▐░▌░▌   ▐░▐░▌',
-          \ '  ██████╗  ██╗  ██████╗  ██╗ ██████╗   ██████╗ ██╗   ██╗              ▐░▌         ▐░▌       ▐░▌     ▐░▌▐░▌ ▐░▌▐░▌',
-          \ ' ██╔═══██╗ ██║ ██╔═══██╗ ██║ ██╔══██╗ ██╔═══██╗╚██╗ ██╔╝               ▐░▌       ▐░▌        ▐░▌     ▐░▌ ▐░▐░▌ ▐░▌',
-          \ ' ██║   ██║ ██║ ██║   ██║ ██║ ██████╔╝ ██║   ██║ ╚████╔╝                 ▐░▌     ▐░▌         ▐░▌     ▐░▌  ▐░▌  ▐░▌',
-          \ ' ██║▄▄ ██║ ██║ ██║▄▄ ██║ ██║ ██╔══██╗ ██║   ██║  ╚██╔╝                   ▐░▌   ▐░▌          ▐░▌     ▐░▌   ▀   ▐░▌',
-          \ ' ╚██████╔╝ ██║ ╚██████╔╝ ██║ ██████╔╝ ╚██████╔╝   ██║                     ▐░▌ ▐░▌           ▐░▌     ▐░▌       ▐░▌',
-          \ '  ╚══▀▀═╝  ╚═╝  ╚══▀▀═╝  ╚═╝ ╚═════╝   ╚═════╝    ╚═╝                      ▐░▐░▌        ▄▄▄▄█░█▄▄▄▄ ▐░▌       ▐░▌',
-          \ '                                                                            ▐░▌        ▐░░░░░░░░░░░▌▐░▌       ▐░▌',
-          \ '                                                                             ▀          ▀▀▀▀▀▀▀▀▀▀▀  ▀         ▀ ',
-          \'',
-          \'',
-          \ repeat(' ', 6) . repeat('=', 100)
-          \]
+            \ g:start_indent_str . '░██████╗░░░░░░░██╗░░░██╗██╗███╗░░░███╗',
+            \ g:start_indent_str . '██╔═══██╗░░░░░░██║░░░██║██║████╗░████║',
+            \ g:start_indent_str . '██║██╗██║█████╗╚██╗░██╔╝██║██╔████╔██║',
+            \ g:start_indent_str . '╚██████╔╝╚════╝░╚████╔╝░██║██║╚██╔╝██║',
+            \ g:start_indent_str . '░╚═██╔═╝░░░░░░░░░╚██╔╝░░██║██║░╚═╝░██║',
+            \ g:start_indent_str . '░░░╚═╝░░░░░░░░░░░░╚═╝░░░╚═╝╚═╝░░░░░╚═╝',
+            \ '',
+            \ repeat('═', 100)
+            \]
 hi link StartifyHeader StartifySection
 
 function! s:filter_header(lines) abort
