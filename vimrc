@@ -322,6 +322,7 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_disable_signature_help = 0
+let g:ycm_auto_hover = ''
 let g:ycm_key_invoke_completion = '<C-c>'
 " replace with your python virtual environment path {{{
 let g:ycm_python_binary_path = $HOME . '/develop/portal/venv/bin/python2'
@@ -332,7 +333,7 @@ let g:ycm_semantic_triggers =  {
   \ }
 nnoremap <leader>w :YcmCompleter GoTo<CR>
 nnoremap <leader>ww :YcmCompleter GoToReferences<CR>
-nnoremap <leader>wd :YcmCompleter GetDoc<CR>
+nmap <leader>wd <plug>(YCMHover)
 nnoremap <leader>wt :YcmCompleter GetType<CR>
 nnoremap <leader>wf :YcmCompleter FixIt<CR>
 nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
@@ -646,7 +647,6 @@ let g:startify_change_to_vcs_root = 1
 let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'h': '/etc/hosts'}]
 let g:startify_enable_special = 0
 let g:startify_files_number = 15
-let g:startify_update_oldfiles = 1
 let g:startify_commands = [
     \ ['Status of Plugins', 'PlugStatus'],
     \ ['Install Plugins', 'PlugInstall'],
