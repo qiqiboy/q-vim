@@ -213,6 +213,7 @@ let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'javascriptreact', 't
  Plug 'airblade/vim-rooter'
  Plug 'posva/vim-vue', { 'for': 'vue' }
  Plug 'editorconfig/editorconfig-vim'
+ Plug 'dart-lang/dart-vim-plugin'
  if v:version >= 800
  Plug 'dense-analysis/ale'
  endif
@@ -258,6 +259,7 @@ augroup customAutocmd
   au!
   " au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
+  au BufNewFile,BufRead *.wxml setf html
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   " enable auto comment in newline
   au FileType typescript,typescriptreact,scss,less setlocal formatoptions+=cro
@@ -491,6 +493,8 @@ let g:vim_jsx_pretty_colorful_config = 1
 " vim-jsdoc
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_enable_es6 = 1
+let g:jsdoc_lehre_path = '/usr/local/bin/lehre'
+let g:jsdoc_formatter = 'tsdoc'
 
 " vim-mark
 let g:mwDefaultHighlightingPalette = 'maximum'
@@ -630,11 +634,16 @@ let g:ale_fixers = {
 \   'typescriptreact': ['prettier', 'eslint'],
 \   'json': 'prettier',
 \   'vue': 'prettier',
+\   'dart': 'dartfmt',
 \}
 
 "ale tidy
 "let g:ale_html_tidy_use_global = 1
 let g:ale_html_tidy_options = '-q -e -language en --config ~/.tidyrc'
+
+" dart
+let g:dart_html_in_string=v:true
+let g:dart_style_guide = 2
 
 " ListToggle
 let g:lt_quickfix_list_toggle_map = '<F2>'

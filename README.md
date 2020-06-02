@@ -57,7 +57,7 @@ my vim config. 来自一个前端开发码农的 vim 配置方案。
 -   `node6+`、`npm2+`、`ternjs`、`typescript`、`eslint`、`tslint`、`prettier`等
     ```
     brew install node
-    npm install -g tern eslint tslint typescript prettier stylelint jsonlint
+    npm install -g tern eslint tslint typescript prettier stylelint jsonlint lehre
     ```
 -   `ag`(the silver searcher)
     ```
