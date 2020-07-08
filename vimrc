@@ -184,7 +184,7 @@ let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'javascriptreact', 't
  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
- Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'], 'on': ['JsDoc', '<Plug>(jsdoc)'] }
+ Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
@@ -257,7 +257,7 @@ endif
 
 augroup customAutocmd
   au!
-  " au BufNewFile,BufRead *.jsx set filetype=javascript
+  au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
@@ -628,6 +628,7 @@ let g:ale_fixers = {
 \   'sass': 'prettier',
 \   'less': 'prettier',
 \   'html': 'prettier',
+\   'htmldjango': 'prettier',
 \   'yaml': 'prettier',
 \   'markdown': 'prettier',
 \   'typescript': ['prettier', 'eslint'],
