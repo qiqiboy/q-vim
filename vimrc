@@ -108,7 +108,7 @@ if has('gui_running')
 endif
 
 if has('popupwin')
-  " set completeopt+=popup
+  set completeopt+=popup
   set completepopup=height:20,width:60,highlight:Pmenu,border:off
 endif
 
@@ -153,9 +153,9 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'python', 'php', 'css', 'scss', 'sass', 'less']
-let htmltag_types = ['html', 'xhtml', 'xml', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 
- Plug 'fholgado/minibufexpl.vim'
+ " Plug 'fholgado/minibufexpl.vim'
  Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -263,7 +263,7 @@ augroup customAutocmd
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   " enable auto comment in newline
   au FileType typescript,typescriptreact,scss,less setlocal formatoptions+=cro
-  au FileType html,xhtml,xml,css,sass,scss,less,php,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
+  au FileType html,htmldjango,xhtml,xml,css,sass,scss,less,php,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
   au FileType javascript,javascriptreact,typescript.tsx,typescriptreact UltiSnipsAddFiletypes html
   au FileType markdown setlocal wrap
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
@@ -280,7 +280,13 @@ augroup END
 " airline
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
+let g:airline_detect_iminsert = 1
 let g:airline_powerline_fonts = 90
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_min_count = 2
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline#extensions#tabline#buffers_label = 'BUFFERS'
+let g:airline#extensions#tabline#tabs_label = 'TABS'
 
 " minibufexplorer
 hi MBENormal               guifg=#928374 guibg=fg ctermfg=244
@@ -297,13 +303,16 @@ let g:miniBufExplShowBufNumbers = 0
 let g:did_minibufexplorer_syntax_inits = 1
 let g:miniBufExplDebugMode = 3
 let g:miniBufExplDebugLevel = 4
-noremap <C-TAB>   :MBEbn<CR>
-noremap <C-S-TAB> :MBEbp<CR>
+noremap <C-TAB>   :bn!<CR>
+noremap <C-S-TAB> :bn!<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && !empty(bufname(v:val))'))
   if empty(&buftype) && l:buf_num > 1 && match(&filetype, 'fugitive') < 0
-    exec ':MBEbw!'
+    " exec ':MBEbw!'
+    let l:cur_buf = bufnr('%')
+    exec ':bn!'
+    exec 'bw! ' . l:cur_buf
   else
     exec 'q!'
   endif
@@ -404,6 +413,7 @@ nmap <Leader>pw :CtrlPCurWD<CR>
 nmap <Leader>fu :CtrlPFunky<CR>
 nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 nmap <Space> <plug>(ctrlp)
+nmap <Tab> :CtrlPBuffer<CR>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
