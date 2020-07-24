@@ -306,14 +306,14 @@ let g:did_minibufexplorer_syntax_inits = 1
 let g:miniBufExplDebugMode = 3
 let g:miniBufExplDebugLevel = 4
 noremap <C-TAB>   :bn!<CR>
-noremap <C-S-TAB> :bn!<CR>
+noremap <C-S-TAB> :bp!<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && !empty(bufname(v:val))'))
   if empty(&buftype) && l:buf_num > 1 && match(&filetype, 'fugitive') < 0
     " exec ':MBEbw!'
     let l:cur_buf = bufnr('%')
-    exec ':bn!'
+    exec ':b!' . bufnr('#')
     exec 'bw! ' . l:cur_buf
   else
     exec 'q!'
