@@ -188,7 +188,6 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': nerdtree_cmds }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
@@ -258,6 +257,7 @@ endif
 augroup customAutocmd
   au!
   au BufNewFile,BufRead *.jsx set filetype=javascript
+  au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
@@ -313,7 +313,11 @@ function! <SID>CloseOrQuitBuffer()
   if empty(&buftype) && l:buf_num > 1 && match(&filetype, 'fugitive') < 0
     " exec ':MBEbw!'
     let l:cur_buf = bufnr('%')
-    exec ':b!' . bufnr('#')
+    if bufnr('#') > -1
+      exec ':b!' . bufnr('#')
+    else
+      exec ':bp!'
+    endif
     exec 'bw! ' . l:cur_buf
   else
     exec 'q!'
@@ -415,7 +419,7 @@ nmap <Leader>pw :CtrlPCurWD<CR>
 nmap <Leader>fu :CtrlPFunky<CR>
 nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 nmap <Space> <plug>(ctrlp)
-nmap <Tab> :CtrlPBuffer<CR>
+" nmap <Tab> :CtrlPBuffer<CR>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
@@ -448,9 +452,6 @@ let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(git|vscode|pyc|ico|png|jpeg|gif|svg|ttf|woff|woff2|eot|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
-let g:NERDTreeExtensionHighlightColor = {
-  \'tsx': '834F79'
-\}
 noremap <F5> :NERDTreeFind<CR>
 noremap <CR> :NERDTreeFind<CR>
 
