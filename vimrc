@@ -419,7 +419,7 @@ nmap <Leader>pw :CtrlPCurWD<CR>
 nmap <Leader>fu :CtrlPFunky<CR>
 nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 nmap <Space> <plug>(ctrlp)
-" nmap <Tab> :CtrlPBuffer<CR>
+nmap <Leader>z :CtrlPBuffer<CR>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
