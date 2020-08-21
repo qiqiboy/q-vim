@@ -186,7 +186,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
  Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
- Plug 'scrooloose/nerdtree', { 'on': nerdtree_cmds }
+ Plug 'preservim/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
@@ -445,7 +445,6 @@ let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 " NERDTree
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
-let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -466,6 +465,10 @@ let g:DevIconsEnableFoldersOpenClose = 1
 if has('gui_running')
   let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 endif
+
+" nerdtree-git-plugin
+let g:NERDTreeGitStatusUseNerdFonts = 1
+" let g:NERDTreeGitStatusShowClean = 1
 
 if !exists('g:ctrlp_formatline_func')
   " logic for ctrlpvim/ctrlp.vim:
