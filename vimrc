@@ -163,7 +163,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
   Plug 'tacahiroy/ctrlp-funky', { 'on': ctrlp_cmds }
  Plug 'ryanoasis/vim-devicons'
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
- Plug 'terryma/vim-multiple-cursors'
+ Plug 'mg979/vim-visual-multi'
  Plug 'ap/vim-css-color'
  Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
  Plug 'jiangmiao/auto-pairs'
@@ -355,13 +355,6 @@ nnoremap <leader>wt :YcmCompleter GetType<CR>
 nnoremap <leader>wf :YcmCompleter FixIt<CR>
 nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
 nnoremap <leader>wr :YcmCompleter RefactorRename 
-
-" vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_skip_key='<C-o>'
-let g:multi_cursor_quit_key='<Esc>'
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
