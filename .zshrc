@@ -53,7 +53,7 @@ plugins=(git zsh-autosuggestions autojump zsh-completions colored-man-pages zsh-
 
 # User configuration
 
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,4 +88,4 @@ alias kao=fuck
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:/Applications/MacVim.app/Contents/bin:$PATH"
+export PATH="/usr/local/opt/python/bin:/Applications/MacVim.app/Contents/bin:$PATH"
