@@ -4,7 +4,7 @@
       "version": "17.0.1"
     }
   },
-  "extends": "react-app",
+  "extends": ["react-app", "react-app/jest"],
   "overrides": [
     {
       "files": ["**/__tests__/**/*", "**/*.{spec,test}.*"],
