@@ -213,10 +213,10 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'posva/vim-vue', { 'for': 'vue' }
  Plug 'editorconfig/editorconfig-vim'
  Plug 'dart-lang/dart-vim-plugin'
- Plug 'chr4/nginx.vim', { 'for': ['nginx'] }
+ Plug 'chr4/nginx.vim', { 'for': 'nginx' }
  if v:version >= 800
  Plug 'dense-analysis/ale'
- Plug 'TaDaa/vimade'
+ Plug 'rhysd/git-messenger.vim', { 'on': ['<Plug>(git-messenger)', 'GitMessenger'] }
  endif
 
  """"""""themes"""""""""""""""
@@ -745,7 +745,8 @@ let g:rooter_silent_chdir = 1
 " editorconfig
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
-" vimade
-let g:vimade = {
-  \"fadelevel": 0.7
-\}
+" git-messager
+let g:git_messenger_no_default_mappings = 1
+let g:git_messenger_always_into_popup = 1
+
+nmap <Leader>gm <Plug>(git-messenger)
