@@ -166,7 +166,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'mg979/vim-visual-multi'
  Plug 'ap/vim-css-color'
  Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
- Plug 'jiangmiao/auto-pairs'
+ Plug 'tmsvg/pear-tree'
  Plug 'hail2u/vim-css3-syntax'
  Plug 'othree/html5.vim',  { 'for':htmltag_types }
  Plug 'docunext/closetag.vim', { 'for': htmltag_types }
@@ -212,7 +212,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'airblade/vim-rooter'
  Plug 'posva/vim-vue', { 'for': 'vue' }
  Plug 'editorconfig/editorconfig-vim'
- Plug 'dart-lang/dart-vim-plugin'
+ Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
  Plug 'chr4/nginx.vim', { 'for': 'nginx' }
  if v:version >= 800
  Plug 'dense-analysis/ale'
@@ -326,9 +326,22 @@ function! <SID>CloseOrQuitBuffer()
   endif
 endfunction
 
-"auto-pair
-let g:AutoPairsShortcutFastWrap = '<C-e>'
-let g:AutoPairsShortcutJump = '<C-a>'
+"pear-tree(auto-pair )
+let g:pear_tree_pairs = {
+            \ '(': {'closer': ')'},
+            \ '[': {'closer': ']'},
+            \ '{': {'closer': '}'},
+            \ "'": {'closer': "'"},
+            \ '"': {'closer': '"'},
+            \ '`': {'closer': '`'},
+            \ '```': {'closer': '```'},
+            \ '/\*\*': {'closer': '\*/'},
+            \ '<!--': {'closer': '-->'}
+            \ }
+let g:pear_tree_repeatable_expand = 0
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
 
 " YCM
 let g:ycm_min_num_of_chars_for_completion = 1
@@ -343,10 +356,7 @@ let g:ycm_show_diagnostics_ui = 0
 let g:ycm_disable_signature_help = 0
 let g:ycm_auto_hover = ''
 let g:ycm_key_invoke_completion = '<C-c>'
-" replace with your python virtual environment path {{{
-let g:ycm_python_binary_path = $HOME . '/develop/portal/venv/bin/python2'
 let g:ycm_tsserver_binary_path = 'node_modules/.bin/tsserver'
-" }}}
 let g:ycm_semantic_triggers =  {
   \   'css,less,sass,scss' : ['-', 're!:\s*']
   \ }
@@ -357,6 +367,7 @@ nnoremap <leader>wt :YcmCompleter GetType<CR>
 nnoremap <leader>wf :YcmCompleter FixIt<CR>
 nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
 nnoremap <leader>wr :YcmCompleter RefactorRename 
+nmap <leader>ws <Plug>(YCMFindSymbolInWorkspace)
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
@@ -514,13 +525,13 @@ nmap M <Plug>MarkSearchOrCurPrev
 nmap <Leader>c :nohl<CR><Plug>MarkAllClear
 
 " vim-fugitive
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gc :Gcommit -m""
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gl :Glog
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gpp :Gpull<CR>
+nnoremap <Leader>gs :Git status<CR>
+nnoremap <Leader>gd :Git diff<CR>
+nnoremap <Leader>gc :Git commit -m""
+nnoremap <Leader>gb :Git blame<CR>
+nnoremap <Leader>gl :Git log
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>gpp :Git pull<CR>
 
 " vim-gitgutter
 let g:gitgutter_override_sign_column_highlight = 0
