@@ -336,7 +336,10 @@ let g:pear_tree_pairs = {
             \ '`': {'closer': '`'},
             \ '```': {'closer': '```'},
             \ '/\*\*': {'closer': '\*/'},
-            \ '<!--': {'closer': '-->'}
+            \ '<!--': {'closer': '-->'},
+            \ '{%': {'closer': '%}'},
+            \ '{#': {'closer': '#}'},
+            \ '<?php': {'closer': '?>'},
             \ }
 let g:pear_tree_repeatable_expand = 0
 let g:pear_tree_smart_openers = 1
