@@ -55,17 +55,33 @@ my vim config. 来自一个前端开发码农的 vim 配置方案。
 -   `mac osx`（其它平台没测试，部分功能可能会有问题）
 -   `vim8+`（否则无法使用`ale`代码检查功能）
 -   `node6+`、`npm2+`、`ternjs`、`typescript`、`eslint`、`tslint`、`prettier`等
-    ```
+    ```bash
     brew install node
-    npm install -g tern eslint tslint typescript prettier stylelint jsonlint lehre
+    npm install -g tern eslint tslint typescript prettier stylelint jsonlint lehre fixjson vim-language-server bash-language-server yaml-language-server vls
     ```
 -   `ag`(the silver searcher)
-    ```
+    ```bash
     brew install the_silver_searcher
     ```
 -   `tidy`(html lint)
-    ```
+    ```bash
     brew install tidy-html5
+    ```
+-   `vint`(vim lint)
+    ```bash
+    python3 -m pip install vim-vint
+    ```
+-   `mdl`(markdown lint)
+    ```bash
+    sudo gem install mdl
+    ```
+-   `yamllint`
+    ```bash
+    python3 -m pip install yamllint
+    ```
+-   `scss-lint`
+    ```bash
+    sudo gem install scss-lint
     ```
 -   安装 `FantasqueSansMono` 字体（如果不安装，需要修改第 15 行， 改为 `set guifont=monoca`）
 
@@ -82,12 +98,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 -   执行 `:PlugInstall`
 -   ~~进入到 `~/.vim/plugged/YouCompleteMe` 目录，执行 `./install.py --tern-completer` 编译 ycm~~ vim-plug 插件支持自动执行编译，如果失败再按照该方式手动编译 ycm 插件
 
-`eslint`、`tslint`、`prettier`、`ternjs` 等配置均为全局环境配置，请自己按照自己的需求配置。  
+`eslint`、`tslint`、`prettier`、`ternjs` 等配置均为全局环境配置，请自己按照自己的需求配置。
 
-例如：  
-- eslint: **~/.eslintrc**  
-- ternjs: **~/.tern-project**  
-- prettier: **~/.prittierrc**
+例如：
+
+-   eslint: **~/.eslintrc**
+-   ternjs: **~/.tern-project**
+-   prettier: **~/.prittierrc**
 
 ### 截图 & Screenshots
 

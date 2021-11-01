@@ -363,6 +363,28 @@ let g:ycm_tsserver_binary_path = 'node_modules/.bin/tsserver'
 let g:ycm_semantic_triggers =  {
   \   'css,less,sass,scss' : ['-', 're!:\s*']
   \ }
+let g:ycm_language_server = [
+  \   {
+  \     'name': 'vimls',
+  \     'cmdline': [ 'vim-language-server', '--stdio' ],
+  \     'filetypes': [ 'vim' ]
+  \   },
+  \   {
+  \     'name': 'bash',
+  \     'cmdline': [ 'bash-language-server', 'start' ],
+  \     'filetypes': [ 'sh', 'bash', 'zsh' ],
+  \   },
+  \   { 'name': 'vue',
+  \     'filetypes': [ 'vue' ],
+  \     'cmdline': [ 'vls' ]
+  \   },
+  \   {
+  \     'name': 'yaml',
+  \     'cmdline': [ 'yaml-language-server', '--stdio' ],
+  \     'filetypes': [ 'yaml' ],
+  \     'capabilities': { 'textDocument': { 'completion': { 'completionItem': { 'snippetSupport': v:true } } } },
+  \   },
+  \ ]
 nnoremap <leader>w :YcmCompleter GoTo<CR>
 nnoremap <leader>ww :YcmCompleter GoToReferences<CR>
 nmap <leader>wd <plug>(YCMHover)
@@ -637,6 +659,7 @@ let g:ale_linters = {
 \   'javascriptreact': ['tsserver', 'eslint'],
 \   'typescript': ['tsserver', 'eslint'],
 \   'typescriptreact': ['tsserver', 'eslint'],
+\   'json': ['jq', 'jsonlint'],
 \}
 " ale tslint
 let g:ale_typescript_tslint_use_global = 1
@@ -658,7 +681,7 @@ let g:ale_fixers = {
 \   'markdown': 'prettier',
 \   'typescript': ['prettier', 'eslint'],
 \   'typescriptreact': ['prettier', 'eslint'],
-\   'json': 'prettier',
+\   'json': ['fixjson', 'prettier'],
 \   'vue': 'prettier',
 \   'dart': 'dartfmt',
 \}
