@@ -83,20 +83,27 @@ my vim config. 来自一个前端开发码农的 vim 配置方案。
     ```bash
     sudo gem install scss-lint
     ```
+-   `dart`
+    ```bash
+    brew tap dart-lang/dart
+    brew install dart
+    ```
 -   安装 `FantasqueSansMono` 字体（如果不安装，需要修改第 15 行， 改为 `set guifont=monoca`）
 
 ##### 安装
 
 -   安装好 [`vim-plug`](https://github.com/junegunn/vim-plug/)
 
-```bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
+    ```bash
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    ```
 
 -   将 vimrc 里内容复制到你的 `~/.vimrc` 或者 `~/.vim/vimrc` 里
+    ```bash
+    cp ./q-vim/vimrc ~/.vim/vimrc
+    ```
 -   执行 `:PlugInstall`
--   ~~进入到 `~/.vim/plugged/YouCompleteMe` 目录，执行 `./install.py --tern-completer` 编译 ycm~~ vim-plug 插件支持自动执行编译，如果失败再按照该方式手动编译 ycm 插件
 
 `eslint`、`tslint`、`prettier`、`ternjs` 等配置均为全局环境配置，请自己按照自己的需求配置。
 

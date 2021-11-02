@@ -384,6 +384,11 @@ let g:ycm_language_server = [
   \     'filetypes': [ 'yaml' ],
   \     'capabilities': { 'textDocument': { 'completion': { 'completionItem': { 'snippetSupport': v:true } } } },
   \   },
+  \   {
+  \     'name': 'dart',
+  \     'cmdline': [ 'dart', fnamemodify(resolve(exepath('dart')), ':h').'/snapshots/analysis_server.dart.snapshot', '--lsp' ],
+  \     'filetypes': [ 'dart' ],
+  \   },
   \ ]
 nnoremap <leader>w :YcmCompleter GoTo<CR>
 nnoremap <leader>ww :YcmCompleter GoToReferences<CR>
