@@ -166,7 +166,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'mg979/vim-visual-multi'
  Plug 'ap/vim-css-color'
  Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
- Plug 'tmsvg/pear-tree'
+ Plug 'jiangmiao/auto-pairs'
  Plug 'hail2u/vim-css3-syntax'
  Plug 'othree/html5.vim',  { 'for':htmltag_types }
  Plug 'docunext/closetag.vim', { 'for': htmltag_types }
@@ -262,6 +262,7 @@ augroup customAutocmd
   au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
+  au BufNewFile,BufRead *.conf setf nginx
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   " enable auto comment in newline
   au FileType typescript,typescriptreact,scss,less setlocal formatoptions+=cro
@@ -326,25 +327,9 @@ function! <SID>CloseOrQuitBuffer()
   endif
 endfunction
 
-"pear-tree(auto-pair )
-let g:pear_tree_pairs = {
-            \ '(': {'closer': ')'},
-            \ '[': {'closer': ']'},
-            \ '{': {'closer': '}'},
-            \ "'": {'closer': "'"},
-            \ '"': {'closer': '"'},
-            \ '`': {'closer': '`'},
-            \ '```': {'closer': '```'},
-            \ '/\*\*': {'closer': '\*/'},
-            \ '<!--': {'closer': '-->'},
-            \ '{%': {'closer': '%}'},
-            \ '{#': {'closer': '#}'},
-            \ '<?php': {'closer': '?>'},
-            \ }
-let g:pear_tree_repeatable_expand = 0
-let g:pear_tree_smart_openers = 1
-let g:pear_tree_smart_closers = 1
-let g:pear_tree_smart_backspace = 1
+"auto-pair
+let g:AutoPairsShortcutFastWrap = '<C-e>'
+let g:AutoPairsShortcutJump = '<C-a>'
 
 " YCM
 let g:ycm_min_num_of_chars_for_completion = 1
@@ -389,6 +374,11 @@ let g:ycm_language_server = [
   \     'cmdline': [ 'dart', fnamemodify(resolve(exepath('dart')), ':h').'/snapshots/analysis_server.dart.snapshot', '--lsp' ],
   \     'filetypes': [ 'dart' ],
   \   },
+  \   {
+  \     'name': 'php',
+  \     'cmdline': [ 'phpactor', 'language-server' ],
+  \     'filetypes': [ 'php' ],
+  \   },
   \ ]
 nnoremap <leader>w :YcmCompleter GoTo<CR>
 nnoremap <leader>ww :YcmCompleter GoToReferences<CR>
@@ -397,7 +387,6 @@ nnoremap <leader>wt :YcmCompleter GetType<CR>
 nnoremap <leader>wf :YcmCompleter FixIt<CR>
 nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
 nnoremap <leader>wr :YcmCompleter RefactorRename 
-nmap <leader>ws <Plug>(YCMFindSymbolInWorkspace)
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
