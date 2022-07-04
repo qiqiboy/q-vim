@@ -152,7 +152,7 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
   \ 'CtrlPCurWD']
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
-let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'python', 'php', 'css', 'scss', 'sass', 'less']
+let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'vue', 'python', 'php', 'css', 'scss', 'sass', 'less']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 
  " Plug 'fholgado/minibufexpl.vim'
@@ -181,10 +181,10 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
   Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
   Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
- Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
- Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
+ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
+ Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
  Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
- Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
+ Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
  Plug 'preservim/nerdtree', { 'on': nerdtree_cmds }
   Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
@@ -214,6 +214,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'editorconfig/editorconfig-vim'
  Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
  Plug 'chr4/nginx.vim', { 'for': 'nginx' }
+ Plug 'tomlion/vim-solidity'
  if v:version >= 800
  Plug 'dense-analysis/ale'
  Plug 'rhysd/git-messenger.vim', { 'on': ['<Plug>(git-messenger)', 'GitMessenger'] }
@@ -224,6 +225,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'NLKNguyen/papercolor-theme'
  Plug 'nanotech/jellybeans.vim'
  Plug 'rakr/vim-one'
+ Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -266,8 +268,8 @@ augroup customAutocmd
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   " enable auto comment in newline
   au FileType typescript,typescriptreact,scss,less setlocal formatoptions+=cro
-  au FileType html,htmldjango,xhtml,xml,css,sass,scss,less,php,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
-  au FileType javascript,javascriptreact,typescript.tsx,typescriptreact UltiSnipsAddFiletypes html
+  au FileType html,htmldjango,xhtml,xml,css,sass,scss,less,php,vue,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
+  au FileType javascript,javascriptreact,typescript.tsx,typescriptreact,vue UltiSnipsAddFiletypes html
   au FileType markdown setlocal wrap
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
@@ -284,7 +286,7 @@ augroup END
 " let g:airline_left_sep=''
 " let g:airline_right_sep=''
 let g:airline_detect_iminsert = 1
-let g:airline_powerline_fonts = 90
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#tab_min_count = 2
