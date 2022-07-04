@@ -153,7 +153,7 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'vue', 'python', 'php', 'css', 'scss', 'sass', 'less']
-let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
+let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 
  " Plug 'fholgado/minibufexpl.vim'
  Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
@@ -191,7 +191,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'javascript', 'javasc
  Plug 'airblade/vim-gitgutter'
  Plug 'tpope/vim-fugitive'
  Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
- Plug 'Yggdroot/indentLine', { 'for': indentLine_types }
+ Plug 'Yggdroot/indentLine'
  Plug 'elzr/vim-json', { 'for': 'json' }
  Plug 'dkprice/vim-easygrep', { 'on': ['<plug>EgMap', 'Grep', 'Replace'] }
  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
@@ -621,6 +621,7 @@ let g:mta_filetypes = {
     \ 'xml' : 1,
     \ 'jinja' : 1,
     \ 'php': 1,
+    \ 'vue': 1,
     \ 'javascript' : 1,
     \ 'javascriptreact' : 1,
     \ 'typescript.tsx' : 1,
@@ -678,7 +679,7 @@ let g:ale_fixers = {
 \   'typescript': ['prettier', 'eslint'],
 \   'typescriptreact': ['prettier', 'eslint'],
 \   'json': ['fixjson', 'prettier'],
-\   'vue': 'prettier',
+\   'vue':  ['prettier', 'eslint'],
 \   'dart': 'dartfmt',
 \}
 
