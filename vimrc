@@ -178,11 +178,9 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'bronson/vim-trailing-whitespace'
  Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'epilande/vim-es2015-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
   Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
- Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
  Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
  Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
  Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
