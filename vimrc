@@ -220,10 +220,10 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
 
  """"""""themes"""""""""""""""
  Plug 'gruvbox-community/gruvbox'
- Plug 'NLKNguyen/papercolor-theme'
- Plug 'nanotech/jellybeans.vim'
- Plug 'rakr/vim-one'
- Plug 'joshdick/onedark.vim'
+ " Plug 'NLKNguyen/papercolor-theme'
+ " Plug 'nanotech/jellybeans.vim'
+ " Plug 'rakr/vim-one'
+ " Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -343,7 +343,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_show_diagnostics_ui = 0
 let g:ycm_disable_signature_help = 0
 let g:ycm_auto_hover = ''
-let g:ycm_key_invoke_completion = '<C-c>'
+let g:ycm_key_invoke_completion = '<C-z>'
 let g:ycm_tsserver_binary_path = 'node_modules/.bin/tsserver'
 let g:ycm_semantic_triggers =  {
   \   'css,less,sass,scss' : ['-', 're!:\s*']
@@ -463,9 +463,6 @@ let g:ctrlsf_mapping = {
     \ }
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '50%'
-
-"javascript libs
-let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs,react,flux'
 
 " NERDTree
 let g:NERDTreeMouseMode = 1
