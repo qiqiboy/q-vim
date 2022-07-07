@@ -367,7 +367,7 @@ nnoremap <silent> <F3> :call ToggleOutline()<CR>
 nnoremap <silent> <leader>wd :call ShowDocumentation()<CR>
 
 xmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <plug>(coc-codeaction-line)
+nmap <leader>a <plug>(coc-codeaction)
 
 xmap <leader>b <Plug>(coc-format-selected)
 nmap <leader>b <Plug>(coc-format)
@@ -499,30 +499,6 @@ if !exists('g:ctrlp_formatline_func')
   " logic for ctrlpvim/ctrlp.vim:
   let g:ctrlp_formatline_func = 's:formatline(s:curtype() == "buf" ? v:val : WebDevIconsGetFileTypeSymbol(v:val) . " " . v:val) '
 endif
-
-" Tagbar
-let g:tagbar_width = 25
-let g:tagbar_iconchars = ['+', '-']
-let g:tagbar_autoshowtag = 1
-let g:tagbar_type_typescript = {
-  \ 'ctagsbin' : 'tstags',
-  \ 'ctagsargs' : '-f-',
-  \ 'kinds': [
-    \ 'e:enums:0:1',
-    \ 'f:function:0:1',
-    \ 't:typealias:0:1',
-    \ 'M:Module:0:1',
-    \ 'I:import:0:1',
-    \ 'i:interface:0:1',
-    \ 'C:class:0:1',
-    \ 'm:method:0:1',
-    \ 'p:property:0:1',
-    \ 'v:variable:0:1',
-    \ 'c:const:0:1',
-  \ ],
-  \ 'sort' : 0
-\ }
-nnoremap <silent> <F6> :TagbarToggle<CR>
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
