@@ -84,8 +84,10 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 # alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
-alias kao=fuck
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export PATH="/usr/local/opt/python/bin:/Applications/MacVim.app/Contents/bin:$PATH"
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --color=never'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_OPTS="--height 40% --reverse --tac --multi"
+export FZF_COMPLETION_TRIGGER="'"
+export FZF_COMPLETION_DIR_COMMANDS='cd find grep open rmdir'
