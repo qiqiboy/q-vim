@@ -328,16 +328,20 @@ let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-prettier',
       \ 'coc-html',
+      \ 'coc-htmldjango',
       \ 'coc-css',
       \ 'coc-cssmodules',
-      \ 'coc-vetur',
+      \ '@yaegassy/coc-volar',
       \ 'coc-markdownlint',
       \ 'coc-docker',
       \ '@yaegassy/coc-nginx',
       \ 'coc-snippets',
       \ 'coc-vimlsp',
       \ 'coc-yaml',
-      \ 'coc-markdownlint'
+      \ 'coc-markdownlint',
+      \ 'coc-solidity',
+      \ 'coc-htmlhint',
+      \ 'coc-spell-checker',
 \]
 let airline#extensions#coc#warning_symbol = '▸▸'
 let airline#extensions#coc#error_symbol = '>>'
@@ -368,10 +372,10 @@ nnoremap <silent> <F3> :call ToggleOutline()<CR>
 
 nnoremap <silent> <leader>wd :call ShowDocumentation()<CR>
 
-xmap <leader>a <Plug>(coc-codeaction-selected)
+vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <plug>(coc-codeaction)
 
-xmap <leader>b <Plug>(coc-format-selected)
+vmap <leader>b <Plug>(coc-format-selected)
 nmap <leader>b <Plug>(coc-format)
 
 imap <A-Tab> <Plug>(coc-snippets-expand)
@@ -380,6 +384,7 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 augroup cocgroup
   autocmd!
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd FileType htmldjango nmap <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
 augroup end
 
 function! ShowDocumentation()
