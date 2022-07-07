@@ -86,8 +86,19 @@ source $ZSH/oh-my-zsh.sh
 # alias mvim="/Applications/MacVim.app/Contents/bin/mvim"
 
 # fzf
-export FZF_DEFAULT_COMMAND='rg --files --color=never'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_DEFAULT_OPTS="--height 40% --reverse --tac --multi"
 export FZF_COMPLETION_TRIGGER="'"
 export FZF_COMPLETION_DIR_COMMANDS='cd find grep open rmdir'
+
+_fzf_compgen_path() {
+  rg --files --color=never "$1"
+}
+
+_fzf_compgen_dir() {
+  command find -L "$1" \
+  -name .git -prune -o -name .svn -prune \
+  -o -path '*/node_modules' -prune \
+  -o -path '*/bower_components' -prune \
+  -o -type d \
+  -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+}
