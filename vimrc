@@ -140,6 +140,8 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
+vnoremap <Backspace> s
+vnoremap <Delete> s
 
 call plug#begin('~/.vim/plugged')
 
