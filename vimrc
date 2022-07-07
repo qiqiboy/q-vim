@@ -117,7 +117,6 @@ if exists('&signcolumn')
   set signcolumn=yes
 else
   let g:gitgutter_sign_column_always = 1
-  let g:ale_sign_column_always = 1
 endif
 
 if v:version >= 800
@@ -152,11 +151,10 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
   \ 'CtrlPCurWD']
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
-let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescript.tsx', 'typescriptreact', 'typescriptreact', 'vue', 'python', 'php', 'css', 'scss', 'sass', 'less']
+let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescriptreact', 'vue', 'python', 'php', 'css', 'scss', 'sass', 'less']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 
- " Plug 'fholgado/minibufexpl.vim'
- Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
+ Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
@@ -176,9 +174,8 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'tpope/vim-surround'
  Plug 'tpope/vim-repeat'
  Plug 'bronson/vim-trailing-whitespace'
- Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
-  Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
+ Plug 'honza/vim-snippets'
+ Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
  Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
  Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
@@ -213,10 +210,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
  Plug 'chr4/nginx.vim', { 'for': 'nginx' }
  Plug 'tomlion/vim-solidity'
- if v:version >= 800
- Plug 'dense-analysis/ale'
  Plug 'rhysd/git-messenger.vim', { 'on': ['<Plug>(git-messenger)', 'GitMessenger'] }
- endif
 
  """"""""themes"""""""""""""""
  Plug 'gruvbox-community/gruvbox'
@@ -259,15 +253,13 @@ endif
 augroup customAutocmd
   au!
   au BufNewFile,BufRead *.jsx set filetype=javascript
-  au BufNewFile,BufRead *.tsx set filetype=typescript.tsx
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
   au BufNewFile,BufRead *.conf setf nginx
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   " enable auto comment in newline
   au FileType typescript,typescriptreact,scss,less setlocal formatoptions+=cro
-  au FileType html,htmldjango,xhtml,xml,css,sass,scss,less,php,vue,javascript,javascriptreact,typescript.tsx,typescriptreact EmmetInstall
-  au FileType javascript,javascriptreact,typescript.tsx,typescriptreact,vue UltiSnipsAddFiletypes html
+  au FileType html,htmldjango,xhtml,xml,css,sass,scss,less,php,vue,javascript,javascriptreact,typescriptreact EmmetInstall
   au FileType markdown setlocal wrap
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
@@ -328,65 +320,82 @@ function! <SID>CloseOrQuitBuffer()
 endfunction
 
 "auto-pair
-let g:AutoPairsShortcutFastWrap = '<C-e>'
+let g:AutoPairsShortcutFastWrap ='<C-e>'
 let g:AutoPairsShortcutJump = '<C-a>'
 
-" YCM
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_min_num_identifier_candidate_chars = 0
-let g:ycm_use_ultisnips_completer = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_show_diagnostics_ui = 0
-let g:ycm_disable_signature_help = 0
-let g:ycm_auto_hover = ''
-let g:ycm_key_invoke_completion = '<C-z>'
-let g:ycm_tsserver_binary_path = 'node_modules/.bin/tsserver'
-let g:ycm_semantic_triggers =  {
-  \   'css,less,sass,scss' : ['-', 're!:\s*']
-  \ }
-let g:ycm_language_server = [
-  \   {
-  \     'name': 'vimls',
-  \     'cmdline': [ 'vim-language-server', '--stdio' ],
-  \     'filetypes': [ 'vim' ]
-  \   },
-  \   {
-  \     'name': 'bash',
-  \     'cmdline': [ 'bash-language-server', 'start' ],
-  \     'filetypes': [ 'sh', 'bash', 'zsh' ],
-  \   },
-  \   { 'name': 'vue',
-  \     'filetypes': [ 'vue' ],
-  \     'cmdline': [ 'vls' ]
-  \   },
-  \   {
-  \     'name': 'yaml',
-  \     'cmdline': [ 'yaml-language-server', '--stdio' ],
-  \     'filetypes': [ 'yaml' ],
-  \     'capabilities': { 'textDocument': { 'completion': { 'completionItem': { 'snippetSupport': v:true } } } },
-  \   },
-  \   {
-  \     'name': 'dart',
-  \     'cmdline': [ 'dart', fnamemodify(resolve(exepath('dart')), ':h').'/snapshots/analysis_server.dart.snapshot', '--lsp' ],
-  \     'filetypes': [ 'dart' ],
-  \   },
-  \   {
-  \     'name': 'php',
-  \     'cmdline': [ 'phpactor', 'language-server' ],
-  \     'filetypes': [ 'php' ],
-  \   },
-  \ ]
-nnoremap <leader>w :YcmCompleter GoTo<CR>
-nnoremap <leader>ww :YcmCompleter GoToReferences<CR>
-nmap <leader>wd <plug>(YCMHover)
-nnoremap <leader>wt :YcmCompleter GetType<CR>
-nnoremap <leader>wf :YcmCompleter FixIt<CR>
-nnoremap <leader>wi :YcmCompleter OrganizeImports<CR>
-nnoremap <leader>wr :YcmCompleter RefactorRename 
+" Coc
+let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-tsserver',
+      \ 'coc-eslint',
+      \ 'coc-prettier',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-cssmodules',
+      \ 'coc-vetur',
+      \ 'coc-markdownlint',
+      \ 'coc-docker',
+      \ '@yaegassy/coc-nginx',
+      \ 'coc-snippets',
+      \ 'coc-vimlsp',
+      \ 'coc-yaml',
+      \ 'coc-markdownlint'
+\]
+let airline#extensions#coc#warning_symbol = '▸▸'
+let airline#extensions#coc#error_symbol = '>>'
+let airline#extensions#coc#open_lnum_symbol = ":L"
+let airline#extensions#coc#close_lnum_symbol = ''
+let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_next = '<c-j>'
+
+inoremap <silent><expr> <c-z> coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+nmap <silent> <leader>w <Plug>(coc-definition)
+nmap <silent> <leader>wt <Plug>(coc-type-definition)
+nmap <silent> <leader>wi <Plug>(coc-implementation)
+nmap <silent> <leader>ww <Plug>(coc-references)
+nmap <leader>wr <Plug>(coc-rename)
+nmap <leader>wf <Plug>(coc-refactor)
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nnoremap <silent> <F3> :CocList diagnostics<CR>
+
+nnoremap <silent> <leader>wd :call ShowDocumentation()<CR>
+
+xmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <plug>(coc-codeaction-line)
+
+vmap <leader>b <Plug>(coc-format-selected)
+nmap <leader>b <Plug>(coc-format)
+
+imap <A-Tab> <Plug>(coc-snippets-expand)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+augroup cocgroup
+  autocmd!
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " EasyMotion
 let g:EasyMotion_do_mapping = 0
@@ -414,19 +423,6 @@ map <leader><space> :FixWhitespace<CR>
 " expand-region
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
-
-" Tabular
-nnoremap <Leader>a :Tabularize /
-
-" UltiSnips
-map <leader>ue :UltiSnipsEdit<CR>
-let g:UltiSnipsExpandTrigger = '<a-tab>'
-let g:UltiSnipsListSnippets = '<c-tab>'
-let g:UltiSnipsJumpForwardTrigger = '<c-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
-let g:UltiSnipsEnableSnipMate = 1
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 
 " ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -619,7 +615,6 @@ let g:mta_filetypes = {
     \ 'vue': 1,
     \ 'javascript' : 1,
     \ 'javascriptreact' : 1,
-    \ 'typescript.tsx' : 1,
     \ 'typescriptreact' : 1
     \}
 
@@ -629,66 +624,12 @@ let g:bling_count = 2
 let g:bling_color_gui_fg = 'white'
 let g:bling_color_gui_bg = '#af005f'
 
-" ale
-let g:ale_set_loclist = 1
-let g:ale_set_quickfix = 0
-let g:ale_open_list = 0
-let g:ale_keep_list_window_open = 0
-let g:ale_lint_on_text_changed = 1
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 0
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '▸▸'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%] [%code%]'
-let g:ale_virtualenv_dir_names = ['.env', 'env', 've-py3', 've', 'virtualenv', 'venv']
-let g:airline#extensions#ale#error_symbol = g:ale_sign_error . ' '
-let g:airline#extensions#ale#warning_symbol = g:ale_sign_warning . ' '
-let airline#extensions#ale#open_lnum_symbol = ":L"
-let airline#extensions#ale#close_lnum_symbol = ''
-
-let g:ale_linters = {
-\   'javascript': ['tsserver', 'eslint'],
-\   'javascriptreact': ['tsserver', 'eslint'],
-\   'typescript': ['tsserver', 'eslint'],
-\   'typescriptreact': ['tsserver', 'eslint'],
-\   'json': ['jq', 'jsonlint'],
-\}
-" ale tslint
-let g:ale_typescript_tslint_use_global = 1
-let g:ale_typescript_tslint_config_path = $HOME . '/.tslint.json'
-" ale fixers
-nmap <leader>b <Plug>(ale_fix)
-" let g:ale_fix_on_save = 1
-" let g:ale_javascript_prettier_options = '--config ~/.prettierrc'
-let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'javascriptreact': ['prettier', 'eslint'],
-\   'css': 'prettier',
-\   'scss': 'prettier',
-\   'sass': 'prettier',
-\   'less': 'prettier',
-\   'html': 'prettier',
-\   'htmldjango': 'prettier',
-\   'yaml': 'prettier',
-\   'markdown': 'prettier',
-\   'typescript': ['prettier', 'eslint'],
-\   'typescriptreact': ['prettier', 'eslint'],
-\   'json': ['fixjson', 'prettier'],
-\   'vue':  ['prettier', 'eslint'],
-\   'dart': 'dartfmt',
-\}
-
-"ale tidy
-"let g:ale_html_tidy_use_global = 1
-let g:ale_html_tidy_options = '-q -e -language en --config ~/.tidyrc'
-
 " dart
 let g:dart_html_in_string=v:true
 let g:dart_style_guide = 2
 
 " ListToggle
 let g:lt_quickfix_list_toggle_map = '<F2>'
-let g:lt_location_list_toggle_map = '<F3>'
 let g:lt_height = 10
 
 " startify

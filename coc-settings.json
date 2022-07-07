@@ -1,0 +1,29 @@
+{
+  "diagnostic.warningSign": "▸▸",
+  "diagnostic.errorSign": ">>",
+  "vetur.ignoreProjectWarning": true,
+  "eslint.autoFixOnSave": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown"
+  ],
+  "eslint.format.enable": true,
+  "prettier.printWidth": 120,
+  "prettier.tabWidth": 4,
+  "prettier.trailingComma": "none",
+  "prettier.bracketSameLine": true,
+  "prettier.semi": true,
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "avoid",
+  "snippets.extends": {
+    "javascript": ["javascript", "html"],
+    "javascriptreact": ["javascriptreact", "html"],
+    "typescriptreact": ["typescriptreact", "html"]
+  },
+  "snippets.userSnippetsDirectory": "~/.vim/UltiSnips"
+}
