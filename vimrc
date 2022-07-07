@@ -250,7 +250,6 @@ augroup customAutocmd
   au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
-  au BufNewFile,BufRead *.wxss setf css
   au BufNewFile,BufRead *.conf setf nginx
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   " enable auto comment in newline
