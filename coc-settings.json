@@ -1,6 +1,8 @@
 {
+  "colors.filetypes":["*"],
   "diagnostic.warningSign": "▸▸",
   "diagnostic.errorSign": ">>",
+  "diagnostic.infoSign": "!!",
   "vetur.ignoreProjectWarning": true,
   "eslint.autoFixOnSave": false,
   "eslint.validate": [
@@ -9,8 +11,7 @@
     "typescript",
     "typescriptreact",
     "html",
-    "vue",
-    "markdown"
+    "vue"
   ],
   "eslint.format.enable": true,
   "prettier.printWidth": 120,

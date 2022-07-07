@@ -84,7 +84,7 @@ set wildignore+=*.un~,*.pyc,*.zip,*.rar,*.dll,*.dmg
 set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.svg,*.ico
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/bower_components/*
 
-set grepprg=ag\ --nocolor\ --nogroup\ --column\ --vimgrep
+set grepprg=rg\ --color=never
 
 set t_Co=256
 
@@ -162,7 +162,6 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'ryanoasis/vim-devicons'
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'mg979/vim-visual-multi'
- Plug 'ap/vim-css-color'
  Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
  Plug 'jiangmiao/auto-pairs'
  Plug 'hail2u/vim-css3-syntax'
@@ -188,21 +187,17 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
  Plug 'Yggdroot/indentLine'
  Plug 'elzr/vim-json', { 'for': 'json' }
- Plug 'dkprice/vim-easygrep', { 'on': ['<plug>EgMap', 'Grep', 'Replace'] }
  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
  Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
  Plug 'jceb/emmet.snippets', { 'on': 'EmmetInstall' }
  Plug 'scrooloose/nerdcommenter', { 'on': '<Plug>NERDCommenter' }
  Plug 'ivyl/vim-bling'
- Plug 'Valloric/ListToggle'
  Plug 'mhinz/vim-startify'
  Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
  Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
  Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
  Plug 'terryma/vim-smooth-scroll'
  Plug 'wellle/targets.vim'
- Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-  Plug 'lvht/tagbar-markdown', { 'for': 'markdown' }
  Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
  Plug 'airblade/vim-rooter'
  Plug 'posva/vim-vue', { 'for': 'vue' }
@@ -255,6 +250,7 @@ augroup customAutocmd
   au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
+  au BufNewFile,BufRead *.wxss setf css
   au BufNewFile,BufRead *.conf setf nginx
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   " enable auto comment in newline
@@ -320,11 +316,12 @@ function! <SID>CloseOrQuitBuffer()
 endfunction
 
 "auto-pair
-let g:AutoPairsShortcutFastWrap ='<C-e>'
+let g:AutoPairsShortcutFastWrap = '<C-e>'
 let g:AutoPairsShortcutJump = '<C-a>'
 
 " Coc
 let g:coc_global_extensions = [
+      \ 'coc-highlight',
       \ 'coc-json',
       \ 'coc-tsserver',
       \ 'coc-eslint',
@@ -365,14 +362,15 @@ nmap <leader>wf <Plug>(coc-refactor)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nnoremap <silent> <F3> :CocList diagnostics<CR>
+nnoremap <silent> <F2> :CocList diagnostics<CR>
+nnoremap <silent> <F3> :call ToggleOutline()<CR>
 
 nnoremap <silent> <leader>wd :call ShowDocumentation()<CR>
 
 xmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <plug>(coc-codeaction-line)
 
-vmap <leader>b <Plug>(coc-format-selected)
+xmap <leader>b <Plug>(coc-format-selected)
 nmap <leader>b <Plug>(coc-format)
 
 imap <A-Tab> <Plug>(coc-snippets-expand)
@@ -380,7 +378,6 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 augroup cocgroup
   autocmd!
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
@@ -395,6 +392,15 @@ endfunction
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! ToggleOutline() abort
+  let winid = coc#window#find('cocViewId', 'OUTLINE')
+  if winid == -1
+    call CocActionAsync('showOutline', 1)
+  else
+    call coc#window#close(winid)
+  endif
 endfunction
 
 " EasyMotion
@@ -425,7 +431,7 @@ vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
 " ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 let g:ctrlp_use_caching = 0
 let g:ctrlp_tilde_homedir = 1
 nmap <Leader>p :CtrlP<CR>
@@ -441,6 +447,7 @@ nmap <Leader>fu :CtrlPFunky<CR>
 nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 nmap <Space> <plug>(ctrlp)
 nmap <Leader>z :CtrlPBuffer<CR>
+let g:ctrlp_root_markers = ['package.json']
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
@@ -452,7 +459,8 @@ vmap <Leader>sf <Plug>CtrlSFVwordPath
 nmap <leader>sw <Plug>CtrlSFCwordPath<CR>
 vmap <leader>sw <Plug>CtrlSFVwordExec
 nmap <leader>st :CtrlSFToggle<CR>
-let g:ctrlsf_default_root = 'project+fw'
+let g:ctrlsf_default_root = 'project'
+let g:ctrlsf_extra_root_markers = ['package.json']
 let g:ctrlsf_mapping = {
     \ 'next': 'n',
     \ 'prev': 'N',
@@ -588,22 +596,6 @@ map <silent> <C-c> <Plug>NERDCommenterSexy
 nmap <silent> <C-c> <Plug>NERDCommenterComment
 map <silent> <C-x> <Plug>NERDCommenterUncomment
 
-" easygrep
-let g:EasyGrepCommand = 1
-let g:EasyGrepRecursive = 1
-let g:EasyGrepJumpToMatch = 0
-let g:EasyGrepReplaceWindowMode = 2
-let g:EasyGrepWindowPosition = 'botright'
-let g:EasyGrepRoot = 'search:.git,.svn,.hg'
-nmap <leader>vc :Grep 
-map <silent> <leader>vo <plug>EgMapGrepOptions
-map <silent> <leader>vv <plug>EgMapGrepCurrentWord_v
-vmap <silent> <leader>vv <plug>EgMapGrepSelection_v
-map <silent> <leader>va <plug>EgMapGrepCurrentWord_a
-vmap <silent> <leader>va <plug>EgMapGrepSelection_a
-map <silent> <leader>vr <plug>EgMapReplaceCurrentWord_r
-vmap <silent> <leader>vr <plug>EgMapReplaceSelection_r
-
 " matchTagAlways
 let g:mta_filetypes = {
     \ 'html' : 1,
@@ -627,10 +619,6 @@ let g:bling_color_gui_bg = '#af005f'
 " dart
 let g:dart_html_in_string=v:true
 let g:dart_style_guide = 2
-
-" ListToggle
-let g:lt_quickfix_list_toggle_map = '<F2>'
-let g:lt_height = 10
 
 " startify
 let g:startify_padding_left = 30
