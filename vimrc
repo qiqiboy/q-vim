@@ -389,12 +389,18 @@ augroup cocgroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd FileType htmldjango nmap <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  " autocmd CursorHold * silent call ShowDocumentation()
+  autocmd CursorHold * :call ShowDocIfNoDiagnostic()
 augroup end
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! ShowDocIfNoDiagnostic()
+  if (!coc#float#has_float() && CocAction('hasProvider', 'hover'))
+    silent call CocActionAsync('doHover')
   endif
 endfunction
 
