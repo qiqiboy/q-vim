@@ -350,16 +350,16 @@ let airline#extensions#coc#warning_symbol = '▸▸'
 let airline#extensions#coc#error_symbol = '>>'
 let airline#extensions#coc#open_lnum_symbol = ":L"
 let airline#extensions#coc#close_lnum_symbol = ''
-let g:coc_snippet_prev = '<c-k>'
-let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<C-k>'
+let g:coc_snippet_next = '<C-j>'
 
 inoremap <silent><expr> <c-z> coc#refresh()
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
+      \ <SID>CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 nmap <silent> <leader>w <Plug>(coc-definition)
 nmap <silent> <leader>wt <Plug>(coc-type-definition)
@@ -371,9 +371,9 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 nnoremap <silent> <F2> :CocList diagnostics<CR>
-nnoremap <silent> <F3> :call ToggleOutline()<CR>
+nnoremap <silent> <F3> :call <SID>ToggleOutline()<CR>
 
-nnoremap <silent> <leader>wd :call ShowDocumentation()<CR>
+nnoremap <silent> <leader>wd :call <SID>ShowDocumentation()<CR>
 
 vmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <plug>(coc-codeaction)
@@ -392,22 +392,22 @@ augroup cocgroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd FileType htmldjango nmap <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd CursorHold * :call ShowDocIfNoDiagnostic()
+  autocmd CursorHold * :call <SID>ShowDocIfNoDiagnostic()
 augroup end
 
-function! ShowDocumentation()
+function! s:ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     silent call CocActionAsync('doHover')
   endif
 endfunction
 
-function! ShowDocIfNoDiagnostic()
+function! s:ShowDocIfNoDiagnostic()
   if (!coc#float#has_float() && CocAction('hasProvider', 'hover'))
     silent call CocActionAsync('doHover')
   endif
 endfunction
 
-function! CheckBackspace() abort
+function! s:CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
