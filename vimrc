@@ -386,6 +386,9 @@ imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 augroup cocgroup
   autocmd!
+  autocmd FileType javascript,javascriptreact,typescript,\
+                  \ typescriptreact,vue,json,scss,less,sass,css
+                  \ setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd FileType htmldjango nmap <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
