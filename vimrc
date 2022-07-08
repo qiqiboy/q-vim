@@ -13,6 +13,7 @@ set background=dark
 set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
 set linespace=1
 
+set updatetime=1500
 set tags=tags;
 set hidden
 
@@ -48,7 +49,7 @@ set clipboard+=unnamed          " 与windows共享剪贴板
 set history=99                  " keep 99 lines of command history
 set showmatch                   " 显示括号配对情况
 
-set shortmess=atI               " 启动的时候不显示援助索马里儿童的提示(是I而不是L)
+set shortmess=actI               " 启动的时候不显示援助索马里儿童的提示(是I而不是L)
 
 set completeopt=longest,menu
 set ruler
@@ -69,6 +70,7 @@ set selectmode=mouse,key
 
 " 禁止生成临时文件
 set nobackup
+set nowritebackup
 set noswapfile
 
 " set scrolloff=5
@@ -113,10 +115,10 @@ if has('popupwin')
 endif
 
 " make signColumn always show
-if exists('&signcolumn')
-  set signcolumn=yes
+if has('patch-8.1.1564')
+  set signcolumn=number
 else
-  let g:gitgutter_sign_column_always = 1
+  set signcolumn=yes
 endif
 
 if v:version >= 800
@@ -228,6 +230,7 @@ let g:gruvbox_improved_warnings = 1
 let g:gruvbox_invert_tabline = 1
 colorscheme gruvbox
 hi VertSplit guifg=bg ctermfg=bg
+hi CocHighlightText term=underline gui=underline
 
 " terminal
 if has('terminal')
@@ -385,13 +388,13 @@ augroup cocgroup
   autocmd!
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd FileType htmldjango nmap <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " autocmd CursorHold * silent call ShowDocumentation()
 augroup end
 
 function! ShowDocumentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
   endif
 endfunction
 
