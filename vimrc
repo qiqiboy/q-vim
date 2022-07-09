@@ -384,6 +384,8 @@ nmap <leader>b <Plug>(coc-format)
 imap <A-Tab> <Plug>(coc-snippets-expand)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 
+inoremap <silent><expr> <C-x> CocActionAsync('showSignatureHelp')
+
 augroup cocgroup
   autocmd!
   autocmd FileType javascript,javascriptreact,typescript,\
