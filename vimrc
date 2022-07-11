@@ -230,7 +230,6 @@ let g:gruvbox_improved_warnings = 1
 let g:gruvbox_invert_tabline = 1
 colorscheme gruvbox
 hi VertSplit guifg=bg ctermfg=bg
-hi CocHighlightText term=underline gui=underline
 
 " terminal
 if has('terminal')
@@ -352,6 +351,10 @@ let airline#extensions#coc#open_lnum_symbol = ":L"
 let airline#extensions#coc#close_lnum_symbol = ''
 let g:coc_snippet_prev = '<C-k>'
 let g:coc_snippet_next = '<C-j>'
+
+hi link CocHighlightText Cursor
+hi link CocSemDeclaration GruvboxAqua
+hi link CocDeprecatedHighlight Comment
 
 inoremap <silent><expr> <c-z> coc#refresh()
 inoremap <silent><expr> <TAB>
