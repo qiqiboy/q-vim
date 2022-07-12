@@ -192,8 +192,6 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'Yggdroot/indentLine'
  Plug 'elzr/vim-json', { 'for': 'json' }
  Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
- Plug 'mattn/emmet-vim', { 'on': 'EmmetInstall' }
- Plug 'jceb/emmet.snippets', { 'on': 'EmmetInstall' }
  Plug 'scrooloose/nerdcommenter', { 'on': '<Plug>NERDCommenter' }
  Plug 'ivyl/vim-bling'
  Plug 'mhinz/vim-startify'
@@ -256,14 +254,10 @@ augroup customAutocmd
   au BufNewFile,BufRead *.wxml setf html
   au BufNewFile,BufRead *.conf setf nginx
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
-  " enable auto comment in newline
-  au FileType typescript,typescriptreact,scss,less setlocal formatoptions+=cro
-  au FileType html,htmldjango,xhtml,xml,css,sass,scss,less,php,vue,javascript,javascriptreact,typescriptreact EmmetInstall
-  au FileType markdown setlocal wrap
   au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
-  "NERDTree autocmd
+  " NERDTree autocmd
   " 启动vim自动打开 nerdtree
   " au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   au StdinReadPre * let s:std_in=1
@@ -330,6 +324,7 @@ let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-prettier',
       \ 'coc-html',
+      \ 'coc-emmet',
       \ 'coc-htmldjango',
       \ 'coc-css',
       \ 'coc-cssmodules',
@@ -571,14 +566,6 @@ let g:mkdp_refresh_slow = 1
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
 let g:indentLine_fileType = indentLine_types
-
-" emmet
-let g:user_emmet_install_global = 0
-let g:user_emmet_settings = {
-    \'html' : {
-    \    'indent_blockelement': 1
-    \}
-\}
 
 " markdown toc
 let g:vmt_auto_update_on_save = 0
