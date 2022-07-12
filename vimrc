@@ -390,14 +390,14 @@ augroup cocgroup
                   \ typescriptreact,vue,json,scss,less,sass,css
                   \ setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd FileType htmldjango nmap <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
+  autocmd FileType htmldjango nmap <silent> <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd CursorHold * silent :call <SID>ShowDocIfNoDiagnostic()
 augroup end
 
 function! s:ShowDocumentation() abort
   if CocAction('hasProvider', 'hover')
-    silent call CocActionAsync('doHover')
+    silent call CocActionAsync('definitionHover')
   endif
 endfunction
 
