@@ -359,6 +359,11 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <UP>
+      \ pumvisible() ? "\<C-p>" : "\<UP>"
+inoremap <silent><expr> <DOWN>
+      \ pumvisible() ? "\<C-n>" : "\<DOWN>"
+
 nmap <silent> <leader>w <Plug>(coc-definition)
 nmap <silent> <leader>wt <Plug>(coc-type-definition)
 nmap <silent> <leader>wi <Plug>(coc-implementation)
@@ -373,8 +378,8 @@ nnoremap <silent> <F3> :call <SID>ToggleOutline()<CR>
 
 nnoremap <silent> <leader>wd :call <SID>ShowDocumentation()<CR>
 
-vmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <plug>(coc-codeaction)
+vmap <silent> <leader>a <Plug>(coc-codeaction-selected)
+nmap <silent> <leader>a <plug>(coc-codeaction)
 
 vmap <leader>b <Plug>(coc-format-selected)
 nmap <leader>b <Plug>(coc-format)
