@@ -416,7 +416,7 @@ function! s:CallFormatAndAutofix() abort
   if (CocAction('hasProvider', 'format'))
     silent call CocAction('format')
     if (match(['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'vue'], &filetype) >= 0)
-        silent exec "CocCommand eslint.executeAutofix"
+        silent call CocAction('runCommand','eslint.executeAutofix')
     endif
   endif
 endfunction
