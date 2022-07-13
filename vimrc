@@ -381,11 +381,11 @@ nnoremap <silent> <leader>wd :call <SID>ShowDocumentation()<CR>
 vmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 nmap <silent> <leader>a <plug>(coc-codeaction)
 
-vmap <leader>b <Plug>(coc-format-selected)
-nmap <leader>b <Plug>(coc-format)
+vmap <silent> <leader>b <Plug>(coc-format-selected)
+nnoremap <silent> <leader>b :call <SID>CallFormatAndAutofix()<CR>
 
-imap <A-Tab> <Plug>(coc-snippets-expand)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
+imap <silent> <A-Tab> <Plug>(coc-snippets-expand)
+imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-x> CocActionAsync('showSignatureHelp')
 
@@ -409,6 +409,15 @@ endfunction
 function! s:ShowDocIfNoDiagnostic() abort
   if (!coc#float#has_float() && CocAction('hasProvider', 'hover'))
     silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:CallFormatAndAutofix() abort
+  if (CocAction('hasProvider', 'format'))
+    silent call CocAction('format')
+    if (match(['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'vue'], &filetype) >= 0)
+        silent exec "CocCommand eslint.executeAutofix"
+    endif
   endif
 endfunction
 
