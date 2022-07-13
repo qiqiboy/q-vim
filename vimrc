@@ -397,7 +397,7 @@ augroup cocgroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd FileType htmldjango nmap <silent> <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd CursorHold * silent :call <SID>ShowDocIfNoDiagnostic()
+  autocmd CursorHold * silent call <SID>ShowDocIfNoDiagnostic()
 augroup end
 
 function! s:ShowDocumentation() abort
