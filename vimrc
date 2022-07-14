@@ -350,6 +350,7 @@ let g:coc_snippet_next = '<C-j>'
 hi link CocHighlightText Cursor
 hi link CocSemDeclaration GruvboxAqua
 hi link CocDeprecatedHighlight Comment
+hi link CocUnusedHighlight Comment
 
 inoremap <silent><expr> <c-z> coc#refresh()
 inoremap <silent><expr> <TAB>
