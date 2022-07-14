@@ -324,12 +324,12 @@ let g:coc_global_extensions = [
       \ 'coc-eslint',
       \ 'coc-prettier',
       \ 'coc-html',
-      \ 'coc-emmet',
+      \ 'coc-htmlhint',
       \ 'coc-htmldjango',
+      \ 'coc-emmet',
       \ 'coc-css',
       \ 'coc-cssmodules',
       \ '@yaegassy/coc-volar',
-      \ 'coc-markdownlint',
       \ 'coc-docker',
       \ '@yaegassy/coc-nginx',
       \ 'coc-snippets',
@@ -337,7 +337,9 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ 'coc-markdownlint',
       \ 'coc-solidity',
-      \ 'coc-htmlhint',
+      \ 'coc-lua',
+      \ 'coc-pyright',
+      \ 'coc-flutter',
       \ 'coc-spell-checker',
 \]
 let airline#extensions#coc#warning_symbol = '▸▸'
@@ -376,6 +378,7 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 nnoremap <silent> <F2> :CocList diagnostics<CR>
 nnoremap <silent> <F3> :call <SID>ToggleOutline()<CR>
+nnoremap <silent> <leader>ss :CocList symbols<CR>
 
 nnoremap <silent> <leader>wd :call <SID>ShowDocumentation()<CR>
 
