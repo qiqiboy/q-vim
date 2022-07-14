@@ -303,10 +303,13 @@ function! <SID>CloseOrQuitBuffer()
   if empty(&buftype) && l:buf_num > 1 && match(&filetype, 'fugitive') < 0
     " exec ':MBEbw!'
     let l:cur_buf = bufnr('%')
-    if bufnr('#') > -1
-      exec ':b!' . bufnr('#')
+    if bufnr('#') > -1 && empty(getbufvar(bufnr('#'), "&bt"))
+      exec 'b!' . bufnr('#')
     else
-      exec ':bp!'
+      exec 'bp!'
+    endif
+    if tabpagenr('$') > 1 && winnr('$') == 1
+        exec 'q!'
     endif
     exec 'bw! ' . l:cur_buf
   else
