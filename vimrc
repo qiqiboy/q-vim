@@ -275,26 +275,11 @@ let g:airline#extensions#tabline#buffer_min_count = 2
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_tab_type = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
-" let g:airline#extensions#tabline#fnamecollapse = 0
 let g:airline#extensions#tabline#formatter = 'short_path'
 let g:airline#extensions#tabline#buffers_label = 'BUFFERS'
 let g:airline#extensions#tabline#tabs_label = 'TABS'
 
-" minibufexplorer
-hi MBENormal               guifg=#928374 guibg=fg ctermfg=244
-hi MBEChanged              guifg=#CD5907 guibg=fg ctermfg=208
-hi MBEVisibleNormal        guifg=#8ec07c guibg=fg ctermfg=72
-hi MBEVisibleChanged       guifg=#CC241D guibg=fg ctermfg=124
-hi MBEVisibleActiveNormal  guifg=#AFD700 guibg=fg ctermfg=142
-hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg ctermfg=167
-" let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplSplitToEdge = 1
-let g:miniBufExplCycleArround = 1
-let g:miniBufExplBuffersNeeded = 1
-let g:miniBufExplShowBufNumbers = 0
-let g:did_minibufexplorer_syntax_inits = 1
-let g:miniBufExplDebugMode = 3
-let g:miniBufExplDebugLevel = 4
+" airline-tabline
 noremap <C-TAB>   :bn!<CR>
 noremap <C-S-TAB> :bp!<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
@@ -316,11 +301,11 @@ function! <SID>CloseOrQuitBuffer()
   endif
 endfunction
 
-"auto-pair
+" auto-pair
 let g:AutoPairsShortcutFastWrap = '<C-e>'
 let g:AutoPairsShortcutJump = '<C-a>'
 
-" Coc
+" coc.nvim
 let g:coc_global_extensions = [
       \ 'coc-highlight',
       \ 'coc-json',
