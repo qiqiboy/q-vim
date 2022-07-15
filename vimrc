@@ -343,6 +343,7 @@ hi link CocSemDeclaration GruvboxAqua
 hi link CocStrikeThrough Comment
 hi link CocUnusedHighlight Comment
 hi link CocMenuSel PmenuSel
+hi link CocSearch GruvboxYellow
 
 inoremap <silent><expr> <c-z> coc#refresh()
 inoremap <silent><expr> <TAB>
