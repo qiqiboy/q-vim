@@ -158,7 +158,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'typescriptreact', 'vue', 'python', 'php', 'css', 'scss', 'sass', 'less']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact']
 
- Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'neoclide/coc.nvim', {'branch': 'pum', 'do': 'npm install'}
  Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
  Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
@@ -345,16 +345,18 @@ hi link CocUnusedHighlight Comment
 
 inoremap <silent><expr> <c-z> coc#refresh()
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>CheckBackspace() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+        \ coc#pum#visible() ? coc#pum#next(1):
+        \ <SID>CheckBackspace() ? "\<TAB>" :
+        \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
+        \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z>
+        \ coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
 inoremap <silent><expr> <UP>
-      \ pumvisible() ? "\<C-p>" : "\<UP>"
+        \ coc#pum#visible() ? coc#pum#prev(1) : "\<UP>"
 inoremap <silent><expr> <DOWN>
-      \ pumvisible() ? "\<C-n>" : "\<DOWN>"
+        \ coc#pum#visible() ? coc#pum#next(1) : "\<DOWN>"
 
 nmap <silent> <leader>w <Plug>(coc-definition)
 nmap <silent> <leader>wt <Plug>(coc-type-definition)
