@@ -352,8 +352,6 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <C-x><C-z>
-        \ coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
 inoremap <silent><expr> <C-f>
         \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-f>"
 inoremap <silent><expr> <C-b>
