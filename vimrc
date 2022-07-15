@@ -301,15 +301,14 @@ nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && !empty(bufname(v:val))'))
   if empty(&buftype) && l:buf_num > 1 && match(&filetype, 'fugitive') < 0
-    " exec ':MBEbw!'
     let l:cur_buf = bufnr('%')
     if bufnr('#') > -1 && empty(getbufvar(bufnr('#'), "&bt"))
       exec 'b!' . bufnr('#')
     else
       exec 'bp!'
     endif
-    if tabpagenr('$') > 1 && winnr('$') == 1
-        exec 'q!'
+    if tabpagenr('$') > 1 && len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) <= 1
+        exec 'tabclose!'
     endif
     exec 'bw! ' . l:cur_buf
   else
