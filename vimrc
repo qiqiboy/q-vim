@@ -342,6 +342,7 @@ hi link CocHighlightText Cursor
 hi link CocSemDeclaration GruvboxAqua
 hi link CocDeprecatedHighlight Comment
 hi link CocUnusedHighlight Comment
+hi link CocMenuSel PmenuSel
 
 inoremap <silent><expr> <c-z> coc#refresh()
 inoremap <silent><expr> <TAB>
