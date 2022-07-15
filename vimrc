@@ -340,7 +340,7 @@ let g:coc_snippet_next = '<C-j>'
 
 hi link CocHighlightText Cursor
 hi link CocSemDeclaration GruvboxAqua
-hi link CocDeprecatedHighlight Comment
+hi link CocStrikeThrough Comment
 hi link CocUnusedHighlight Comment
 hi link CocMenuSel PmenuSel
 
@@ -354,6 +354,10 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <C-x><C-z>
         \ coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+inoremap <silent><expr> <C-f>
+        \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-f>"
+inoremap <silent><expr> <C-b>
+        \ coc#pum#visible() ? coc#pum#scroll(0) : "\<C-b>"
 inoremap <silent><expr> <UP>
         \ coc#pum#visible() ? coc#pum#prev(1) : "\<UP>"
 inoremap <silent><expr> <DOWN>
