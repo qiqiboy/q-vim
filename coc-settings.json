@@ -31,7 +31,6 @@
   "prettier.singleQuote": true,
   "prettier.arrowParens": "avoid",
   "semanticTokens.filetypes": ["*"],
-  "suggest.noselect": true,
   "suggest.maxCompleteItemCount": 100,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
