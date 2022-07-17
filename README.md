@@ -56,21 +56,24 @@ my vim config. 来自一个前端开发码农的 vim 配置方案。
     ```bash
     brew install ripgrep
     ```
+-   [`FantasqueSansMono Nerd Fonts`](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FantasqueSansMono)
 
 ##### 安装
 
-1.   安装好 [`vim-plug`](https://github.com/junegunn/vim-plug/)
+1.  安装好 [`vim-plug`](https://github.com/junegunn/vim-plug/)
 
     ```bash
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     ```
 
-2.   将 vimrc 里内容复制到你的 `~/.vimrc` 或者 `~/.vim/vimrc` 里
+2.  将 vimrc 里内容复制到你的 `~/.vimrc` 或者 `~/.vim/vimrc` 里
+
     ```bash
     cp ./q-vim/vimrc ~/.vim/vimrc
     ```
-3.   执行 `:PlugInstall`
+
+3.  执行 `:PlugInstall`
 
 ### 截图 & Screenshots
 

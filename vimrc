@@ -10,8 +10,8 @@ set langmenu=zh_CN.UTF-8
 language message zh_CN.UTF-8
 
 set background=dark
-set guifont=Iosevka\ Nerd\ Font\ Complete\ Mono:h13
-set linespace=1
+set guifont=FantasqueSansMono\ Nerd\ Font:h13
+set linespace=0
 
 set updatetime=1500
 set tags=tags;
@@ -106,7 +106,7 @@ if has('gui_running')
   set guioptions-=L               " 把gui左边的滑动条去掉
   set guioptions-=m               " 把gui的菜单栏去掉
   set guioptions-=b
-  set lines=52 columns=200
+  set lines=45 columns=180
 endif
 
 if has('popupwin')
