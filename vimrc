@@ -266,8 +266,8 @@ augroup customAutocmd
 augroup END
 
 " airline
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
+" let g:airline_left_sep=""
+" let g:airline_right_sep=""
 let g:airline_detect_iminsert = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -331,8 +331,8 @@ let g:coc_global_extensions = [
       \ 'coc-flutter',
       \ 'coc-spell-checker',
 \]
-let airline#extensions#coc#warning_symbol = '▸▸'
-let airline#extensions#coc#error_symbol = '>>'
+let airline#extensions#coc#warning_symbol = "\uf071 "
+let airline#extensions#coc#error_symbol = "\uf188 "
 let airline#extensions#coc#open_lnum_symbol = ":L"
 let airline#extensions#coc#close_lnum_symbol = ''
 let g:coc_snippet_prev = '<C-k>'
@@ -563,6 +563,7 @@ nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>gpp :Git pull<CR>
 
 " vim-gitgutter
+let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_override_sign_column_highlight = 0
 "let g:gitgutter_max_signs = 1000
 
