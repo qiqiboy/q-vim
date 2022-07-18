@@ -7,12 +7,13 @@ charset = utf-8
 indent_style = space
 indent_size = 4
 tab_width = 4
+max_line_length = 120
 trim_trailing_whitespace = true
 
 [**.{json,yaml,yml}]
 indent_size = 2
 tab_size = 2
 
-[**.{js,jsx}]
+[**.{js,jsx,tsx}]
 e4x = true
 brace_style = collapse,preserve-inline

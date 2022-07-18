@@ -703,7 +703,7 @@ let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_silent_chdir = 1
 
 " editorconfig
-let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+let g:EditorConfig_max_line_indicator = 'none'
 
 " git-messager
 let g:git_messenger_no_default_mappings = 1
