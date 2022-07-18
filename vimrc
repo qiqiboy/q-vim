@@ -166,7 +166,7 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'ryanoasis/vim-devicons'
  Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
  Plug 'mg979/vim-visual-multi'
- Plug 'rstacruz/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
+ Plug 'qiqiboy/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
  Plug 'jiangmiao/auto-pairs'
  Plug 'hail2u/vim-css3-syntax'
  Plug 'othree/html5.vim',  { 'for':htmltag_types }
@@ -329,6 +329,7 @@ let g:coc_global_extensions = [
       \ 'coc-lua',
       \ 'coc-pyright',
       \ 'coc-flutter',
+      \ 'coc-sh',
       \ 'coc-spell-checker',
 \]
 let airline#extensions#coc#warning_symbol = "\uf071 "
