@@ -67,6 +67,7 @@
     "typescriptreact": ["typescriptreact", "html"]
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
+  "cSpell.enabledLanguageIds": ["markdown", "text"],
   "tsserver.formatOnType": true,
   "typescript.preferences.quoteStyle": "auto",
   "javascript.preferences.quoteStyle": "auto"
