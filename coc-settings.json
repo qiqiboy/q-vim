@@ -7,6 +7,9 @@
   "diagnostic.warningSign": "\uf071",
   "diagnostic.infoSign": "\uf05a",
   "diagnostic.hintSign": "\uf835",
+  "emmet.includeLanguages": {
+    "htmldjango": "html"
+  },
   "eslint.autoFixOnSave": false,
   "eslint.alwaysShowStatus": true,
   "eslint.validate": [
