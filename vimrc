@@ -345,7 +345,8 @@ hi link CocUnusedHighlight Comment
 hi link CocMenuSel PmenuSel
 hi link CocSearch GruvboxYellow
 
-inoremap <silent><expr> <c-z> coc#refresh()
+inoremap <silent><expr> <C-z> coc#refresh()
+inoremap <silent><expr> <D-i> coc#refresh()
 inoremap <silent><expr> <TAB>
         \ coc#pum#visible() ? coc#pum#next(1):
         \ <SID>CheckBackspace() ? "\<TAB>" :
@@ -479,6 +480,7 @@ nmap <Leader>pw :CtrlPCurWD<CR>
 nmap <Leader>fu :CtrlPFunky<CR>
 nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 nmap <Space> <plug>(ctrlp)
+nmap <C-p> <plug>(ctrlp)
 nmap <Leader>z :CtrlPBuffer<CR>
 let g:ctrlp_root_markers = ['package.json']
 let g:ctrlp_funky_matchtype = 'path'
