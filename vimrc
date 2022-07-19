@@ -19,6 +19,7 @@ set hidden
 
 set laststatus=2    " 启动显示状态行(1),总是显示状态行(2)
 set foldenable      " 允许折叠
+set foldcolumn=1
 set foldmethod=indent
 set foldlevel=99
 
@@ -228,6 +229,7 @@ let g:gruvbox_improved_warnings = 1
 let g:gruvbox_invert_tabline = 1
 colorscheme gruvbox
 hi VertSplit guifg=bg ctermfg=bg
+hi FoldColumn guifg=Grey30 guibg=NONE ctermfg=239 ctermbg=NONE
 
 " terminal
 if has('terminal')
