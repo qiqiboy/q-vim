@@ -375,7 +375,7 @@ nmap <leader>wf <Plug>(coc-refactor)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
-nnoremap <silent> <F2> :CocList diagnostics<CR>
+nnoremap <silent> <F2> :call <SID>ToggleDiagnostics()<CR>
 nnoremap <silent> <F3> :call <SID>ToggleOutline()<CR>
 nnoremap <silent> <leader>ss :CocList symbols<CR>
 
@@ -435,6 +435,14 @@ function! s:ToggleOutline() abort
     call CocActionAsync('showOutline', 1)
   else
     call coc#window#close(winid)
+  endif
+endfunction
+
+function! s:ToggleDiagnostics() abort
+  if get(getloclist(0, {'winid':0}), 'winid', 0)
+    silent exec 'lclose'
+  else
+    silent exec 'CocDiagnostics'
   endif
 endfunction
 
