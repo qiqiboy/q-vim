@@ -60,6 +60,7 @@ set magic
 set nowrap
 set linebreak
 set iskeyword+=_,$,@,%,#,-
+set fillchars+=vert:\           " hide verical split line
 
 set backspace=indent,eol,start
 
@@ -231,7 +232,6 @@ let g:gruvbox_improved_strings = 1
 let g:gruvbox_improved_warnings = 1
 let g:gruvbox_invert_tabline = 1
 colorscheme gruvbox
-hi VertSplit guifg=bg ctermfg=bg
 hi FoldColumn guifg=Grey30 guibg=NONE ctermfg=239 ctermbg=NONE
 
 " terminal
