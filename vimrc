@@ -135,8 +135,8 @@ noremap ; :
 nnoremap Q :qa<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
-nnoremap <tab> %
-vnoremap <tab> %
+nmap <Tab> %
+vmap <Tab> %
 inoremap <C-tab> <c-x><c-o>
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
