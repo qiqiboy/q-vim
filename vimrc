@@ -403,31 +403,32 @@ augroup cocgroup
                   \ typescriptreact,vue,json,scss,less,sass,css
                   \ setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd CursorHold * if exists('*CocAction') | silent call CocActionAsync('highlight') | endif
-  autocmd CursorHold * if exists('*CocAction') | silent call <SID>ShowDocIfNoDiagnostic() | endif
+  autocmd CursorHold * if exists('*CocAction') | silent! call CocActionAsync('highlight') | endif
+  autocmd CursorHold * if exists('*CocAction') | silent! call <SID>ShowDocIfNoDiagnostic() | endif
 augroup end
 
 function! s:ShowDocumentation() abort
   if CocAction('hasProvider', 'hover')
-    silent call CocActionAsync('definitionHover')
+    silent! call CocActionAsync('definitionHover')
   endif
 endfunction
 
 function! s:ShowDocIfNoDiagnostic() abort
   if (!coc#float#has_float() && CocAction('hasProvider', 'hover'))
-    silent call CocActionAsync('doHover')
+    silent! call CocActionAsync('doHover')
   endif
 endfunction
 
 function! s:CallFormatAndAutofix() abort
   if (!CocAction('hasProvider', 'format'))
-    silent call CocAction('runCommand','prettier.formatFile')
+    silent! call CocAction('runCommand','prettier.formatFile')
   else
-    silent call CocAction('format')
+    silent! call CocAction('format')
   endif
 
   if (match(['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'vue'], &filetype) >= 0)
-    silent call CocAction('runCommand','eslint.executeAutofix')
+    silent! exec 'bufdo update'
+    silent! call CocAction('runCommand','eslint.executeAutofix')
   endif
 endfunction
 
@@ -447,9 +448,9 @@ endfunction
 
 function! s:ToggleDiagnostics() abort
   if get(getloclist(0, {'winid':0}), 'winid', 0)
-    silent exec 'lclose'
+    silent! exec 'lclose'
   else
-    silent exec 'CocDiagnostics'
+    silent! exec 'CocDiagnostics'
   endif
 endfunction
 
