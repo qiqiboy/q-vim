@@ -91,6 +91,9 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/bower_components/*
 set grepprg=rg\ --color=never
 
 set t_Co=256
+if !empty($VIM_TERMINAL)
+  set termguicolors
+endif
 
 filetype plugin indent on
 
@@ -157,9 +160,6 @@ let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
   \ 'CtrlPCurWD']
 
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
-let indentLine_types = ['javascript', 'javascriptreact', 'typescript', 'typescriptreact',
-        \ 'typescriptreact', 'vue', 'python', 'php', 'html', 'htmldjango', 'css', 'scss',
-        \ 'sass', 'less', 'dart', 'solidity', 'swift', 'java', 'go', 'json']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact',
         \ 'typescript', 'typescriptreact']
 
@@ -237,9 +237,7 @@ hi FoldColumn guifg=Grey30 guibg=NONE ctermfg=239 ctermbg=NONE
 " terminal
 if has('terminal')
   if exists('&termwinsize')
-    set termwinsize=20x0
-  else
-    set termsize=20x0
+    set termwinsize=20*0
   endif
 
   nnoremap <leader>t :call <SID>OpenTerminal()<CR>
@@ -248,7 +246,7 @@ if has('terminal')
   tnoremap <c-d> <c-w>:bd!<CR>
   function! <SID>OpenTerminal()
     bo 10split
-    term ++curwin ++close ++open
+    term ++curwin ++close ++open ++kill=kill
   endf
 endif
 
@@ -599,8 +597,8 @@ let g:mkdp_refresh_slow = 1
 " indentLine
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
-let g:indentLine_color_gui='Grey20'
-let g:indentLine_fileType = indentLine_types
+let g:indentLine_color_gui = 'Grey20'
+let g:indentLine_fileTypeExclude = ['', 'text', 'sh']
 
 " markdown toc
 let g:vmt_auto_update_on_save = 0
