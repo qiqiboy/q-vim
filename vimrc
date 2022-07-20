@@ -268,7 +268,6 @@ augroup customAutocmd
   " au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
   au StdinReadPre * let s:std_in=1
   au VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
-  " autocmd FileType nerdtree setlocal ambiwidth=double
 augroup END
 
 " airline
@@ -404,9 +403,8 @@ augroup cocgroup
                   \ typescriptreact,vue,json,scss,less,sass,css
                   \ setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd FileType htmldjango nmap <silent> <leader>b :call CocAction('runCommand','prettier.formatFile')<CR>
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd CursorHold * silent call <SID>ShowDocIfNoDiagnostic()
+  autocmd CursorHold * if exists('*CocAction') | silent call CocActionAsync('highlight') | endif
+  autocmd CursorHold * if exists('*CocAction') | silent call <SID>ShowDocIfNoDiagnostic() | endif
 augroup end
 
 function! s:ShowDocumentation() abort
@@ -422,11 +420,14 @@ function! s:ShowDocIfNoDiagnostic() abort
 endfunction
 
 function! s:CallFormatAndAutofix() abort
-  if (CocAction('hasProvider', 'format'))
+  if (!CocAction('hasProvider', 'format'))
+    silent call CocAction('runCommand','prettier.formatFile')
+  else
     silent call CocAction('format')
-    if (match(['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'vue'], &filetype) >= 0)
-        silent call CocAction('runCommand','eslint.executeAutofix')
-    endif
+  endif
+
+  if (match(['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'vue'], &filetype) >= 0)
+    silent call CocAction('runCommand','eslint.executeAutofix')
   endif
 endfunction
 
@@ -598,6 +599,7 @@ let g:mkdp_refresh_slow = 1
 " indentLine
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
+let g:indentLine_color_gui='Grey20'
 let g:indentLine_fileType = indentLine_types
 
 " markdown toc

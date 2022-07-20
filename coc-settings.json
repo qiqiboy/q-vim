@@ -2,6 +2,7 @@
   "coc.preferences.formatOnType": true,
   "codeLens.enable": true,
   "colors.filetypes": ["*"],
+  "cSpell.enabledLanguageIds": ["markdown", "text"],
   "diagnostic.refreshOnInsertMode": true,
   "diagnostic.errorSign": "\uf188",
   "diagnostic.warningSign": "\uf071",
@@ -70,7 +71,6 @@
     "typescriptreact": ["typescriptreact", "html"]
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
-  "cSpell.enabledLanguageIds": ["markdown", "text"],
   "tsserver.formatOnType": true,
   "typescript.preferences.quoteStyle": "auto",
   "javascript.preferences.quoteStyle": "auto"

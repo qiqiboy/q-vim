@@ -10,7 +10,11 @@ tab_width = 4
 max_line_length = 120
 trim_trailing_whitespace = true
 
-[**.{json,yaml,yml}]
+[**.{json,yaml,yml,vim}]
+indent_size = 2
+tab_size = 2
+
+[vimrc]
 indent_size = 2
 tab_size = 2
 
