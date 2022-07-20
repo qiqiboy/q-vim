@@ -90,11 +90,6 @@ set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/bower_components/*
 
 set grepprg=rg\ --color=never
 
-set t_Co=256
-if !empty($VIM_TERMINAL)
-  set termguicolors
-endif
-
 filetype plugin indent on
 
 syntax enable
@@ -103,6 +98,11 @@ syntax on
 " if has("persistent_undo")
 "    set undodir = ~/.undodir/
 " endif
+
+" enable 24bit colors in vim's builtin terminal
+if !empty($VIM_TERMINAL)
+  set termguicolors
+endif
 
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 if has('gui_running')
