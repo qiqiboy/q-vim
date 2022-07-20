@@ -427,7 +427,7 @@ function! s:CallFormatAndAutofix() abort
   endif
 
   if (match(['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'vue'], &filetype) >= 0)
-    silent! exec 'bufdo update'
+    silent! exec 'edit!'
     silent! call CocAction('runCommand','eslint.executeAutofix')
   endif
 endfunction
