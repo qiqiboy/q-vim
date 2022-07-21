@@ -212,7 +212,6 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
  Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
  Plug 'chr4/nginx.vim', { 'for': 'nginx' }
  Plug 'tomlion/vim-solidity'
- Plug 'rhysd/git-messenger.vim', { 'on': ['<Plug>(git-messenger)', 'GitMessenger'] }
 
  """"""""themes"""""""""""""""
  Plug 'gruvbox-community/gruvbox'
@@ -570,13 +569,15 @@ nmap M <Plug>MarkSearchOrCurPrev
 nmap <Leader>c :nohl<CR><Plug>MarkAllClear
 
 " vim-fugitive
-nnoremap <Leader>gs :Git status<CR>
-nnoremap <Leader>gd :Git diff<CR>
-nnoremap <Leader>gc :Git commit -m""
-nnoremap <Leader>gb :Git blame<CR>
-nnoremap <Leader>gl :Git log
-nnoremap <Leader>gp :Git push<CR>
-nnoremap <Leader>gpp :Git pull<CR>
+nnoremap <silent> <Leader>gs :Git status<CR>
+nnoremap <silent> <Leader>gd :Git diff<CR>
+nnoremap <silent> <Leader>gc :Git commit -m""
+nnoremap <silent> <Leader>gb :Git blame<CR>
+nnoremap <silent> <Leader>gl :Git log
+nnoremap <silent> <Leader>gp :Git push<CR>
+nnoremap <silent> <Leader>gpp :Git pull<CR>
+nnoremap <silent> <silent> <Leader>gm :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:"
+        \ . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 
 " vim-gitgutter
 let g:gitgutter_sign_allow_clobber = 1
@@ -720,10 +721,4 @@ let g:rooter_change_directory_for_non_project_files = ''
 let g:rooter_silent_chdir = 1
 
 " editorconfig
-let g:EditorConfig_max_line_indicator = 'none'
-
-" git-messager
-let g:git_messenger_no_default_mappings = 1
-let g:git_messenger_always_into_popup = 1
-
-nmap <Leader>gm <Plug>(git-messenger)
+let g:EditorConfig_max_line_indicator = 'line'
