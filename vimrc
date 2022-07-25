@@ -163,62 +163,61 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact',
         \ 'typescript', 'typescriptreact']
 
- Plug 'neoclide/coc.nvim', {'branch': 'pum', 'do': 'npm install'}
- Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
- Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
-  Plug 'tacahiroy/ctrlp-funky', { 'on': ctrlp_cmds }
- Plug 'ryanoasis/vim-devicons'
- Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
- Plug 'mg979/vim-visual-multi'
- Plug 'qiqiboy/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
- Plug 'jiangmiao/auto-pairs'
- Plug 'hail2u/vim-css3-syntax'
- Plug 'othree/html5.vim',  { 'for':htmltag_types }
- Plug 'docunext/closetag.vim', { 'for': htmltag_types }
- Plug 'Valloric/MatchTagAlways', { 'for': htmltag_types }
- Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion' }
- Plug 'terryma/vim-expand-region', { 'on': '<Plug>(expand_region' }
- Plug 'tpope/vim-surround'
- Plug 'tpope/vim-repeat'
- Plug 'bronson/vim-trailing-whitespace'
- Plug 'honza/vim-snippets'
- Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
- Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
- Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
- Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
- Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
- Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
- Plug 'preservim/nerdtree', { 'on': nerdtree_cmds }
-  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
- Plug 'airblade/vim-gitgutter'
- Plug 'tpope/vim-fugitive'
- Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
- Plug 'Yggdroot/indentLine'
- Plug 'elzr/vim-json', { 'for': 'json' }
- Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
- Plug 'scrooloose/nerdcommenter', { 'on': '<Plug>NERDCommenter' }
- Plug 'ivyl/vim-bling'
- Plug 'mhinz/vim-startify'
- Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
- Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
- Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
- Plug 'terryma/vim-smooth-scroll'
- Plug 'wellle/targets.vim'
- Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
- Plug 'airblade/vim-rooter'
- Plug 'posva/vim-vue', { 'for': 'vue' }
- Plug 'editorconfig/editorconfig-vim'
- Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
- Plug 'chr4/nginx.vim', { 'for': 'nginx' }
- Plug 'tomlion/vim-solidity'
+Plug 'neoclide/coc.nvim', {'branch': 'pum', 'do': 'npm install'}
+Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
+ Plug 'tacahiroy/ctrlp-funky', { 'on': ctrlp_cmds }
+Plug 'ryanoasis/vim-devicons'
+Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'mg979/vim-visual-multi'
+Plug 'qiqiboy/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
+Plug 'jiangmiao/auto-pairs'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/html5.vim',  { 'for':htmltag_types }
+Plug 'docunext/closetag.vim', { 'for': htmltag_types }
+Plug 'Valloric/MatchTagAlways', { 'for': htmltag_types }
+Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion' }
+Plug 'terryma/vim-expand-region', { 'on': '<Plug>(expand_region' }
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'honza/vim-snippets'
+Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
+Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
+Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
+Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
+Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
+Plug 'preservim/nerdtree', { 'on': nerdtree_cmds }
+ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
+Plug 'Yggdroot/indentLine'
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
+Plug 'scrooloose/nerdcommenter', { 'on': '<Plug>NERDCommenter' }
+Plug 'ivyl/vim-bling'
+Plug 'mhinz/vim-startify'
+Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
+Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
+Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
+Plug 'terryma/vim-smooth-scroll'
+Plug 'wellle/targets.vim'
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'airblade/vim-rooter'
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
+Plug 'chr4/nginx.vim', { 'for': 'nginx' }
+Plug 'tomlion/vim-solidity'
 
- """"""""themes"""""""""""""""
- Plug 'gruvbox-community/gruvbox'
- " Plug 'NLKNguyen/papercolor-theme'
- " Plug 'nanotech/jellybeans.vim'
- " Plug 'rakr/vim-one'
- " Plug 'joshdick/onedark.vim'
+""""""""themes"""""""""""""""
+Plug 'gruvbox-community/gruvbox'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'rakr/vim-one'
+" Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
