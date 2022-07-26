@@ -231,6 +231,7 @@ let g:gruvbox_improved_warnings = 1
 let g:gruvbox_invert_tabline = 1
 colorscheme gruvbox
 hi FoldColumn guifg=Grey30 guibg=NONE ctermfg=239 ctermbg=NONE
+hi link Terminal Normal
 
 " terminal
 if has('terminal')
