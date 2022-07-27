@@ -191,6 +191,7 @@ Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typesc
 Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
 Plug 'preservim/nerdtree', { 'on': nerdtree_cmds }
  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
+ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': nerdtree_cmds }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
@@ -210,7 +211,7 @@ Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
-Plug 'tomlion/vim-solidity'
+Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
@@ -523,31 +524,30 @@ let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeDirArrowExpandable = "\uf0dc"
+let g:NERDTreeDirArrowCollapsible = "\uf0dd"
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(git|vscode|pyc|ico|png|jpeg|gif|svg|ttf|woff|woff2|eot|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
 noremap <F5> :NERDTreeFind<CR>
 noremap <CR> :NERDTreeFind<CR>
 
 " devicons
-function! WebDevIconsGetFileTypeSymbol(...)
-  return ''
-endfunction
-
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
 
 if has('gui_running')
   let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 endif
 
-" nerdtree-git-plugin
-let g:NERDTreeGitStatusUseNerdFonts = 1
-" let g:NERDTreeGitStatusShowClean = 1
-
 if !exists('g:ctrlp_formatline_func')
   " logic for ctrlpvim/ctrlp.vim:
   let g:ctrlp_formatline_func = 's:formatline(s:curtype() == "buf" ? v:val : WebDevIconsGetFileTypeSymbol(v:val) . " " . v:val) '
 endif
+
+" nerdtree-git-plugin
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " vim-javascript
 let g:javascript_plugin_jsdoc = 1
