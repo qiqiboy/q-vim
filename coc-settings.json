@@ -1,5 +1,6 @@
 {
   "coc.preferences.formatOnType": true,
+  "coc.preferences.messageLevel": "error",
   "codeLens.enable": true,
   "colors.filetypes": ["*"],
   "cSpell.enabledLanguageIds": ["markdown", "text"],
