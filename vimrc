@@ -521,7 +521,7 @@ let g:ctrlsf_winsize = '50%'
 " NERDTree
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeWinSize = 25
-let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeShowBookmarks = 0
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeShowHidden = 1
