@@ -203,7 +203,7 @@ Plug 'mhinz/vim-startify'
 Plug 'matze/vim-move', { 'on': ['<Plug>MoveBlock', '<Plug>MoveLine'] }
 Plug 'tommcdo/vim-exchange', { 'on': '<Plug>(Exchange' }
 Plug 'AndrewRadev/sideways.vim', { 'on': ['SidewaysLeft', 'SidewaysRight'] }
-Plug 'terryma/vim-smooth-scroll'
+Plug 'psliwka/vim-smoothie'
 Plug 'wellle/targets.vim'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'airblade/vim-rooter'
@@ -395,6 +395,16 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-x> CocActionAsync('showSignatureHelp')
 
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
+  nnoremap <silent><nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
+  vnoremap <silent><nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
+  vnoremap <silent><nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+endif
+
 augroup cocgroup
   autocmd!
   autocmd FileType javascript,javascriptreact,typescript,\
@@ -449,6 +459,14 @@ function! s:ToggleDiagnostics() abort
     silent! exec 'lclose'
   else
     silent! exec 'CocDiagnostics'
+  endif
+endfunction
+
+function! s:DoSmoothieScroll(dir) abort
+  if (a:dir == 'forward')
+    if coc#float#has_scroll() | call coc#float#scroll(1) | else | call smoothie#forwards() | endif
+  else
+    if coc#float#has_scroll() | call coc#float#scroll(0) | else | call smoothie#backwards() | endif
   endif
 endfunction
 
@@ -577,7 +595,7 @@ nnoremap <silent> <Leader>gb :Git blame<CR>
 nnoremap <silent> <Leader>gl :Git log
 nnoremap <silent> <Leader>gp :Git push<CR>
 nnoremap <silent> <Leader>gpp :Git pull<CR>
-nnoremap <silent> <silent> <Leader>gm :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:"
+nnoremap <silent> <Leader>gm :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:"
         \ . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 
 " vim-gitgutter
@@ -705,11 +723,8 @@ xmap X <Plug>(Exchange)
 nmap cxc <Plug>(ExchangeClear)
 nmap cxx <Plug>(ExchangeLine)
 
-" vim-smooth-scroll
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 5)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 5)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 10)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 10)<CR>
+" vim-smoothie
+let g:smoothie_experimental_mappings = 0
 
 if !has('gui_running')
   noremap <ScrollWheelUp> 2<C-y>
