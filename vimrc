@@ -400,9 +400,10 @@ augroup cocgroup
   autocmd FileType javascript,javascriptreact,typescript,\
                   \ typescriptreact,vue,json,scss,less,sass,css
                   \ setl formatexpr=CocAction('formatSelected')
+  autocmd FileType startify let b:no_cursor_hold = 1
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd CursorHold * if exists('*CocAction') | silent! call CocActionAsync('highlight') | endif
-  autocmd CursorHold * if exists('*CocAction') | silent! call <SID>ShowDocIfNoDiagnostic() | endif
+  autocmd CursorHold * if !exists('b:no_cursor_hold') && exists('*CocAction') | silent! call CocActionAsync('highlight') | endif
+  autocmd CursorHold * if !exists('b:no_cursor_hold') && exists('*CocAction') | silent! call <SID>ShowDocIfNoDiagnostic() | endif
 augroup end
 
 function! s:ShowDocumentation() abort
