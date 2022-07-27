@@ -358,10 +358,10 @@ inoremap <silent><expr> <TAB>
 inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <C-f>
-        \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-f>"
-inoremap <silent><expr> <C-b>
-        \ coc#pum#visible() ? coc#pum#scroll(0) : "\<C-b>"
+inoremap <silent><expr> <C-d>
+        \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-d>"
+inoremap <silent><expr> <C-u>
+        \ coc#pum#visible() ? coc#pum#scroll(0) : "\<C-u>"
 inoremap <silent><expr> <C-e>
         \ coc#pum#visible() ? coc#pum#cancel() : "<C-R>=AutoPairsFastWrap()<CR>"
 inoremap <silent><expr> <UP>
@@ -396,14 +396,12 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 inoremap <silent><expr> <C-x> CocActionAsync('showSignatureHelp')
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
-  nnoremap <silent><nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
-  vnoremap <silent><nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
-  vnoremap <silent><nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-endif
+nnoremap <nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
+nnoremap <nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
+vnoremap <nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
+vnoremap <nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
+inoremap <nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('right')<CR>
+inoremap <nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('left')<CR>
 
 augroup cocgroup
   autocmd!
@@ -463,10 +461,14 @@ function! s:ToggleDiagnostics() abort
 endfunction
 
 function! s:DoSmoothieScroll(dir) abort
-  if (a:dir == 'forward')
+  if a:dir == 'forward'
     if coc#float#has_scroll() | call coc#float#scroll(1) | else | call smoothie#forwards() | endif
-  else
+  elseif a:dir == 'backward'
     if coc#float#has_scroll() | call coc#float#scroll(0) | else | call smoothie#backwards() | endif
+  elseif a:dir == 'right'
+    if coc#float#has_scroll() | call coc#float#scroll(1) | elseif !coc#pum#visible() | call feedkeys("\<Right>") | endif
+  elseif a:dir == 'left'
+    if coc#float#has_scroll() | call coc#float#scroll(0) | elseif !coc#pum#visible() | call feedkeys("\<Left>") | endif
   endif
 endfunction
 
