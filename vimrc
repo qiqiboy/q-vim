@@ -212,7 +212,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
-Plug 'farmergreg/vim-lastplace'
+Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
