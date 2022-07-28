@@ -253,7 +253,6 @@ endif
 
 augroup customAutocmd
   au!
-  au BufNewFile,BufRead *.jsx set filetype=javascript
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
   au BufNewFile,BufRead *.conf setf nginx
