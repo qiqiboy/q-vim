@@ -298,7 +298,7 @@ function! <SID>CloseOrQuitBuffer()
     if tabpagenr('$') > 1 && len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) <= 1
         exec 'tabclose!'
     endif
-    exec 'bw! ' . l:cur_buf
+    exec 'bd! ' . l:cur_buf
   else
     exec 'q!'
   endif
