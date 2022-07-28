@@ -212,6 +212,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
+Plug 'farmergreg/vim-lastplace'
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
@@ -258,7 +259,6 @@ augroup customAutocmd
   au BufNewFile,BufRead *.conf setf nginx
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   au FileType javascript,javascriptreact,typescript,typescriptreact,dart,java,css setlocal foldmethod=syntax
-  au BufWinEnter * if line("'\"") > 0 | if line("'\"") <= line("$") | exe("norm '\"") | else | exe "norm $" | endif | endif
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
 
   " NERDTree autocmd
