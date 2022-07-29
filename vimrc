@@ -13,7 +13,7 @@ set background=dark
 set guifont=FantasqueSansMono\ Nerd\ Font:h13
 set linespace=0
 
-set updatetime=1500
+set updatetime=1000
 set tags=tags;
 set hidden
 
@@ -194,7 +194,7 @@ Plug 'preservim/nerdtree', { 'on': nerdtree_cmds }
  Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': nerdtree_cmds }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app & npm install' }
+Plug 'iamcco/markdown-preview.nvim', { 'for': 'markdown', 'do': 'cd app && npm install' }
 Plug 'Yggdroot/indentLine'
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 Plug 'scrooloose/nerdcommenter', { 'on': '<Plug>NERDCommenter' }
@@ -612,14 +612,13 @@ endif
 
 " markdown-preview
 let g:mkdp_auto_start = 1
-let g:mkdp_path_to_chrome = 'open -a Safari'
-let g:mkdp_refresh_slow = 1
+let g:mkdp_theme = 'light'
 
 " indentLine
 let g:indentLine_enabled = 1
 let g:indentLine_char = '┆'
 let g:indentLine_color_gui = 'Grey20'
-let g:indentLine_fileTypeExclude = ['', 'text', 'sh']
+let g:indentLine_fileTypeExclude = ['', 'text', 'sh', 'markdown']
 
 " markdown toc
 let g:vmt_auto_update_on_save = 0
