@@ -496,6 +496,8 @@ let g:Lf_PopupPreviewPosition = 'right'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_HideHelp = 1
 let g:Lf_PopupHeight = 0.5
+let g:Lf_UseCache = 0
+let g:Lf_UseVersionControlTool = 0
 let g:Lf_ShortcutF = '<Space>'
 let g:Lf_ShortcutB = '<leader>z'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
@@ -508,7 +510,13 @@ let g:Lf_PreviewResult = {
 let g:Lf_CommandMap = {
         \ '<C-K>': ['<Up>', '<S-Tab>', '<C-k>'],
         \ '<C-J>': ['<Down>', '<Tab>', '<C-j>'],
-        \ '<Tab>': ['<C-z>']
+        \ '<Tab>': ['<C-z>'],
+        \ '<Up>': ['<C-p>'],
+        \ '<Down>': ['<C-n>'],
+        \ '<PageUp>': ['<PageUp>', '<C-u>'],
+        \ '<PageDown>': ['<PageDown>', '<C-d>'],
+        \ '<C-Up>': ['<C-b>'],
+        \ '<C-Down>': ['<C-f>'],
         \ }
 
 if g:colors_name == 'gruvbox'

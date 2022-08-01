@@ -14,11 +14,10 @@ my vim config. 来自一个前端开发码农的 vim 配置方案。
     -   `F5` 打开 NERDTree 面板，或者刷新基于当前文件刷新目录树
 -   UndoTree 支持，文件变动历史
     -   `F4` 打开或者关闭 UndoTree 面板
--   CtrlP.vim 支持，项目全局文件模糊查找
-    -   `<Space>`空格键 或 `<leader>p` 触发查找面板
-    -   `<leader>pr` 触发最近访问文件列表面板
+-   LeaderF 支持，项目全局文件模糊查找
+    -   `<Space>`空格键 或 `<C-p>` 触发查找面板
+    -   `<leader>pm` 触发最近访问文件列表面板
     -   `<leader>pb` 触发当前 buffers 列表查找
-    -   `<leader>fu` 触发函数名查找
 -   Ctrlsf.vim 支持，全局跨文件内容搜索
     -   `<leader>sf` 打开搜索面板
 -   Ultisnips 支持
@@ -27,7 +26,6 @@ my vim config. 来自一个前端开发码农的 vim 配置方案。
     -   文件变动左侧标记，状态栏提示等
     -   vim-fugitive 支持，可以不离开 vim 进行 git 操作
 -   markdown 编辑实时预览
--   vim-easygrep 带来更快的全局内容查找、替换
 -   快速注释代码
     -   `<c-c>` 添加注释
     -   `<c-x>` 取消注释
@@ -74,6 +72,8 @@ my vim config. 来自一个前端开发码农的 vim 配置方案。
     ```
 
 3.  执行 `:PlugInstall`
+
+> 如果使用 MacVim，可以在终端运行 `defaults write org.vim.MacVim MMUseInlineIm 0` 解决 vim prompt 中输入中文时可能的字符异常
 
 ### 截图 & Screenshots
 
