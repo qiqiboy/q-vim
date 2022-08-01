@@ -23,3 +23,6 @@ bower_components/
 *.woff
 *.eot
 *.woff2
+*.mp3
+*.mp4
+*.wav

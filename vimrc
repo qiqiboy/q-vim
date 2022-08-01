@@ -85,7 +85,7 @@ set listchars=nbsp:¬,eol:¶,tab:>-,extends:»,precedes:«,trail:•
 set formatoptions+=j              " Delete comment character when joining commented lines
 set wildmenu
 set wildignore+=*.un~,*.pyc,*.zip,*.rar,*.dll,*.dmg
-set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.svg,*.ico
+set wildignore+=*.jpg,*.png,*.jpeg,*.gif,*.svg,*.ico,*.mp3,*.mp4,*.wav
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*,*/bower_components/*
 
 set grepprg=rg\ --color=never
