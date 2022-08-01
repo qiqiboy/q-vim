@@ -492,20 +492,28 @@ vmap V <Plug>(expand_region_shrink)
 
 " LeaderF
 let g:Lf_WindowPosition = 'popup'
+let g:Lf_PopupPreviewPosition = 'right'
 let g:Lf_PreviewInPopup = 1
 let g:Lf_HideHelp = 1
+let g:Lf_PopupHeight = 0.5
 let g:Lf_ShortcutF = '<Space>'
 let g:Lf_ShortcutB = '<leader>z'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
 let g:Lf_PreviewResult = {
-        \ 'File': 0,
-        \ 'Mru': 0,
+        \ 'File': 1,
+        \ 'Mru': 1,
+        \ 'rg': 1,
+        \ 'buffer': 1,
         \}
 let g:Lf_CommandMap = {
         \ '<C-K>': ['<Up>', '<S-Tab>', '<C-k>'],
         \ '<C-J>': ['<Down>', '<Tab>', '<C-j>'],
         \ '<Tab>': ['<C-z>']
         \ }
+
+if g:colors_name == 'gruvbox'
+  let g:Lf_PopupColorscheme = 'gruvbox_default'
+endif
 
 noremap <C-p> <cmd>LeaderfFile<CR>
 nmap <leader>pw <Plug>LeaderfRgCwordLiteralNoBoundary<CR>
