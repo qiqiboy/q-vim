@@ -152,13 +152,6 @@ vnoremap <Delete> s
 
 call plug#begin('~/.vim/plugged')
 
-let ctrlp_cmds = ['<plug>(ctrlp', 'CtrlP',
-  \ 'CtrlPMixed', 'CtrlPBuffer',
-  \ 'CtrlPLine', 'CtrlPUndo',
-  \ 'CtrlPChange', 'CtrlPQuickfix',
-  \ 'CtrlPMRU', 'CtrlPFunky',
-  \ 'CtrlPCurWD']
-
 let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact',
         \ 'typescript', 'typescriptreact']
@@ -166,10 +159,9 @@ let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 
 Plug 'neoclide/coc.nvim', {'branch': 'pum', 'do': 'npm install'}
 Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
-Plug 'ctrlpvim/ctrlp.vim', { 'on': ctrlp_cmds }
- Plug 'tacahiroy/ctrlp-funky', { 'on': ctrlp_cmds }
 Plug 'ryanoasis/vim-devicons'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'Yggdroot/LeaderF'
 Plug 'mg979/vim-visual-multi'
 Plug 'qiqiboy/vim-hyperstyle', { 'for': ['css', 'less', 'sass', 'scss'] }
 Plug 'jiangmiao/auto-pairs'
@@ -185,7 +177,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'honza/vim-snippets'
 Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'] }
 Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact'] }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
 Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
 Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
@@ -498,29 +490,29 @@ map <leader><space> :FixWhitespace<CR>
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
-" ctrlp
-let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_tilde_homedir = 1
-nmap <Leader>p :CtrlP<CR>
-nmap <Leader>pr :CtrlPMRU<CR>
-nmap <Leader>pm :CtrlPMixed<CR>
-nmap <Leader>pb :CtrlPBuffer<CR>
-nmap <Leader>pl :CtrlPLine<CR>
-nmap <Leader>pu :CtrlPUndo<CR>
-nmap <Leader>pc :CtrlPChange<CR>
-nmap <Leader>pq :CtrlPQuickfix<CR>
-nmap <Leader>pw :CtrlPCurWD<CR>
-nmap <Leader>fu :CtrlPFunky<CR>
-nmap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
-nmap <Space> <plug>(ctrlp)
-nmap <C-p> <plug>(ctrlp)
-nmap <Leader>z :CtrlPBuffer<CR>
-let g:ctrlp_root_markers = ['package.json']
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-let g:ctrlp_extensions = ['mixed', 'line', 'funky', 'undo', 'changes']
-let g:ctrlp_match_window = 'results:50'
+" LeaderF
+let g:Lf_WindowPosition = 'popup'
+let g:Lf_PreviewInPopup = 1
+let g:Lf_HideHelp = 1
+let g:Lf_ShortcutF = '<Space>'
+let g:Lf_ShortcutB = '<leader>z'
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }
+let g:Lf_PreviewResult = {
+        \ 'File': 0,
+        \ 'Mru': 0,
+        \}
+let g:Lf_CommandMap = {
+        \ '<C-K>': ['<Up>', '<S-Tab>', '<C-k>'],
+        \ '<C-J>': ['<Down>', '<Tab>', '<C-j>'],
+        \ '<Tab>': ['<C-z>']
+        \ }
+
+noremap <C-p> <cmd>LeaderfFile<CR>
+nmap <leader>pw <Plug>LeaderfRgCwordLiteralNoBoundary<CR>
+vmap <leader>pw <Plug>LeaderfRgVisualLiteralNoBoundary<CR>
+noremap <leader>pb <cmd>LeaderfBuffer<CR>
+noremap <leader>pm <cmd>LeaderfMru<CR>
+noremap <leader>pl <cmd>LeaderfLine<CR>
 
 " CtrlSF
 nmap <Leader>sf <Plug>CtrlSFPrompt
@@ -559,11 +551,6 @@ let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
 
 if has('gui_running')
   let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
-endif
-
-if !exists('g:ctrlp_formatline_func')
-  " logic for ctrlpvim/ctrlp.vim:
-  let g:ctrlp_formatline_func = 's:formatline(s:curtype() == "buf" ? v:val : WebDevIconsGetFileTypeSymbol(v:val) . " " . v:val) '
 endif
 
 " nerdtree-git-plugin
