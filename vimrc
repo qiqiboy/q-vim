@@ -133,10 +133,10 @@ else
 endif
 
 " some enhanced mapping
-noremap K kJ
-noremap H ^
-noremap L $
-noremap ; :
+nnoremap K kJ
+nnoremap H ^
+nnoremap L $
+nnoremap ; :
 nnoremap Q :qa<CR>
 nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
@@ -274,8 +274,8 @@ let g:airline#extensions#tabline#buffers_label = 'BUFFERS'
 let g:airline#extensions#tabline#tabs_label = 'TABS'
 
 " airline-tabline
-noremap <C-TAB>   :bn!<CR>
-noremap <C-S-TAB> :bp!<CR>
+nnoremap <C-TAB>   :bn!<CR>
+nnoremap <C-S-TAB> :bp!<CR>
 nnoremap <leader>q :call <SID>CloseOrQuitBuffer()<CR>
 function! <SID>CloseOrQuitBuffer()
   let l:buf_num = len(filter(range(1, bufnr('$')), 'buflisted(v:val) && !empty(bufname(v:val))'))
@@ -527,17 +527,18 @@ if g:colors_name == 'gruvbox'
   let g:Lf_PopupColorscheme = 'gruvbox_default'
 endif
 
-noremap <C-p> <cmd>LeaderfFile<CR>
+nnoremap <C-p> <cmd>LeaderfFile<CR>
 nmap <leader>pw <Plug>LeaderfRgCwordLiteralNoBoundary<CR>
 vmap <leader>pw <Plug>LeaderfRgVisualLiteralNoBoundary<CR>
-noremap <leader>pb <cmd>LeaderfBuffer<CR>
-noremap <leader>pm <cmd>LeaderfMru<CR>
-noremap <leader>pl <cmd>LeaderfLine<CR>
-noremap <leader>ph <cmd>LeaderfHelp<CR>
-noremap <leader>pc <cmd>LeaderfCommand<CR>
-noremap <leader>pf <cmd>Leaderf rg<CR>
-noremap <leader>pr <cmd>Leaderf rg<CR>
-noremap <leader>pt <cmd>Leaderf --recall<CR>
+nmap <leader>pf <Plug>LeaderfRgPrompt
+nnoremap <leader>pb <cmd>LeaderfBuffer<CR>
+nnoremap <leader>pm <cmd>LeaderfMru<CR>
+nnoremap <leader>pl <cmd>LeaderfLine<CR>
+nnoremap <leader>ph <cmd>LeaderfHelp<CR>
+nnoremap <leader>pc <cmd>LeaderfCommand<CR>
+nnoremap <leader>pr <cmd>Leaderf rg<CR>
+nnoremap <leader>ps <cmd>Leaderf rg<CR>
+nnoremap <leader>pt <cmd>Leaderf --recall<CR>
 
 " CtrlSF
 nmap <Leader>sf <Plug>CtrlSFPrompt
@@ -565,8 +566,8 @@ let g:NERDTreeDirArrowExpandable = "\uf0dc"
 let g:NERDTreeDirArrowCollapsible = "\uf0dd"
 let g:NERDTreeBookmarksFile = $HOME . '/.vim/.NERDTreeBookmarks'
 let g:NERDTreeIgnore=['\~$', '\v\.(git|vscode|pyc|ico|png|jpeg|gif|svg|ttf|woff|woff2|eot|mp4|exe|dmg|jpg|pdf|pem|DS_Store)$']
-noremap <F5> :NERDTreeFind<CR>
-noremap <CR> :NERDTreeFind<CR>
+nnoremap <F5> :NERDTreeFind<CR>
+nnoremap <CR> :NERDTreeFind<CR>
 
 " devicons
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
