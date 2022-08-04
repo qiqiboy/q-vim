@@ -493,6 +493,9 @@ vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
 
 " LeaderF
+hi link Lf_hl_popup_window Fzf3
+hi link Lf_hl_cursorline GruvboxYellow
+
 let g:Lf_WindowPosition = 'popup'
 let g:Lf_PopupPreviewPosition = 'right'
 let g:Lf_PreviewInPopup = 1
