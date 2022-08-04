@@ -432,16 +432,16 @@ function! s:CallFormatAndAutofix() abort
 endfunction
 
 function! s:CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  let l:col = col('.') - 1
+  return !l:col || getline('.')[l:col - 1]  =~# '\s'
 endfunction
 
 function! s:ToggleOutline() abort
-  let winid = coc#window#find('cocViewId', 'OUTLINE')
-  if winid == -1
+  let l:winid = coc#window#find('cocViewId', 'OUTLINE')
+  if l:winid == -1
     call CocActionAsync('showOutline', 1)
   else
-    call coc#window#close(winid)
+    call coc#window#close(l:winid)
   endif
 endfunction
 
