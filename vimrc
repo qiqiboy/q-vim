@@ -156,7 +156,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact',
         \ 'typescript', 'typescriptreact']
 
-Plug 'neoclide/coc.nvim', {'branch': 'pum', 'do': 'npm install'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm install && npm run build'}
 Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -349,6 +349,8 @@ inoremap <silent><expr> <TAB>
 inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <Backspace> coc#pum#visible() ?
+        \ "\<BS>\<c-r>=coc#start()\<CR>" : "\<BS>"
 inoremap <silent><expr> <C-d>
         \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-d>"
 inoremap <silent><expr> <C-u>
