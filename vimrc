@@ -533,6 +533,11 @@ vmap <leader>pw <Plug>LeaderfRgVisualLiteralNoBoundary<CR>
 noremap <leader>pb <cmd>LeaderfBuffer<CR>
 noremap <leader>pm <cmd>LeaderfMru<CR>
 noremap <leader>pl <cmd>LeaderfLine<CR>
+noremap <leader>ph <cmd>LeaderfHelp<CR>
+noremap <leader>pc <cmd>LeaderfCommand<CR>
+noremap <leader>pf <cmd>Leaderf rg<CR>
+noremap <leader>pr <cmd>Leaderf rg<CR>
+noremap <leader>pt <cmd>Leaderf --recall<CR>
 
 " CtrlSF
 nmap <Leader>sf <Plug>CtrlSFPrompt
