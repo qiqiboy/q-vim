@@ -298,6 +298,7 @@ endfunction
 
 " auto-pair
 let g:AutoPairsMapBS = 0
+let g:AutoPairsMapCh = 0
 let g:AutoPairsShortcutFastWrap = ''
 let g:AutoPairsShortcutJump = '<C-a>'
 
@@ -353,6 +354,10 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <Backspace> coc#pum#visible() ?
         \ "\<BS>\<c-r>=coc#start()\<CR>" : "\<c-r>=AutoPairsDelete()\<CR>"
+inoremap <silent><expr> <C-h> coc#pum#visible() ?
+        \ "\<C-h>\<c-r>=coc#start()\<CR>" : "\<c-r>=AutoPairsDelete()\<CR>"
+inoremap <silent><expr> <C-w> coc#pum#visible() ?
+        \ "\<C-w>\<c-r>=coc#start()\<CR>" : "\<C-w>"
 inoremap <silent><expr> <ESC> coc#pum#visible() ?
         \ coc#pum#cancel() : "\<ESC>"
 inoremap <silent><expr> <C-d>
