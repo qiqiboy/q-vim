@@ -342,6 +342,7 @@ hi link CocStrikeThrough Comment
 hi link CocUnusedHighlight Comment
 hi link CocMenuSel PmenuSel
 hi link CocSearch GruvboxYellow
+hi link CocFloatDividingLine GruvboxBg3
 
 inoremap <silent><expr> <C-z> coc#refresh()
 inoremap <silent><expr> <D-i> coc#refresh()
