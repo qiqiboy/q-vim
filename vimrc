@@ -386,6 +386,8 @@ nnoremap <silent> <F3> :call <SID>ToggleOutline()<CR>
 nnoremap <silent> <leader>ss :CocList symbols<CR>
 
 nnoremap <silent> <leader>wd :call <SID>ShowDocumentation()<CR>
+nnoremap <silent> <leader>wci :call CocAction('showIncomingCalls')<CR>
+nnoremap <silent> <leader>wco :call CocAction('showOutgoingCalls')<CR>
 
 vmap <silent> <leader>a <Plug>(coc-codeaction-selected)
 nmap <silent> <leader>a <plug>(coc-codeaction)
