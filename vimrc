@@ -760,4 +760,4 @@ let g:rooter_silent_chdir = 1
 
 " editorconfig
 let g:EditorConfig_max_line_indicator = 'line'
-let g:EditorConfig_preserve_formatoptions = 1
+" let g:EditorConfig_preserve_formatoptions = 1
