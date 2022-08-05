@@ -67,6 +67,7 @@ set backspace=indent,eol,start
 set undofile
 
 set mouse=a
+" set mousemoveevent
 set selection=exclusive
 set selectmode=mouse,key
 
@@ -351,6 +352,8 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <Backspace> coc#pum#visible() ?
         \ "\<BS>\<c-r>=coc#start()\<CR>" : "\<BS>"
+inoremap <silent><expr> <ESC> coc#pum#visible() ?
+        \ coc#pum#cancel() : "\<ESC>"
 inoremap <silent><expr> <C-d>
         \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-d>"
 inoremap <silent><expr> <C-u>
