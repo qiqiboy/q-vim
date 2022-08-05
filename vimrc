@@ -297,6 +297,7 @@ function! <SID>CloseOrQuitBuffer()
 endfunction
 
 " auto-pair
+let g:AutoPairsMapBS = 0
 let g:AutoPairsShortcutFastWrap = ''
 let g:AutoPairsShortcutJump = '<C-a>'
 
@@ -351,7 +352,7 @@ inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <Backspace> coc#pum#visible() ?
-        \ "\<BS>\<c-r>=coc#start()\<CR>" : "\<BS>"
+        \ "\<BS>\<c-r>=coc#start()\<CR>" : "\<c-r>=AutoPairsDelete()\<CR>"
 inoremap <silent><expr> <ESC> coc#pum#visible() ?
         \ coc#pum#cancel() : "\<ESC>"
 inoremap <silent><expr> <C-d>
