@@ -359,7 +359,7 @@ inoremap <silent><expr> <C-h> coc#pum#visible() ?
 inoremap <silent><expr> <C-w> coc#pum#visible() ?
         \ "\<C-w>\<c-r>=coc#start()\<CR>" : "\<C-w>"
 inoremap <silent><expr> <ESC> coc#pum#visible() ?
-        \ coc#pum#cancel() : "\<ESC>"
+        \ coc#pum#stop() : "\<ESC>"
 inoremap <silent><expr> <C-d>
         \ coc#pum#visible() ? coc#pum#scroll(1) : "\<C-d>"
 inoremap <silent><expr> <C-u>
