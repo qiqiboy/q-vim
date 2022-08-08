@@ -327,6 +327,7 @@ let g:coc_global_extensions = [
       \ 'coc-pyright',
       \ 'coc-flutter',
       \ 'coc-sh',
+      \ 'coc-go',
       \ 'coc-spell-checker',
 \]
 let airline#extensions#coc#warning_symbol = "\uf071 "
