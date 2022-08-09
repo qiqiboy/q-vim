@@ -202,7 +202,6 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'airblade/vim-rooter'
 Plug 'posva/vim-vue', { 'for': 'vue' }
 Plug 'editorconfig/editorconfig-vim'
-Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
@@ -325,7 +324,6 @@ let g:coc_global_extensions = [
       \ 'coc-solidity',
       \ 'coc-lua',
       \ 'coc-pyright',
-      \ 'coc-flutter',
       \ 'coc-sh',
       \ 'coc-go',
       \ 'coc-sourcekit',
@@ -681,10 +679,6 @@ let g:mta_filetypes = {
 let g:bling_count = 2
 let g:bling_color_gui_fg = 'white'
 let g:bling_color_gui_bg = '#af005f'
-
-" dart
-let g:dart_html_in_string=v:true
-let g:dart_style_guide = 2
 
 " startify
 let g:startify_padding_left = 30
