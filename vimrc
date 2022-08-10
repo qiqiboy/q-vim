@@ -327,6 +327,7 @@ let g:coc_global_extensions = [
       \ 'coc-sh',
       \ 'coc-go',
       \ 'coc-sourcekit',
+      \ 'coc-flutter',
       \ 'coc-spell-checker',
 \]
 let airline#extensions#coc#warning_symbol = "\uf071 "
