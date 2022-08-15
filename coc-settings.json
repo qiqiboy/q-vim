@@ -41,6 +41,7 @@
   "semanticTokens.filetypes": ["*"],
   "suggest.noselect": true,
   "suggest.maxCompleteItemCount": 100,
+  "suggest.snippetIndicator": " \ufb25",
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",
