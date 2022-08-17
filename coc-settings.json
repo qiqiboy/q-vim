@@ -82,6 +82,12 @@
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
   "tsserver.formatOnType": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.parameterNames.enabled": true,
+  "javascript.inlayHints.parameterNames.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "typescript.preferences.quoteStyle": "auto",
   "javascript.preferences.quoteStyle": "auto"
 }
