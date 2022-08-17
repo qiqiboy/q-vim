@@ -121,7 +121,7 @@ if has('popupwin')
 endif
 
 " make signColumn always show
-if has('patch-8.1.1564')
+if has('nvim') || has('patch-8.1.1564')
   set signcolumn=number
 else
   set signcolumn=yes
@@ -150,6 +150,10 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 vnoremap <Backspace> s
 vnoremap <Delete> s
+
+if has('nvim')
+set runtimepath+=$HOME/.vim
+endif
 
 call plug#begin('~/.vim/plugged')
 
@@ -205,6 +209,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
+Plug 'github/copilot.vim'
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
@@ -228,18 +233,26 @@ hi FoldColumn guifg=Grey30 guibg=NONE ctermfg=239 ctermbg=NONE
 hi link Terminal Normal
 
 " terminal
-if has('terminal')
-  if exists('&termwinsize')
-    set termwinsize=20*0
+if has('terminal') || has('nvim')
+  nnoremap <leader>t :call <SID>OpenTerminal()<CR>
+
+  if has('nvim')
+    tnoremap <ESC> <c-\><C-n>
+    tnoremap <c-k> <c-\><C-n><C-w>k
+    tnoremap <c-d> <c-\><C-n>:q!<CR>
+  else
+    tnoremap <c-k> <C-w>k
+    tnoremap <c-n> <C-w>N
+    tnoremap <c-d> <c-w>:bd!<CR>
   endif
 
-  nnoremap <leader>t :call <SID>OpenTerminal()<CR>
-  tnoremap <c-k> <C-w>k
-  tnoremap <c-n> <C-w>N
-  tnoremap <c-d> <c-w>:bd!<CR>
   function! <SID>OpenTerminal()
-    bo 10split
-    term ++curwin ++close ++open ++kill=kill
+    bo 20split
+    if has('nvim')
+      term!
+    else
+      term ++curwin ++close ++open ++kill=kill
+    endif
   endf
 endif
 
@@ -328,6 +341,7 @@ let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-sourcekit',
       \ 'coc-flutter',
+      \ 'coc-tabnine',
       \ 'coc-spell-checker',
 \]
 let airline#extensions#coc#warning_symbol = "\uf071 "
@@ -377,8 +391,9 @@ nmap <silent> <leader>w <Plug>(coc-definition)
 nmap <silent> <leader>wt <Plug>(coc-type-definition)
 nmap <silent> <leader>wi <Plug>(coc-implementation)
 nmap <silent> <leader>ww <Plug>(coc-references)
-nmap <leader>wr <Plug>(coc-rename)
-nmap <leader>wf <Plug>(coc-refactor)
+nmap <silent> <leader>wr <Plug>(coc-rename)
+nmap <silent> <leader>wf <Plug>(coc-refactor)
+nmap <silent> <leader>wc  <Plug>(coc-codelens-action)
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
@@ -650,9 +665,6 @@ let g:indentLine_fileTypeExclude = ['', 'text', 'sh', 'markdown']
 let g:vmt_auto_update_on_save = 0
 let g:vmt_cycle_list_item_markers = 1
 
-" vim-jsx-improve
-let g:jsx_improve_motion_disable = 1
-
 " nerdcommenter
 let g:NERDCreateDefaultMappings = 0
 let g:NERDSpaceDelims = 1
@@ -761,3 +773,7 @@ let g:rooter_silent_chdir = 1
 " editorconfig
 let g:EditorConfig_max_line_indicator = 'line'
 " let g:EditorConfig_preserve_formatoptions = 1
+
+" Copilot
+imap <C-k> <Plug>(copilot-previous)
+imap <C-j> <Plug>(copilot-next)
