@@ -775,5 +775,6 @@ let g:EditorConfig_max_line_indicator = 'line'
 " let g:EditorConfig_preserve_formatoptions = 1
 
 " Copilot
+imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
 imap <C-k> <Plug>(copilot-previous)
 imap <C-j> <Plug>(copilot-next)
