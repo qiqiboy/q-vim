@@ -779,5 +779,6 @@ let g:EditorConfig_max_line_indicator = 'line'
 
 " Copilot
 imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
+inoremap <silent> <C-enter> <cmd>Copilot panel<CR>
 imap <C-k> <Plug>(copilot-previous)
 imap <C-j> <Plug>(copilot-next)
