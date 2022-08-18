@@ -145,7 +145,6 @@ nnoremap <leader>x :x<CR>
 nnoremap U <C-r>
 nmap <Tab> %
 vmap <Tab> %
-inoremap <C-tab> <c-x><c-o>
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -369,6 +368,7 @@ inoremap <silent><expr> <TAB>
         \ <SID>CheckBackspace() ? "\<TAB>" :
         \ coc#refresh()
 inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <C-TAB> coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <Backspace> coc#pum#visible() ?
