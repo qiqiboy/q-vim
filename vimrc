@@ -108,11 +108,13 @@ endif
 "autocmd GUIEnter * simalt ~x  	" windows下启动vim最大化
 if has('gui_running')
   set guioptions-=T               " windows下隐藏工具栏
-  "set guioptions-=r               " 把gui右边的滑动条去掉
+  "set guioptions-=r              " 把gui右边的滑动条去掉
   set guioptions-=L               " 把gui左边的滑动条去掉
   set guioptions-=m               " 把gui的菜单栏去掉
   set guioptions-=b
   set lines=45 columns=180
+
+  set macmeta                     " Use option (alt) as meta key
 endif
 
 if has('popupwin')
@@ -313,6 +315,7 @@ let g:AutoPairsMapBS = 0
 let g:AutoPairsMapCh = 0
 let g:AutoPairsShortcutFastWrap = ''
 let g:AutoPairsShortcutJump = '<C-a>'
+let g:AutoPairsMoveCharacter = ''
 
 " coc.nvim
 let g:coc_global_extensions = [
