@@ -363,7 +363,7 @@ hi link CocFloatDividingLine GruvboxBg3
 
 inoremap <silent><expr> <C-z> coc#refresh()
 inoremap <silent><expr> <D-i> coc#refresh()
-inoremap <silent><script><expr> <TAB>
+inoremap <silent><expr> <TAB>
         \ coc#pum#visible() ? coc#pum#next(1) :
         \ copilot#Accept({ -> <SID>CheckBackspace() ? "\<TAB>" : coc#refresh() })
 inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
@@ -385,6 +385,8 @@ inoremap <silent><expr> <C-u>
         \ coc#pum#visible() ? coc#pum#scroll(0) : "\<C-u>"
 inoremap <silent><expr> <C-e>
         \ coc#pum#visible() ? coc#pum#cancel() : "<C-R>=AutoPairsFastWrap()<CR>"
+inoremap <silent><expr> <C-p>
+      \ coc#pum#visible() ? coc#pum#prev(1) : "\<cmd>LeaderfFile\<CR>"
 inoremap <silent><expr> <UP>
         \ coc#pum#visible() ? coc#pum#prev(1) : "\<UP>"
 inoremap <silent><expr> <DOWN>
@@ -414,7 +416,7 @@ nmap <silent> <leader>a <plug>(coc-codeaction)
 vmap <silent> <leader>b <Plug>(coc-format-selected)
 nnoremap <silent> <leader>b :call <SID>CallFormatAndAutofix()<CR>
 
-imap <silent> <A-Tab> <Plug>(coc-snippets-expand)
+imap <silent> <M-Tab> <Plug>(coc-snippets-expand)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-x> CocActionAsync('showSignatureHelp')
@@ -780,6 +782,4 @@ let g:EditorConfig_max_line_indicator = 'line'
 " Copilot
 let g:copilot_no_tab_map = 1 " <TAB> keybinding in coc-config
 imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
-inoremap <silent> <C-enter> <cmd>Copilot panel<CR>
-imap <C-k> <Plug>(copilot-previous)
-imap <C-j> <Plug>(copilot-next)
+imap <silent> <C-enter> <cmd>Copilot panel<CR>
