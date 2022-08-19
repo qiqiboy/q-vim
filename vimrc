@@ -363,12 +363,12 @@ hi link CocFloatDividingLine GruvboxBg3
 
 inoremap <silent><expr> <C-z> coc#refresh()
 inoremap <silent><expr> <D-i> coc#refresh()
-inoremap <silent><script><expr> <TAB>
-        \ coc#pum#visible() ? coc#pum#next(1) :
-        \ copilot#Accept({ -> <SID>CheckBackspace() ? "\<TAB>" : coc#refresh() })
-inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-inoremap <silent><expr> <C-TAB> coc#pum#visible() ? copilot#Accept({ -> coc#next(1) }) :
+inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#pum#next(1):
+        \ <SID>CheckBackspace() ? "\<TAB>" :
         \ coc#refresh()
+inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <C-TAB> coc#pum#visible() ? coc#pum#next(1) : coc#refresh()
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() :
         \ "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <Backspace> coc#pum#visible() ?
@@ -778,7 +778,6 @@ let g:EditorConfig_max_line_indicator = 'line'
 " let g:EditorConfig_preserve_formatoptions = 1
 
 " Copilot
-let g:copilot_no_tab_map = 1 " <TAB> keybinding in coc-config
 imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
 inoremap <silent> <C-enter> <cmd>Copilot panel<CR>
 imap <C-k> <Plug>(copilot-previous)
