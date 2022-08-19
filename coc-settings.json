@@ -43,7 +43,7 @@
   "prettier.singleQuote": true,
   "prettier.arrowParens": "avoid",
   "semanticTokens.filetypes": ["*"],
-  "suggest.noselect": true,
+  "suggest.noselect": false,
   "suggest.maxCompleteItemCount": 100,
   "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
   "suggest.snippetIndicator": " \ufb25 ",
@@ -81,6 +81,7 @@
     "typescriptreact": ["typescriptreact", "html"]
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
+  "tabnine.priority": 95,
   "tsserver.formatOnType": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.enumMemberValues.enabled": true,
