@@ -313,6 +313,7 @@ endfunction
 let g:AutoPairsMapBS = 0
 let g:AutoPairsMapCh = 0
 let g:AutoPairsShortcutFastWrap = ''
+let g:AutoPairsShortcutBackInsert = ''
 let g:AutoPairsShortcutJump = '<C-a>'
 let g:AutoPairsMoveCharacter = ''
 
