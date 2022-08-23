@@ -82,6 +82,7 @@
   },
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
   "tabnine.priority": 95,
+  "tabnine.enablePreselect": false,
   "tsserver.formatOnType": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.enumMemberValues.enabled": true,
