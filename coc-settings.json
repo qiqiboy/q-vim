@@ -44,6 +44,8 @@
   "prettier.arrowParens": "avoid",
   "semanticTokens.filetypes": ["*"],
   "suggest.noselect": false,
+  "suggest.triggerAfterInsertEnter": true,
+  "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.maxCompleteItemCount": 100,
   "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
   "suggest.snippetIndicator": " \ufb25 ",
