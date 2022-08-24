@@ -362,6 +362,8 @@ hi link CocMenuSel PmenuSel
 hi link CocSearch GruvboxYellow
 hi link CocFloatDividingLine GruvboxBg3
 hi link CocInlayHint NonText
+hi CocErrorVirtualText gui=italic guifg=#9d0006 ctermfg=88
+hi CocWarningVirtualText gui=italic guifg=#af700d ctermfg=136
 
 inoremap <silent><expr> <C-z> coc#refresh()
 inoremap <silent><expr> <D-i> coc#refresh()
