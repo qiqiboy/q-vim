@@ -90,6 +90,8 @@
   "tsserver.formatOnType": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "javascript.inlayHints.variableTypes.enabled": true,
   "typescript.inlayHints.parameterNames.enabled": "all",
   "javascript.inlayHints.parameterNames.enabled": "all",
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
