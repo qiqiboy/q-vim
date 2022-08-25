@@ -356,14 +356,16 @@ let airline#extensions#coc#close_lnum_symbol = ''
 let g:coc_snippet_prev = '<C-k>'
 let g:coc_snippet_next = '<C-j>'
 
-hi link CocHighlightText Cursor
-hi link CocSemDeclaration GruvboxAqua
-hi link CocStrikeThrough Comment
-hi link CocUnusedHighlight Comment
-hi link CocMenuSel PmenuSel
-hi link CocSearch GruvboxYellow
-hi link CocFloatDividingLine GruvboxBg3
-hi link CocInlayHint Folded
+hi! link CocHighlightText Cursor
+hi! link CocSemDeclaration GruvboxAqua
+hi! link CocStrikeThrough Comment
+hi! link CocUnusedHighlight Comment
+hi! link CocMenuSel PmenuSel
+hi! link CocSearch GruvboxYellow
+hi! link CocFloatDividingLine GruvboxBg3
+hi! link CocInlayHint Folded
+" hide xyz that end of diagnostic vtext
+hi! link MoreMsg GruvboxBg0
 hi CocErrorVirtualText gui=italic guifg=#9d0006 ctermfg=88
 hi CocWarningVirtualText gui=italic guifg=#af700d ctermfg=136
 
