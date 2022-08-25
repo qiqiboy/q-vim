@@ -345,6 +345,8 @@ let g:coc_global_extensions = [
       \ 'coc-sourcekit',
       \ 'coc-flutter',
       \ 'coc-tabnine',
+      \ 'coc-clangd',
+      \ 'coc-rust-analyzer',
       \ 'coc-spell-checker',
 \]
 let airline#extensions#coc#warning_symbol = "\uf071 "
@@ -361,7 +363,7 @@ hi link CocUnusedHighlight Comment
 hi link CocMenuSel PmenuSel
 hi link CocSearch GruvboxYellow
 hi link CocFloatDividingLine GruvboxBg3
-hi link CocInlayHint NonText
+hi link CocInlayHint Folded
 hi CocErrorVirtualText gui=italic guifg=#9d0006 ctermfg=88
 hi CocWarningVirtualText gui=italic guifg=#af700d ctermfg=136
 
