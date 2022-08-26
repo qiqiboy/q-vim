@@ -5,6 +5,7 @@
   "colors.filetypes": ["*"],
   "cSpell.enabledLanguageIds": ["markdown", "text"],
   "diagnostic.virtualText": true,
+  "diagnostic.virtualTextAlign": "right",
   "diagnostic.virtualTextLevel": "warning",
   "diagnostic.virtualTextPrefix": " \uf45d ",
   "diagnostic.virtualTextCurrentLineOnly": false,
