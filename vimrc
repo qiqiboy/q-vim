@@ -788,5 +788,6 @@ let g:EditorConfig_max_line_indicator = 'line'
 
 " Copilot
 let g:copilot_no_tab_map = 1 " <TAB> keybinding in coc-config
+let g:copilot_hide_during_completion = 0
 imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
 imap <silent> <C-enter> <cmd>Copilot panel<CR>
