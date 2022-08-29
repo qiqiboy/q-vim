@@ -210,7 +210,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
-Plug 'github/copilot.vim'
+Plug 'qiqiboy/copilot.vim'
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
