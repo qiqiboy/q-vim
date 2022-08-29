@@ -427,13 +427,15 @@ imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 
 inoremap <silent><expr> <C-x> CocActionAsync('showSignatureHelp')
 
+nmap <leader>i <cmd>CocCommand document.toggleInlayHint<CR>
+
 " Remap <C-f> and <C-b> for scroll float windows/popups.
-nnoremap <nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
-nnoremap <nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
-vnoremap <nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
-vnoremap <nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
-inoremap <nowait> <C-f> <cmd>call <SID>DoSmoothieScroll('right')<CR>
-inoremap <nowait> <C-b> <cmd>call <SID>DoSmoothieScroll('left')<CR>
+nmap <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
+nmap <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
+vmap <C-f> <cmd>call <SID>DoSmoothieScroll('forward')<CR>
+vmap <C-b> <cmd>call <SID>DoSmoothieScroll('backward')<CR>
+imap <C-f> <cmd>call <SID>DoSmoothieScroll('right')<CR>
+imap <C-b> <cmd>call <SID>DoSmoothieScroll('left')<CR>
 
 augroup cocgroup
   autocmd!
