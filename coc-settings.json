@@ -22,9 +22,6 @@
   "eslint.autoFixOnSave": false,
   "eslint.alwaysShowStatus": true,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "html", "vue"],
-  "htmldjango.formatting.provider": "none",
-  "htmldjango.djlint.enableLint": true,
-  "htmldjango.djlint.profile": "nunjucks",
   "go.goplsOptions": {
     "hints": {
       "assignVariableTypes": true,
@@ -35,6 +32,10 @@
       "rangeVariableTypes": true
     }
   },
+  "htmldjango.formatting.provider": "none",
+  "htmldjango.djlint.enableLint": true,
+  "htmldjango.djlint.profile": "nunjucks",
+  "inlayHint.refreshOnInsertMode": true,
   "markdownlint.config": {
     "line-length": {
       "line_length": 120
