@@ -651,8 +651,12 @@ nnoremap <silent> <Leader>gb :Git blame<CR>
 nnoremap <silent> <Leader>gl :Git log
 nnoremap <silent> <Leader>gp :Git push<CR>
 nnoremap <silent> <Leader>gpp :Git pull<CR>
-nnoremap <silent> <Leader>gm :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:"
-        \ . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+nnoremap <silent> <Leader>gm :call <SID>showGitMessage()<CR>
+
+function! s:showGitMessage()
+  call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:"
+        \ . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")
+endfunction
 
 " vim-gitgutter
 let g:gitgutter_sign_allow_clobber = 1
