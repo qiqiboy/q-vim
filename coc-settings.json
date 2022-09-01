@@ -60,6 +60,7 @@
   "suggest.virtualText": false,
   "suggest.noselect": false,
   "suggest.triggerAfterInsertEnter": true,
+  "suggest.reversePumAboveCursor": true,
   "suggest.maxCompleteItemCount": 100,
   "suggest.formatItems": ["kind", "abbr", "menu", "shortcut"],
   "suggest.snippetIndicator": " \ufb25 ",
@@ -115,6 +116,5 @@
   "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
   "javascript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
   "typescript.preferences.quoteStyle": "auto",
-  "javascript.preferences.quoteStyle": "auto",
-  "volar.inlayHints.enable": true
+  "javascript.preferences.quoteStyle": "auto"
 }

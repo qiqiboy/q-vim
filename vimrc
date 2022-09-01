@@ -392,11 +392,11 @@ inoremap <silent><expr> <C-u>
 inoremap <silent><expr> <C-e>
         \ coc#pum#visible() ? coc#pum#cancel() : "<C-R>=AutoPairsFastWrap()<CR>"
 inoremap <silent><expr> <C-p>
-      \ coc#pum#visible() ? coc#pum#prev(1) : "\<cmd>LeaderfFile\<CR>"
+        \ coc#pum#visible() ? coc#pum#prev(1) : "\<cmd>LeaderfFile\<CR>"
 inoremap <silent><expr> <UP>
-        \ coc#pum#visible() ? coc#pum#prev(1) : "\<UP>"
+        \ coc#pum#visible() ? <SID>PumNavigate('up') : "\<UP>"
 inoremap <silent><expr> <DOWN>
-        \ coc#pum#visible() ? coc#pum#next(1) : "\<DOWN>"
+        \ coc#pum#visible() ? <SID>PumNavigate('down') : "\<DOWN>"
 
 nmap <silent> <leader>w <Plug>(coc-definition)
 nmap <silent> <leader>wt <Plug>(coc-type-definition)
@@ -475,6 +475,16 @@ endfunction
 function! s:CheckBackspace() abort
   let l:col = col('.') - 1
   return !l:col || getline('.')[l:col - 1]  =~# '\s'
+endfunction
+
+function! s:PumNavigate(dir) abort
+  let l:info = coc#pum#info()
+
+  if a:dir == 'up'
+    return l:info['reversed'] ? coc#pum#next(1) : coc#pum#prev(1)
+  endif
+
+  return l:info['reversed'] ? coc#pum#prev(1) : coc#pum#next(1)
 endfunction
 
 function! s:ToggleOutline() abort
