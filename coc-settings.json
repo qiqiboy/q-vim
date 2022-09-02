@@ -7,7 +7,7 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextAlign": "right",
   "diagnostic.virtualTextLevel": "warning",
-  "diagnostic.virtualTextPrefix": " \uf45d ",
+  "diagnostic.virtualTextFormat": "\uf45d %source: [%severity]%message",
   "diagnostic.virtualTextLineSeparator": " \ue729 ",
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.refreshOnInsertMode": true,
