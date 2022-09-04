@@ -9,6 +9,7 @@
   "diagnostic.virtualTextAlign": "right",
   "diagnostic.virtualTextLevel": "warning",
   "diagnostic.virtualTextFormat": "\uf45d %source: [%severity]%message",
+  "diagnostic.virtualTextLimitInOneLine": 1,
   "diagnostic.virtualTextLineSeparator": " \ue729 ",
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic.refreshOnInsertMode": true,
