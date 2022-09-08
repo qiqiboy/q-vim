@@ -479,8 +479,8 @@ function! s:InsertPumOrJumpNext() abort
   let l:info = coc#pum#info()
   let l:cword = strcharpart(getline('.'), col('.') - strlen(l:info['word']) - 1, strlen(l:info['word']))
 
-  if l:info['index'] == 0 && !l:info['inserted'] && l:info['word'] != l:cword
-    call timer_start(10, { -> coc#pum#select(0, 1, 0) })
+  if !l:info['inserted'] && l:info['word'] != l:cword
+    call timer_start(10, { -> coc#pum#select(l:info['index'], 1, 0) })
     return "\<Ignore>"
   endif
 
