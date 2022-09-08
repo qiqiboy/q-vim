@@ -214,10 +214,6 @@ Plug 'qiqiboy/copilot.vim'
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'nanotech/jellybeans.vim'
-" Plug 'rakr/vim-one'
-" Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -370,7 +366,7 @@ hi CocWarningVirtualText gui=italic gui=italic guifg=#fa973a guibg=#2c1603 cterm
 inoremap <silent><expr> <C-z> coc#refresh()
 inoremap <silent><expr> <D-i> coc#refresh()
 inoremap <silent><expr> <TAB>
-        \ coc#pum#visible() ? coc#pum#next(1) :
+        \ coc#pum#visible() ? <SID>InsertPumOrJumpNext() :
         \ copilot#Accept({ -> <SID>CheckBackspace() ? "\<TAB>" : coc#refresh() })
 inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <C-TAB> coc#pum#visible() ? copilot#Accept({ -> coc#next(1) }) :
@@ -477,6 +473,15 @@ endfunction
 function! s:CheckBackspace() abort
   let l:col = col('.') - 1
   return !l:col || getline('.')[l:col - 1]  =~# '\s'
+endfunction
+
+function! s:InsertPumOrJumpNext() abort
+  if coc#pum#info()['index'] == 0 && !coc#pum#info()['inserted']
+    call timer_start(10, { -> coc#pum#select(0, 1, 0) })
+    return "\<Ignore>"
+  endif
+
+  return coc#pum#next(1)
 endfunction
 
 function! s:ToggleOutline() abort
