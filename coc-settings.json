@@ -58,7 +58,7 @@
   "prettier.semi": true,
   "prettier.singleQuote": true,
   "prettier.arrowParens": "avoid",
-  "semanticTokens.filetypes": ["*"],
+  "semanticTokens.enable": true,
   "suggest.virtualText": false,
   "suggest.noselect": false,
   "suggest.triggerAfterInsertEnter": true,

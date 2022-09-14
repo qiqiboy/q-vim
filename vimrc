@@ -459,10 +459,10 @@ function! s:ShowDocIfNoDiagnostic() abort
 endfunction
 
 function! s:CallFormatAndAutofix() abort
-  if (!CocAction('hasProvider', 'format'))
-    silent! call CocAction('runCommand','prettier.formatFile')
-  else
+  if CocAction('hasProvider', 'format')
     silent! call CocAction('format')
+  else
+    silent! call CocAction('runCommand','prettier.formatFile')
   endif
 
   if (match(['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'html', 'vue'], &filetype) >= 0)
