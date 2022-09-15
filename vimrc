@@ -354,7 +354,6 @@ let g:coc_snippet_next = '<C-j>'
 
 hi! link CocHighlightText Cursor
 hi! link CocSemDeclaration GruvboxAqua
-hi! link CocStrikeThrough Comment
 hi! link CocUnusedHighlight Comment
 hi! link CocMenuSel PmenuSel
 hi! link CocSearch GruvboxYellow
@@ -362,6 +361,7 @@ hi! link CocFloatDividingLine GruvboxBg3
 hi! link CocInlayHint Folded
 hi CocErrorVirtualText gui=italic guifg=#ff6464 guibg=#2f0505 ctermfg=196 ctermbg=52
 hi CocWarningVirtualText gui=italic gui=italic guifg=#fa973a guibg=#2c1603 ctermfg=214 ctermbg=94
+hi CocStrikeThrough gui=italic,strikethrough guifg=#928374 term=italic,strikethrough ctermfg=245
 
 inoremap <silent><expr> <C-z> coc#refresh()
 inoremap <silent><expr> <D-i> coc#refresh()
