@@ -359,7 +359,7 @@ hi! link CocMenuSel PmenuSel
 hi! link CocSearch GruvboxYellow
 hi! link CocFloatDividingLine GruvboxBg3
 hi! link CocInlayHint Folded
-hi CocInlayHintParameter gui=bold,italic guibg=#5c7753 guifg=#ffffff cterm=bold ctermfg=15 ctermbg=29
+hi CocInlayHintParameter gui=bold,italic guibg=#5c7753 guifg=#f4ebc1 cterm=bold ctermfg=230 ctermbg=29
 hi CocErrorVirtualText gui=italic guifg=#ff6464 guibg=#2f0505 ctermfg=196 ctermbg=52
 hi CocWarningVirtualText gui=italic gui=italic guifg=#fa973a guibg=#2c1603 ctermfg=214 ctermbg=94
 hi CocStrikeThrough gui=italic,strikethrough guifg=#928374 term=italic,strikethrough ctermfg=245
