@@ -38,16 +38,6 @@
   "htmldjango.djlint.enableLint": true,
   "htmldjango.djlint.profile": "nunjucks",
   "inlayHint.refreshOnInsertMode": true,
-  "markdownlint.config": {
-    "line-length": {
-      "line_length": 120
-    },
-    "ul-indent": {
-      "indent": 4
-    },
-    "ul-style": false,
-    "list-marker-space": false
-  },
   "notification.disabledProgressSources": ["*"],
   "outline.sortBy": "position",
   "outline.expandLevel": 10,

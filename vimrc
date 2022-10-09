@@ -332,7 +332,7 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-vimlsp',
       \ 'coc-yaml',
-      \ 'coc-markdownlint',
+      \ '@yaegassy/coc-marksman',
       \ 'coc-solidity',
       \ 'coc-lua',
       \ 'coc-pyright',
@@ -538,6 +538,7 @@ nmap <Leader><Leader>k <Plug>(easymotion-k)
 nmap <Leader><Leader>h <Plug>(easymotion-B)
 
 " vim-trailing-whitespace
+let g:extra_whitespace_ignored_filetypes = ['startify']
 map <leader><space> :FixWhitespace<CR>
 
 " expand-region
