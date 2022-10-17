@@ -258,6 +258,8 @@ augroup customAutocmd
   au BufNewFile,BufRead .tern-project,.eslintrc,.tslintrc,.prettierrc,.htmlhintrc setf json
   au BufNewFile,BufRead *.wxml setf html
   au BufNewFile,BufRead *.conf setf nginx
+  au BufNewFile,BufRead *.ttss setf css
+  au BufNewFile,BufRead *.ttml setf html
   au FileType json,vim,yaml setlocal shiftwidth=2 softtabstop=2
   au FileType javascript,javascriptreact,typescript,typescriptreact,dart,java,css setlocal foldmethod=syntax
   au BufEnter * if 0 == len(filter(range(1, winnr('$')), 'empty(getbufvar(winbufnr(v:val), "&bt"))')) | qa! | endif
@@ -332,7 +334,6 @@ let g:coc_global_extensions = [
       \ 'coc-snippets',
       \ 'coc-vimlsp',
       \ 'coc-yaml',
-      \ '@yaegassy/coc-marksman',
       \ 'coc-solidity',
       \ 'coc-lua',
       \ 'coc-pyright',
@@ -359,7 +360,7 @@ hi! link CocMenuSel PmenuSel
 hi! link CocSearch GruvboxYellow
 hi! link CocFloatDividingLine GruvboxBg3
 hi! link CocInlayHint Folded
-hi CocInlayHintParameter gui=bold,italic guibg=#5c7753 guifg=#f4ebc1 cterm=bold ctermfg=230 ctermbg=29
+hi! link CocInlayHintParameter WildMenu
 hi CocErrorVirtualText gui=italic guifg=#ff6464 guibg=#2f0505 ctermfg=196 ctermbg=52
 hi CocWarningVirtualText gui=italic gui=italic guifg=#fa973a guibg=#2c1603 ctermfg=214 ctermbg=94
 hi CocStrikeThrough gui=italic,strikethrough guifg=#928374 term=italic,strikethrough ctermfg=245
@@ -556,6 +557,7 @@ let g:Lf_PopupHeight = 0.5
 let g:Lf_UseCache = 0
 let g:Lf_UseMemoryCache = 0
 let g:Lf_UseVersionControlTool = 0
+let g:Lf_PreviewScrollStepSize = 10
 let g:Lf_ShortcutF = '<Space>'
 let g:Lf_ShortcutB = '<leader>z'
 let g:Lf_StlSeparator = { 'left': '', 'right': '' }
