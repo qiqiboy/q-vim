@@ -92,6 +92,8 @@
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
   "tabnine.priority": 95,
   "tabnine.enablePreselect": false,
+  "typescript.format.enable": true,
+  "javascript.format.enable": true,
   "typescript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.enumMemberValues.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
