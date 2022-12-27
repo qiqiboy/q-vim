@@ -185,7 +185,6 @@ Plug 'qiqiboy/vim-react-snippets', { 'for': ['javascript', 'javascriptreact', 't
 Plug 'dyng/ctrlsf.vim', { 'on': ['<Plug>CtrlSF', 'CtrlSFToggle'] }
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascriptreact'] }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': ['javascript', 'javascriptreact', 'typescriptreact'] }
-Plug 'heavenshell/vim-jsdoc', { 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue'], 'on': ['JsDoc', '<Plug>(jsdoc)'], 'do': 'make install' }
 Plug 'Yggdroot/vim-mark', { 'on': '<Plug>MarkSearch' }
 Plug 'preservim/nerdtree', { 'on': nerdtree_cmds }
  Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': nerdtree_cmds }
@@ -211,6 +210,7 @@ Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
 Plug 'qiqiboy/copilot.vim'
+Plug 'kkoomen/vim-doge', { 'on': ['<Plug>(doge-generate)'], 'do': { -> doge#install() } }
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
@@ -811,3 +811,7 @@ let g:copilot_no_tab_map = 1 " <TAB> keybinding in coc-config
 let g:copilot_hide_during_completion = 0
 imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
 imap <silent> <C-enter> <cmd>Copilot panel<CR>
+
+" vim-doge
+let g:doge_enable_mappings = 0
+nmap <silent> <leader>d <Plug>(doge-generate)
