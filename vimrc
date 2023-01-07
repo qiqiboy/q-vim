@@ -210,7 +210,7 @@ Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
 Plug 'qiqiboy/copilot.vim'
-Plug 'kkoomen/vim-doge', { 'on': ['<Plug>(doge-generate)'], 'do': { -> doge#install() } }
+Plug 'kkoomen/vim-doge', { 'on': ['<Plug>(doge-generate)'], 'do': 'npm i --no-save && npm run build:binary:unix' }
 
 """"""""themes"""""""""""""""
 Plug 'gruvbox-community/gruvbox'
