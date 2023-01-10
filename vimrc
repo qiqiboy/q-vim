@@ -162,7 +162,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact',
         \ 'typescript', 'typescriptreact']
 
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm install && npm run build'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm install && npm run build && git checkout .'}
 Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
@@ -607,6 +607,8 @@ let g:ctrlsf_extra_root_markers = ['package.json']
 let g:ctrlsf_mapping = {
     \ 'next': 'n',
     \ 'prev': 'N',
+    \ 'nfile': '',
+    \ 'pfile': '',
     \ }
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '50%'
