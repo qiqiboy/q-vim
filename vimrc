@@ -162,7 +162,7 @@ let nerdtree_cmds = ['NERDTreeFind', 'NERDTree', 'NERDTreeToggle']
 let htmltag_types = ['html', 'htmldjango', 'xhtml', 'xml', 'vue', 'javascript', 'javascriptreact',
         \ 'typescript', 'typescriptreact']
 
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm install && npm run build && git checkout .'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i --no-save && npm run build'}
 Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
