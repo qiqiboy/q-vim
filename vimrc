@@ -12,6 +12,7 @@ language message zh_CN.UTF-8
 set background=dark
 set guifont=FantasqueSansMono\ Nerd\ Font:h13
 set linespace=0
+set noimdisable     " Vim 会在离开 Insert 模式时自动切换至英文输入法
 
 set updatetime=1000
 set tags=tags;
