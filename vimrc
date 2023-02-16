@@ -814,6 +814,7 @@ let g:copilot_no_tab_map = 1 " <TAB> keybinding in coc-config
 let g:copilot_hide_during_completion = 0
 imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
 imap <silent> <C-enter> <cmd>Copilot panel<CR>
+imap <silent><expr> <M-Bslash> exists('b:_copilot') ? '<Plug>(copilot-dismiss)' : '<Plug>(copilot-suggest)'
 
 " vim-doge
 let g:doge_enable_mappings = 0
