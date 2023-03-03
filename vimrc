@@ -815,5 +815,6 @@ let g:doge_enable_mappings = 0
 nmap <silent> <leader>d <Plug>(doge-generate)
 
 " vim-matchup
+let g:matchup_mouse_enabled = 0
 let g:matchup_surround_enabled = 1
 let g:matchup_transmute_enabled = 1
