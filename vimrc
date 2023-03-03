@@ -130,12 +130,6 @@ else
   set signcolumn=yes
 endif
 
-if v:version >= 800
-  packadd! matchit
-else
-  runtime! macros/matchit.vim
-endif
-
 " some enhanced mapping
 nnoremap K kJ
 nnoremap H ^
@@ -175,7 +169,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/html5.vim',  { 'for':htmltag_types }
 Plug 'docunext/closetag.vim', { 'for': htmltag_types }
-Plug 'Valloric/MatchTagAlways', { 'for': htmltag_types }
+Plug 'andymass/vim-matchup'
 Plug 'easymotion/vim-easymotion', { 'on': '<Plug>(easymotion' }
 Plug 'terryma/vim-expand-region', { 'on': '<Plug>(expand_region' }
 Plug 'tpope/vim-surround'
@@ -819,3 +813,7 @@ imap <silent><expr> <M-Bslash> exists('b:_copilot') ? '<Plug>(copilot-dismiss)' 
 " vim-doge
 let g:doge_enable_mappings = 0
 nmap <silent> <leader>d <Plug>(doge-generate)
+
+" vim-matchup
+let g:matchup_surround_enabled = 1
+let g:matchup_transmute_enabled = 1
