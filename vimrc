@@ -340,6 +340,7 @@ let g:coc_global_extensions = [
       \ 'coc-clangd',
       \ 'coc-rust-analyzer',
       \ 'coc-spell-checker',
+      \ 'coc-code-translate',
 \]
 let airline#extensions#coc#warning_symbol = "\uf071 "
 let airline#extensions#coc#error_symbol = "\uf188 "
@@ -808,6 +809,8 @@ let g:copilot_no_tab_map = 1 " <TAB> keybinding in coc-config
 let g:copilot_hide_during_completion = 0
 imap <silent><script><expr> <Right> copilot#Accept("\<Right>")
 imap <silent> <C-enter> <cmd>Copilot panel<CR>
+imap <silent> <M-[> <Plug>(copilot-previous)
+imap <silent> <M-]> <Plug>(copilot-next)
 imap <silent><expr> <M-Bslash> exists('b:_copilot') ? '<Plug>(copilot-dismiss)' : '<Plug>(copilot-suggest)'
 
 " vim-doge
