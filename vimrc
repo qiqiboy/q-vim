@@ -130,6 +130,9 @@ else
   set signcolumn=yes
 endif
 
+" Disable HIG Cmd and Option movement mappings
+let g:macvim_skip_cmd_opt_movement = 1
+
 " some enhanced mapping
 nnoremap K kJ
 nnoremap H ^
@@ -200,10 +203,10 @@ Plug 'wellle/targets.vim'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'airblade/vim-rooter'
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim', { 'tag': 'v1.1.1' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
-Plug 'farmergreg/vim-lastplace', { 'tag': 'v3.2.1' }
+Plug 'farmergreg/vim-lastplace'
 Plug 'qiqiboy/copilot.vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
@@ -812,6 +815,8 @@ imap <silent> <C-enter> <cmd>Copilot panel<CR>
 imap <silent> <M-[> <Plug>(copilot-previous)
 imap <silent> <M-]> <Plug>(copilot-next)
 imap <silent><expr> <M-Bslash> exists('b:_copilot') ? '<Plug>(copilot-dismiss)' : '<Plug>(copilot-suggest)'
+imap <silent> <M-Right> <Plug>(copilot-accept-word)
+imap <silent> <M-Down> <Plug>(copilot-accept-line)
 
 " vim-doge
 let g:doge_enable_mappings = 0
