@@ -207,7 +207,7 @@ Plug 'editorconfig/editorconfig-vim', { 'tag': 'v1.1.1' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'tomlion/vim-solidity', { 'for': 'solidity' }
 Plug 'farmergreg/vim-lastplace'
-Plug 'qiqiboy/copilot.vim'
+Plug 'github/copilot.vim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 """"""""themes"""""""""""""""
@@ -344,6 +344,7 @@ let g:coc_global_extensions = [
       \ 'coc-rust-analyzer',
       \ 'coc-spell-checker',
       \ 'coc-code-translate',
+      \ '@yaegassy/coc-intelephense',
 \]
 let airline#extensions#coc#warning_symbol = "\uf071 "
 let airline#extensions#coc#error_symbol = "\uf188 "
@@ -733,9 +734,10 @@ let g:startify_bookmarks = [ {'c': '~/.vim/vimrc'}, {'z': '~/.zshrc'}, {'h': '/e
 let g:startify_enable_special = 0
 let g:startify_files_number = 15
 let g:startify_commands = [
-    \ ['Status of Plugins', 'PlugStatus'],
     \ ['Install Plugins', 'PlugInstall'],
-    \ ['Clean Plugins', 'PlugClean']
+    \ ['Update Plugins', 'PlugUpdate'],
+    \ ['Clean Plugins', 'PlugClean'],
+    \ ['Update coc.nvim', 'CocUpdate'],
     \ ]
 let g:startify_list_order = [
             \ [repeat(' ', g:startify_padding_left - 4) . '最近访问:'],
